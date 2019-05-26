@@ -1,0 +1,151 @@
+.offer-title-dec{
+  height: 70px;
+  margin-top: 30px;
+  border-bottom: 2px solid #eeab10;
+}
+.offer-title{
+  color: #4d4d4d;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 25px;
+  padding-left: 30px;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+}
+.add-btn{
+  float: right;
+  font-weight: bold;
+}
+.add-btn i{
+  padding: 4px;
+}
+.card-header{
+  background-color: #eeab10;
+  font-family: 'Cabin', sans-serif;
+}
+.card-header h4{
+  color: white;
+  margin-top: 5px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.offer-card-body{
+  background-color: #f2f2f2;
+}
+.offer-description{
+  color: #666666;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+.offer-times{
+  color: #666666;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+.offer-img{
+  border: 3px solid #e6e6e6;
+}
+.btn-edit{
+  background-color: #595959;
+}
+.btn-delete,
+.btn-edit{
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'Cabin', sans-serif;
+}
+.btn-delete{
+  background-color: #e62e00;
+}
+.offer-card-footer{
+  background-color: #f2f2f2;
+}
+.no-offers{
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  font-family: 'Rubik', sans-serif;
+}
+.no-offers-container{
+  margin: auto;
+  margin: 100px;
+  text-align: center;
+}
+.products-container{
+  padding: 60px;
+}
+.product-card-body .card-title{
+  color: #404040;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+.product-name{
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.price{
+  margin-left: 6px;
+}
+.img-badge{
+  cursor: pointer;
+  position:absolute;
+  top:0;
+  right:5px;
+  font-size: 20px;
+  font-weight: 800;
+  z-index:999999999999;
+  background-color: #eeab10;
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* modal design */
+.app-modal {
+  text-align: center;
+}
+.app-modal .modal-header {
+  color: #ffffff;
+  text-align: center;
+  background-color: #eeab10;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+}
+.app-modal .modal-label {
+  color: #808080;
+  font-size: 18px;
+  text-align: left;
+  font-family: 'Cabin', sans-serif;
+}
+.app-modal .cancel-btn {
+  color: #eeab10;
+  background-color: white;
+  border: 2px solid #d9d9d9;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal .submit-btn {
+  color: #ffffff;
+  background-color: #eeab10;
+  border: 2px solid #eeab10;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal small {
+  font-family: 'Rubik', sans-serif;
+}
+.app-modal label {
+  color: #808080;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal input {
+  color: #666666;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal .form-label {
+  float: left;
+  color: #eeab10;
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+}

@@ -1,0 +1,241 @@
+
+  .spanOfAdd{
+    border: 1px solid #cecece;
+      margin-left: 5px;
+      /* margin-bottom: 52px; */
+      font-size: 52px;
+      /* height: 62px; */
+      padding-top: 1px;
+      padding-bottom: 17px;
+      padding-left: 10px;
+      padding-right: 10px;
+      /* line-height: 2; */
+      cursor: pointer;
+  }
+  .spanOfAdd i{
+    position: relative;
+      top: 8px;
+  }
+  .slider_circle_10{
+          width: 52vw;
+          height: 37.2vw;
+  }
+  .md-form .validate {
+    margin-bottom: 0rem;
+}
+.md-form .form-control {
+   margin-bottom: 0rem; 
+}
+
+/*.inComment{*/
+/*  height: 60px;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: -2px 4px 2px #888;*/
+/*  outline: none;*/
+/*  border: 1px solid #dddddd;*/
+/*  width: 92%;*/
+/*  padding: 20px;*/
+/*}*/
+/*.inComment2{*/
+/*  height: 30px;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: -2px 4px 2px #888;*/
+/*  outline: none;*/
+/*  border: 1px solid #dddddd;*/
+/*  width: 92%;*/
+/*  padding: 15px;*/
+/*}*/
+/*.inComment::placeholder {*/
+/*  font-size: 1.2em;*/
+/*  font-style: italic;*/
+/*  text-align: center;*/
+/*}*/
+/*.inComment2::placeholder {*/
+/*  font-size: 1.2em;*/
+/*  font-style: italic;*/
+/*  text-align: center;*/
+/*}*/
+.ei{
+ display: none;
+ cursor: pointer;
+}
+
+.inputOfComment{
+  margin-left:7%;
+  color:#000; 
+  border:0px;
+  background: #80808000;
+  
+}
+
+.inputOfComment2{
+  margin-left:7%;
+  color:#000; 
+  border:2px solid red;
+  background: #fff;
+}
+  /* updates */
+  .name-title{
+    margin: auto;
+    font-size: 18px;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 3px;
+    color: #999999 !important;
+    border-bottom: 1px solid #cccccc;
+    /*background-color: #ffc107;*/
+  }
+  .name-title span {
+    color: #0f0f0f;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+  }
+  .name-title .card-title{
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    text-align: center !important;
+    font-family: 'Rubik', sans-serif;
+  }
+  .locations-card .card-header,
+  .working-day-card .card-header,
+  .phones-card .card-header{
+    background-color: #262626;
+  }
+  .locations-card .card-header h5,
+  .working-day-card .card-header h5,
+  .phones-card .card-header h5{
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .phones-card .card-title,
+  .locations-card .card-title,
+  .working-day-card .card-title{
+    font-size: 16px;
+    font-family: 'Cabin', sans-serif;
+  }
+  .locations-card .m-0,
+  .working-day-card .m-0,
+  .phones-card .m-0,
+  .branch-card .m-0{
+    font-size: 14px;
+    font-family: 'Cabin', sans-serif;
+  }
+  .xzoom .xzoom-thumbs{
+    background-color: #e6e6e6;
+  }
+  .service-operation-btn{
+    color: white;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #eeab10;
+  }
+  .no-imgs-alert{
+    font-family: 'Open Sans', sans-serif;
+  }
+  .imgs-section{
+    margin-top: 30px;
+  }
+  .badge-close{
+    background-color: #e63900;
+  }
+  .badge-open{
+    background-color: #00b386;
+  }
+  .description-container{
+    margin: 20px;
+    padding: 15px;
+    /*background-color: #f2f2f2;*/
+    border-bottom: 2px solid #999999;
+  }
+  .description{
+    color: #666666;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .description-title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .offers-btn{
+    float: right;
+    margin-top: 30px;
+    font-family: 'Cabin', sans-serif;
+  }
+  /* comments */
+  .inComment{
+    width: 92%;
+    height: 60px;
+    padding: 20px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+  }
+  .inComment2{
+    width: 92%;
+    height: 60px;
+    padding: 20px;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid #dddddd;
+  }
+  .inComment::placeholder {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .inComment2::placeholder {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .inputOfComment{
+    margin-left:7%;
+    color:#595959;
+    border:0px;
+    background: #80808000;
+    font-family: 'Open Sans', sans-serif;
+    min-width:90%;
+  }
+  .inputOfComment2{
+    margin-left:7%;
+    color:#595959;
+    border:2px solid #e6e6e6;
+    background: #fff;
+    min-width:90%;
+    min-height: 46px;
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .comments-card{
+    margin-top: 60px;
+  }
+  .comments-card .card-header{
+    color: #ffffff !important;
+    background-color: #b3b3b3;
+    text-transform: uppercase;
+    font-family: 'Cabin', sans-serif;
+  }
+  .comment-operations{
+    color: #808080;
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Cabin', sans-serif;
+  }
+  .comment-operation-btn{
+    padding: 5px;
+    margin: auto;
+    text-align: center;
+    /*position: absolute;*/
+    height: 30px;
+  }
+  .no-reply {
+    font-size: 15px;
+    font-family: 'Cabin', sans-serif;
+  }
+  .reply-card .card-body{
+    background-color: #f2f2f2;
+  }

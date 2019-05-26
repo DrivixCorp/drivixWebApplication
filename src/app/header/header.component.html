@@ -1,0 +1,505 @@
+<header class="app-header">
+		<!-- Start Upper-Bar -->
+		<section class="toolbar">
+			<div class="container-fluid">
+				<div class="row py-4">
+						<div class="col-xl-2 col-12">
+								<div class="logo">
+									<img src="../../assets/images/logo.png" alt="">
+								</div>
+						</div>
+						<div class="col-xl-7 col-lg-7 col-12 ml-xl-0 ml-lg-5 search-header">
+							<div class='row justify-content-center'>
+								<div class="col-lg-7 col-sm-10 col-9">
+										<input type="text" class="form-control" placeholder="Search keyword, category, brand or part">
+								</div>
+								<div class="col-4 dropdown d-lg-block d-none">
+									<a class="nav-link dropdown-toggle pl-lg-2 pl-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<span>All Categories</span>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item">All Categories</a>
+										<a class="dropdown-item">blog Fullwidth</a>
+						  			<a class="dropdown-item">blog Leftimage</a>
+									</div>
+									</a>
+								</div>
+								<button class="col-lg-1 col-2">
+										<i class="fas fa-search"></i>
+								</button>
+							</div>
+
+							<div class='row keywords d-xl-block d-none'>
+								<div aria-label="Keywords">
+									<ol class="breadcrumb">
+										<h4 class='mr-1'>Hot Keywords:</h4>
+										<li class="breadcrumb-item" *ngFor="let keyword of keywords">{{keyword}}</li>
+									</ol>
+									</div>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-12 icons">
+							<div class="row justify-content-center">
+								<div class="dropdown">
+									<i class="fas fa-bars nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false"></i>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" routerLink="/gasStaion">Gas Station</a>
+										<a class="dropdown-item" routerLink="/manageService">Manage Services</a>
+						  			<a class="dropdown-item">item 2</a>
+									</div>
+								</div>
+								<div class="dropdown">
+									<i class="far fa-heart nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false"></i>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<p>No products were added to the wishlist</p>
+									</div>
+								</div>
+								<div class="dropdown">
+									<i class="fas fa-user nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"  aria-haspopup="true" aria-expanded="false"></i>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" routerLink="/login" *ngIf="!auth">
+											<i class="fas fa-sign-in-alt pr-2"></i>login
+										</a>
+										<a class="dropdown-item" routerLink="/register" *ngIf="!auth">
+											<i class="fas fa-plus-circle pr-2"></i>Register
+										</a>
+						  			<span *ngIf="ProfileData">
+											<a  data-toggle="modal" data-target="#modalLoginAvatar" class="dropdown-item"  *ngIf="auth">
+														<i class="fas fa-user-circle pr-2" ></i>Profile
+											</a>
+										</span>
+										<span *ngIf="!ProfileData">
+											<a  data-toggle="modal" data-target="#profileData1"  class="dropdown-item"  *ngIf="auth">
+														<i class="fas fa-user-circle pr-2" ></i>Profile
+											</a>
+										</span>
+										<span>
+												<a class="dropdown-item" routerLink="/myCars"  *ngIf="auth">
+														<i class="fas fa-car pr-2"></i>My Cars
+												</a>
+											</span>
+										<a class="dropdown-item" (click)='logout()' style='cursor: pointer;' *ngIf="auth">
+											<i class="fas fa-sign-out-alt pr-2"></i>logout
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>				
+				</div>
+			</div>
+		</section>
+		<!-- END Upper-Bar -->
+
+		<!-- Start NavBar -->
+		<nav class="navbar navbar-expand-lg header">
+			<div class="container">
+				<div class="row">
+
+						<div class="col-xl-3 col-lg-5 col-12 departments dropdown">
+							<h2 class='dropdown-toggle'  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fas fa-bars mr-4"></i>
+								<span>all departments</span>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item">All Categories</a>
+									<a class="dropdown-item">blog Fullwidth</a>
+									<a class="dropdown-item">blog Leftimage</a>
+								</div>
+							</h2>
+						</div>
+			
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#drivix" aria-controls="drivix" aria-expanded="false">
+								<i class="fas fa-bars"></i> Menu
+						</button>
+			
+						<div class="collapse navbar-collapse col-lg-5" id="drivix">
+
+							<ul class="navbar-nav mx-auto snip1217">
+			
+								<li class="nav-item current">
+									<a class="nav-link px-2" routerLink="/home"><span>Home</span></a>
+								</li>
+			
+								<li class="nav-item">
+									<a class="nav-link px-2" routerLink="/shop">
+										<span>shop</span>
+									</a>
+								</li>
+			
+								<li class="nav-item">
+									<a class="nav-link px-2" href="#"><span>blog</span></a>
+								</li>
+			
+								<li class="nav-item">
+									<a class="nav-link px-2" href="#"><span>about</span></a>
+								</li>
+			
+								<li class="nav-item">
+									<a class="nav-link px-2"  routerLink="/contact_us"><span>contact</span></a>
+								</li>
+									
+							</ul>
+						</div>
+						
+						<div class='col-lg-4 call-us d-xl-block d-none'>
+							<div class="row">
+								<div class="call mr-3">
+										<div><i class="fas fa-phone-volume"></i></div>
+								</div>
+								<div class="phone">
+									<h4>SUPPORT & ORDER</h4>
+									<h2>0 (800) 657 - 972</h2>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</nav>
+		<!-- END NavBar -->
+</header>
+
+<!--  --------------------------------  Profile ------------------------------------------------------------ -->
+<!--Display Information-->
+<div *ngIf="ProfileData">
+		<div class="modal fade right" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog cascading-modal modal-avatar modal-sm modal-side modal-top-right" role="document">
+			<!--Content-->
+			<div class="modal-content">
+	
+				<!--Header-->
+				<div class="modal-header" >
+						<div class="avatar" *ngIf="ProfileData">
+								<span class="con">
+										<img  src="{{ProfileData.image}}" alt="Image Not Found" style="background-color: #ddd;" class="img-raised rounded-circle  profile-img image img-responsive">
+										<div class="middle">
+												<div class="text">
+														<button type="button" class="btn btn-light" style="    font-size: 0.5rem;" data-toggle="modal" data-target="#imageProfile">Edit Photo</button>
+												</div>
+											</div>
+								</span>
+						</div>
+				</div>
+				
+	
+				
+	
+	
+	
+				<!--Body-->
+				<div class="modal-body mb-1">
+	
+					<h5 class="mt-1 mb-2 text-center" *ngIf="userData" style="text-transform: capitalize;">{{userData.name}}</h5>
+					<hr>
+					<div class="md-form ml-0 mr-0">
+						<span style="color: blue;margin-right: 20px;"><i class="fas fa-envelope-open-text"></i></span>
+						<span *ngIf="userData">{{userData.email}}</span>
+					</div>
+					
+					<div class="md-form ml-0 mr-0">
+							<span style="    color: green;margin-right: 20px;"><i class="fas fa-phone"></i></span>
+								<span *ngIf="ProfileData">0{{ProfileData.phone}}</span>
+								<span *ngIf="!ProfileData">01-xxx-xxx-xxx</span>
+						</div>
+	
+						
+						<div class="md-form ml-0 mr-0">
+								<span style="color: #855a52;margin-right: 20px;"><i class="fas fa-birthday-cake"></i></span>
+								<span *ngIf="ProfileData">{{ProfileData.DOB}}</span>
+						</div>
+	
+						<div class="md-form ml-0 mr-0" *ngIf="ProfileData">
+								<span *ngIf="ProfileData.gender === 'male'" style="color:gray;margin-right:23px; margin-left:3px; "><i class="fas fa-male"  style="font-size:25px"></i></span>
+								<span *ngIf="ProfileData.gender === 'female'" style="color:gray;margin-right:23px; margin-left:3px; "><i class="fas fa-female"  style="font-size:25px"></i></span>
+								<span  *ngIf="ProfileData" style="text-transform: capitalize">{{ProfileData.gender}}</span>
+						</div>
+						<div class="md-form ml-0 mr-0">
+								<span style="color: #000;margin-right: 20px;"><i class="fas fa-briefcase"></i></span>
+								<span *ngIf="ProfileData">{{ProfileData.job}}</span>
+						</div>
+	
+	
+					<div class="text-center mt-4">
+						<button class="btn btn-cyan mt-1" data-toggle="modal" data-target="#profileData2" *ngIf="ProfileData" style="display:inline-block;font-size :0.6rem;">Update</button>
+						<button class="btn btn-secondary mt-1" data-toggle="modal" data-target="#profileData3" *ngIf="ProfileData" style="display:inline-block;font-size :0.6rem;">Delete <i class="fas fa-sign-in ml-1"></i></button>
+					</div>
+					
+					
+				
+				</div>
+	
+			</div>
+			<!--/.Content-->
+		</div>
+	</div>
+
+</div>
+
+<!-- Modal nmm 1 of adding new profile-->
+<div class="modal fade" id="profileData1" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="row">
+						<div class="col-12">
+								<h5 class="modal-title" id="exampleModalLongTitle">Add New Profile</h5>
+								
+						</div>
+
+						<div class="col-12" >
+								<div class="formError">
+										<div *ngFor="let mss of alert">
+											<div class="alert alert-danger" role="alert">
+												<strong>Alert!</strong> {{mss}}.
+											</div>
+										</div>
+								</div>
+						</div>
+					</div>
+					
+					
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+				</div>
+				<div class="modal-body">
+					<form #Profileform="ngForm" (ngSubmit)='saveOrUpdateProfileData(1)' id="form1" novalidate>
+						<div class="form-group">
+								<label for="exampleFormControlFile1">Phone</label>
+								<input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
+								id="exampleFormControlFile1" aria-describedby="" placeholder="Enter Phone Number"
+								name='phone' #phone='ngModel' required [(ngModel)]='formPhone' [class.error]="phone.errors && phone.invalid && phone.touched">
+								<div class="form-input-error" *ngIf="phone.errors && phone.invalid && phone.touched">
+										<small *ngIf="phone.errors.required" class='text-danger ml-2'>phone is required <br></small>
+										<small *ngIf="phone.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
+								</div>
+						</div>
+						<hr>
+
+						<div class="form-group">
+								<label for="exampleFormControlFile2">Date Of Birth</label>
+								<input type="date" class="form-control" id="exampleFormControlFile2" aria-describedby="" placeholder=""
+								name='date' #date='ngModel' required [(ngModel)]='formDate' [class.error]="date.errors && date.invalid && date.touched">
+								<div class="form-input-error" *ngIf="date.errors && date.invalid && date.touched">
+										<small *ngIf="date.errors.required" class='text-danger ml-2'>date is required <br></small>
+										<small *ngIf="date.errors.pattern" class='text-danger ml-2'>date is invalid</small>
+								</div>
+						</div>
+						<hr>
+
+					 
+						<div class="form-group">
+									<label for="">Job</label>
+									<input type="text" name='job' class="form-control" id="" aria-describedby="" placeholder="Enter Your Job"
+									name='job' #job='ngModel' required [(ngModel)]='formJob' [class.error]="job.errors && job.invalid && job.touched">
+							
+							<div class="form-input-error" *ngIf="job.errors && job.invalid && job.touched">
+									<small *ngIf="job.errors.required" class='text-danger ml-2'>job is required <br></small>
+									<small *ngIf="job.errors.pattern" class='text-danger ml-2'>job is invalid</small>
+							</div>
+						</div>
+							<hr>
+
+							<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" id="customRadioInline1" [(ngModel)]="formType" value="male" name="customRadioInline1" class="custom-control-input" checked>
+									<label class="custom-control-label" for="customRadioInline1">Male</label>
+								</div>
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" id="customRadioInline2" [(ngModel)]="formType" value="female" name="customRadioInline1" class="custom-control-input">
+									<label class="custom-control-label" for="customRadioInline2">Female</label>
+								</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit"form="form1"  [disabled]='Profileform.form.invalid' class="btn btn-primary submitbtn">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end modal 1-->
+
+<!-- Modal nmm 2 of upating profile-->
+<div *ngIf="testObject()" class="modal fade" id="profileData2" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="row">
+						<div class="col-12">
+								<h5 class="modal-title" id="exampleModalLongTitle_2">Update Profile</h5>
+								
+						</div>
+
+						<div class="col-12" >
+								<div class="formError">
+										<div *ngFor="let mss of alert">
+											<div class="alert alert-danger" role="alert">
+												<strong>Alert!</strong> {{mss}}.
+											</div>
+										</div>
+								</div>
+						</div>
+					</div>
+					
+					
+					
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+				</div>
+				<div class="modal-body">
+					<form #Profileform2="ngForm" (ngSubmit)='saveOrUpdateProfileData(2)' id="form2" novalidate>
+						<div class="form-group">
+								<label for="exampleFormControlFile1">Phone</label>
+								<input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
+								id="exampleFormControlFile1" aria-describedby="" placeholder="Enter Phone Number"
+								name='phone' #phone2='ngModel' required [(ngModel)]='ProfileData.phone' [class.error]="phone2.errors && phone2.invalid && phone2.touched">
+								<div class="form-input-error" *ngIf="phone2.errors && phone2.invalid && phone2.touched">
+										<small *ngIf="phone2.errors.required" class='text-danger ml-2'>phone is required <br></small>
+										<small *ngIf="phone2.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
+								</div>
+						</div>
+						<hr>
+
+						<div class="form-group">
+								<label for="exampleFormControlFile2">Date Of Birth</label>
+								<input type="date" class="form-control" id="exampleFormControlFile2_2" aria-describedby="" placeholder=""
+								name='date' #date2='ngModel' required [(ngModel)]='ProfileData.DOB' [class.error]="date2.errors && date2.invalid && date2.touched">
+								<div class="form-input-error" *ngIf="date2.errors && date2.invalid && date2.touched">
+										<small *ngIf="date2.errors.required" class='text-danger ml-2'>date is required <br></small>
+										<small *ngIf="date2.errors.pattern" class='text-danger ml-2'>date is invalid</small>
+								</div>
+						</div>
+						<hr>
+
+					 
+						<div class="form-group">
+									<label for="">Job</label>
+									<input type="text" name='job' class="form-control" id="" aria-describedby="" placeholder="Enter Your Job"
+									name='job' #job2='ngModel' required [(ngModel)]='ProfileData.job' [class.error]="job2.errors && job2.invalid && job2.touched">
+							
+							<div class="form-input-error" *ngIf="job2.errors && job2.invalid && job2.touched">
+									<small *ngIf="job2.errors.required" class='text-danger ml-2'>job is required <br></small>
+									<small *ngIf="job2.errors.pattern" class='text-danger ml-2'>job is invalid</small>
+							</div>
+						</div>
+							<hr>
+
+							<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" id="customRadioInline1_2" [(ngModel)]="ProfileData.gender" value="male" name="customRadioInline1_2" class="custom-control-input">
+									<label class="custom-control-label" for="customRadioInline1_2">Male</label>
+								</div>
+								<div class="custom-control custom-radio custom-control-inline">
+									<input type="radio" id="customRadioInline2_2" [(ngModel)]="ProfileData.gender" value="female" name="customRadioInline2_2" class="custom-control-input">
+									<label class="custom-control-label" for="customRadioInline2_2">Female</label>
+								</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit"form="form2"  [disabled]='Profileform2.form.invalid' class="btn btn-primary submitbtn">Update changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	 <!--end modal 2-->
+
+	 <!-- Modal nmm 3 of Deleting profile-->
+	 <div *ngIf="testObject()" class="modal fade" id="profileData3" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="row">
+              <div class="col-12">
+                  <h5 class="modal-title" id="exampleModalLongTitle_2">Delete Profile</h5>
+                  
+              </div>
+
+              <div class="col-12" >
+                  <div class="formError">
+                      <div *ngFor="let mss of alert">
+                        <div class="alert alert-danger" role="alert">
+                          <strong>Alert!</strong> {{mss}}.
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            
+            
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <h3>Are you sure to elete your profile</h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" id="closeModalAfterDeleting"  (click)="deleteProfile()"  class="btn btn-primary submitbtn">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+		 <!--end modal 3-->
+		 
+
+		  <!-- Modal nmm 4 of Adding Or Update Or Deleteing in=mage-->
+			<div *ngIf="testObject()" class="modal fade" id="imageProfile" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<div class="row">
+									<div class="col-12">
+											<h5 class="modal-title" id="exampleModalLongTitle_2">Profile Picture</h5>
+											
+									</div>
+		
+									<div class="col-12" >
+											<div class="formError">
+													<div *ngFor="let mss of alert">
+														<div class="alert alert-danger" role="alert">
+															<strong>Alert!</strong> {{mss}}.
+														</div>
+													</div>
+											</div>
+									</div>
+								</div>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+							</div>
+							<div class="modal-body">
+									<div class="input-group">
+											<div class="custom-file">
+												<input required #file type="file" accept='image/*' (change)="preview(file.files)" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+												<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+												
+											</div>
+										</div>
+									 
+										<div class="text-center">
+												<span style="color:red;" *ngIf="message">{{message}} <br></span>
+												<hr>
+												<img [src]="imgURL" height="200"  width="auto" *ngIf="imgURL">
+											
+										</div>
+										
+							 
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+								<button id="closeModalAfterDeleting2"  (click)="DeleteImage()" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+								<button id="closeModalAfterDeleting" [disabled]='file.invalid'  (click)="saveOrUpdateImage()" type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				 <!--end modal 4-->
+
+
+				 
+
+
+

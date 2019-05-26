@@ -1,0 +1,36 @@
+<section *ngIf="Order" class="my-3">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="headerOfTable">WinchDriverName</th>
+          <th scope="col" class="headerOfTable">WinchDriverLocation</th>
+          <th scope="col" class="headerOfTable">CutsomerName</th>
+          <th scope="col" class="headerOfTable">CustomerLocation</th>
+          <th scope="col" class="headerOfTable">Status</th>
+          <th scope="col" class="headerOfTable">Time</th>
+          <th scope="col" class="headerOfTable">FeedBack</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let data  of Order;let i = index">
+        <tr>
+          <th scope="row">{{data.winchDriverName}}</th>
+          <td>{{data.winch_location}}</td>
+          <td>{{data.userName}}</td>
+          <td>{{data.user_location}}</td>
+          <td *ngIf="data.status == 0 "> NotSeen </td>
+          <td *ngIf="data.status == 1 "> Accepted </td>
+          <td *ngIf="data.status == 2 "> Refused </td>
+          <td *ngIf="data.status == 3 "> Started </td>
+          <td *ngIf="data.status == 4 "> Finished </td>
+          <td *ngIf="data.status == 5 "> CustomerCanel </td>
+          <td>{{data.time}}</td>
+          <td>{{data.feedback.comment}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section *ngIf="!Order" class="my-5 text-center" style="background-color:#8080801f; font-size:30px; font-weight:bolder; padding: 50px; ">
+  No Orders
+</section>

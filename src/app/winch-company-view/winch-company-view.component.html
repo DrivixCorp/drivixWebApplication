@@ -1,0 +1,1190 @@
+<section style="margin:50px 20px;" *ngIf="AllData">
+  <div class="row">
+    <div class="col-lg-8 col-12">
+      <div class="row">
+        <div class="col-12 text-muted">
+          <div class="row">
+            <div class="col name-title">
+              WINCH COMPANIES <i class="fas fa-chevron-right"></i><span> {{ AllData.name }} </span>
+            </div>
+            <div class="col text-right text-muted">
+              <button class="btn service-operation-btn" data-toggle="modal" data-target="#imagearray">
+                Manage Images <i class="fas fa-images"></i>
+              </button>
+              <button class="btn service-operation-btn" data-toggle="modal" data-target="#winchModal">
+                Edit Service <i class="fas fa-edit" style="cursor:pointer;" data-toggle="modal" data-target="#winchModal"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 imgs-section">
+          <div class="slider slider_circle_10" *ngIf="AllData.roleimgs.length">
+            <div *ngFor ="let img of AllData.roleimgs">
+              <div><img width="100%" height="100%" src="{{img.image}}" alt=""></div>
+            </div>
+
+            <div class="next_button"></div>
+            <div class="prev_button"></div>
+          </div>
+          <div *ngIf="!AllData.roleimgs.length"  class="text-center text-muted p-5 mb-3" style="background-color: #f2f2f294;">
+
+            <h5 class="no-imgs-alert">
+              <i class="fas fa-info"></i> No Images yet
+            </h5>
+          </div>
+        </div>
+
+        <div class="col-8 description-container">
+          <span class="description-title">Description</span>
+          <span class="description">
+                  {{ AllData.description }}
+                </span>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-blue-grey offers-btn" (click)="goToOffer()"><i class="fas fa-star"></i> View Offers</button>
+        </div>
+
+        <!--start winch driver-->
+        <div class="col-12 m-3">
+          <div *ngIf="!AllData.winchcompany.winchdriver.length" class="container noServiceClass">
+            <div class="alert alert-warning" role="alert">
+              <strong style="font-size: 35px;">You Don`t have Any WinchDriver</strong>
+              <button type="button" class="close">
+                        <span aria-hidden="true" style="line-height: 2;">
+                          <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <button type="button" data-toggle="modal" data-target="#winchDriverModal" class="btn btn-warning"  aria-haspopup="true" aria-expanded="false">
+                              Add Winch Driver
+                            </button>
+
+                        </div>
+                        </span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+
+          </div>
+        </div>
+
+        <div class="col-12" *ngIf="AllData.winchcompany.winchdriver.length">
+
+          <div class="d-flex justify-content-md-end justify-content-center mb-2">
+            <div class="btn-group text-center" style="display:block;">
+              <button type="button" class="btn btn-success btn-sm dropdown-toggle" style="min-width:209px; min-width: 209px;min-height: 45px; margin-top: 6px;font-size: 13px;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-truck-pickup"></i> Free Winch Drivers
+              </button>
+
+              <div class="dropdown-menu">
+                <span *ngFor="let data of DataOfFreeWinchDriver">
+                    <a class="dropdown-item" data-toggle="modal" data-target="#ViewWinchDriver" (click)="passDataOfWinchDriver(data)">{{data.username}}</a>
+                </span>
+              </div>
+            </div>
+            <button class="btn btn-info mr-0"  data-toggle="modal" data-target="#winchDriverModal" ><i class="fas fa-plus"></i> Add New WinchDriver</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered drivers-table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="headerOfTable">Name</th>
+                <th scope="col" class="headerOfTable">Description</th>
+                <th scope="col" class="headerOfTable">Price</th>
+                <th scope="col" class="headerOfTable">WorkHours</th>
+                <th scope="col" class="headerOfTable">Availability</th>
+                <th scope="col" class="headerOfTable">WorkDays</th>
+                <th scope="col" class="headerOfTable">Manage</th>
+                <th scope="col" class="headerOfTable">Orders</th>
+              </tr>
+              </thead>
+              <tbody *ngFor="let data  of AllData.winchcompany.winchdriver;let i = index">
+              <tr>
+                <th scope="row">{{data.role.name}}</th>
+                <td>{{data.role.description}}</td>
+                <td>{{data.price_per_km}}</td>
+                <td>{{ data.role.work_from }} <i class="fas fa-minus"></i> {{ data.role.work_to }}</td>
+                <td *ngIf="data.availability == 1"><i class="fas fa-circle available-status"></i></td>
+                <td *ngIf="data.availability == 0"><i class="fas fa-circle unavailable-status"></i></td>
+                <td style="color: blue;text-decoration: underline; cursor: pointer;">
+                  <div class="dropdown dropright p-0 m-0"  >
+<!--                    <button style="background-color: #fff !important; color:blue !important;" class="btn btn-secondary dropdown-toggle p-0 m-0" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      Working Days-->
+<!--                    </button>-->
+
+                    <button class="btn dropdown-toggle working-days-dropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Working Days
+                    </button>
+
+                    <div class="dropdown-menu p-0 m-0" aria-labelledby="dropdownMenu2">
+                      <p class="dropdown-item p-0 m-0">{{data.role.workingdays}}</p>
+                    </div>
+                  </div>
+                </td>
+
+                <td>
+                  <a href="#" class="badge badge-danger driver-badge" (click)="pushWinchData(data)"
+                     data-toggle="modal" data-target="#DeleteAssgin"><i class="far fa-trash-alt"></i> Remove</a>
+                  <a href="#" class="badge badge-info driver-badge" (click)="pushWinchData(data)"
+                     data-toggle="modal" data-target="#winchDriverModal2"><i class="far fa-edit"></i> Edit</a>
+                </td>
+                <td style="color: blue;cursor: pointer;" (click)="GoToViewOrder(data.id)">
+                  <a href="#" class="badge badge-dark driver-badge" (click)="GoToViewOrder(data.id)"
+                     data-toggle="modal" data-target="#winchDriverModal2"><i class="fas fa-external-link-alt"></i> View</a>
+
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--end winch driver-->
+        <!-------------------------------------------------------->
+
+      </div>
+    </div>
+
+    <div class="col-lg-2" style="margin:0px;padding:5px;margin-left:50px;">
+      <div class="row">
+        <div class="col-12">
+          <!--start card working day-->
+          <div class="card mb-3 working-day-card" style="min-width: 18rem; margin:0px;" >
+            <div class="card-header text-center text-muted">
+              <h5 style="margin:0px;"><i class="fas fa-calendar-minus"></i> Working Day</h5>
+            </div>
+            <div class="card-body text-muted">
+
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Friday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[0]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[0]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Saturday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[1]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[1]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Sunday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[2]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[2]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Monday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[3]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[3]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Tusday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[4]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[4]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Wensday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[5]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[5]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="card-title">Thursday</h5>
+                </div>
+                <div class="col-4 text-right">
+                  <span *ngIf="!arr_WorkingDay[6]" class="badge badge-close badge-pill" style="padding:5px !important">Close</span>
+                  <span *ngIf="arr_WorkingDay[6]" class="badge badge-open badge-pill" style="padding:5px !important">Open</span>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="card-footer text-center" style="letter-spacing:2px;">
+              <h6><span class="text-muted"><i class="far fa-clock"></i> </span><span style="font-weight:bolder">{{AllData.work_from}}</span> <span class="text-muted"> - </span> <span style="font-weight:bolder">{{AllData.work_to}}</span></h6>
+            </div>
+          </div>
+          <!--end card working day-->
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12">
+              <section>
+                <div class="row">
+
+                  <!--start card phone-->
+                  <div class="col">
+                    <div class="card mb-3 phones-card" style="min-width: 18rem;">
+                      <div class="card-header text-center text-muted">
+                        <h5 style="margin:0px;"><i class="fas fa-phone-volume"></i> Phones</h5>
+                      </div>
+                      <div class="card-body text-muted">
+
+                        <div class="row" *ngFor="let phone of AllData.rolephone">
+                          <div class="col-8">
+                            <h5 class="card-title">0{{phone.phone}}</h5>
+                          </div>
+                          <div class="col-4 text-right">
+                            <i class="fas fa-edit" style="color:#cccccc;cursor:pointer" (click)="passData(phone)" data-toggle="modal" data-target="#editPhoneModal"></i>
+                          </div>
+                        </div>
+
+                        <div class="row" *ngIf="!AllData.rolephone.length">
+                          <div class="col-12 text-muted text-center">
+                            <h5 class="m-0 p-0">No Phone Please Add New Phone</h5>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="card-footer text-center">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPhoneModal" >Add New Phone</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--modal add phone-->
+                  <div class="modal fade right" tabindex="-1" role="dialog" id="addPhoneModal">
+                    <div class="modal-dialog modal-side modal-top-bottom" role="document" >
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="formError">
+                                <div *ngFor="let mss of alertErr">
+                                  <div class="alert alert-danger" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="formError">
+                                <div *ngFor="let mss of alertSuc">
+                                  <div class="alert alert-success" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <form #Phoneform="ngForm" (ngSubmit)='addPhone()' id="form_phone" novalidate>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Phone</label>
+                              <input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
+                                     id="exampleFormControlFile1" aria-describedby="" placeholder="Enter Phone Number"
+                                     name='phone' #phone='ngModel' required [(ngModel)]='formPhone' [class.error]="phone.errors && phone.invalid && phone.touched">
+                              <div class="form-input-error" *ngIf="phone.errors && phone.invalid && phone.touched">
+                                <small *ngIf="phone.errors.required" class='text-danger ml-2'>phone is required <br></small>
+                                <small *ngIf="phone.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" form="form_phone"  [disabled]='Phoneform.form.invalid' class="btn btn-primary submitbtn">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end modal add phone-->
+                  <!--modal edit phone-->
+                  <div *ngIf="phoneData" class="modal fade right" tabindex="-1" role="dialog" id="editPhoneModal">
+                    <div class="modal-dialog modal-side modal-top-bottom" role="document" >
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="formError">
+                                <div *ngFor="let mss of alertErr">
+                                  <div class="alert alert-danger" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="formError">
+                                <div *ngFor="let mss of alertSuc">
+                                  <div class="alert alert-success" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <form #Phoneform2="ngForm"  id="form_phone2" novalidate>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Phone</label>
+                              <input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
+                                     id="exampleFormControlFile1" aria-describedby="" placeholder="Enter Edit Number"
+                                     name='Phone2' #phone2='ngModel' required [(ngModel)]='phoneData.phone' [class.error]="phone2.errors && phone2.invalid && phone2.touched">
+                              <div class="form-input-error" *ngIf="phone2.errors && phone2.invalid && phone2.touched">
+                                <small *ngIf="phone2.errors.required" class='text-danger ml-2'>phone is required <br></small>
+                                <small *ngIf="phone2.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" (click) ="deletePhone()" data-dismiss="modal">Delete</button>
+                          <button type="submit" form="form_phone2" (click) ="editPhone()" [disabled]='Phoneform2.form.invalid' class="btn btn-primary submitbtn">Update</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end modal edit phone-->
+                  <!--end card phone-->
+
+                  <!--start card location-->
+                  <div class="col">
+                    <div class="card mb-3 locations-card" style="min-width: 18rem;">
+                      <div class="card-header text-center text-muted">
+                        <h5 style="margin:0px;"><i class="fas fa-thumbtack"></i> Location</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="row" *ngFor="let addrs of AllData.rolelocation;let i=index">
+                          <div class="col-8">
+                            <h5 class="card-title text-muted">{{addrs.location}}</h5>
+                          </div>
+                          <div class="col-4 text-right">
+                            <i  class="fas fa-edit" style="color:#cccccc;cursor:pointer" (click)="passDataLocation(addrs)" data-toggle="modal" data-target="#exampleModalScrollable2"></i>
+                          </div>
+                        </div>
+
+                        <div class="row" *ngIf="!AllData.rolephone.length">
+                          <div class="col-12 text-muted text-center">
+                            <h5 class="m-0 p-0">No Address Please Add New Address</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer text-center">
+                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalScrollable">Add Location</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end card location-->
+                  <!--start card branches-->
+                  <div class="col">
+                    <div class="card mb-3 branch-card" style="min-width: 18rem;">
+                      <div class="text-center text-muted card-header branch-card-header">
+                        <h5 style="margin:0px;"><i class="fas fa-map-marker-alt"></i> Branches</h5>
+                      </div>
+                      <div *ngFor="let branch of AllData.winchcompany.winchcompanybranches;let i = index" class="card-body text-muted">
+                        <h5 class="text-muted text-center" style="margin:0px">
+                          <div class="row">
+
+                            <div class="col-8 text-left mb-2 card-title">
+                              <i class="fas fa-phone mr-3"></i>
+                              {{branch.phone}}
+                            </div>
+
+                            <div class="col-4 text-center">
+                              <a href="#" class="badge badge-info" (click)="passDataBranch(branch)" data-toggle="modal" data-target="#editAndDeletebranchModal">edit <i class="far fa-edit"></i></a>
+                            </div>
+
+                            <div class="col-12 text-left mb-2 card-title">
+                              <i class="fas fa-map-marker-alt mr-3"></i>
+                              {{branch.address}}
+                            </div>
+
+                          </div>
+                        </h5>
+                      </div>
+                      <div *ngIf="!AllData.winchcompany.winchcompanybranches.length" class="card-body text-muted">
+                        <h5 class="card-title text-muted text-center" style="margin:0px">
+                          No Branches
+                        </h5>
+                      </div>
+                      <div class="card-footer text-center">
+                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addbranchModal">Add Branch</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end card branches-->
+                  <!--modal add branch-->
+                  <div class="modal fade right" tabindex="-1" role="dialog" id="addbranchModal">
+                    <div class="modal-dialog modal-side modal-top-bottom" role="document" >
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="formError">
+                                <div *ngFor="let mss of alertErr">
+                                  <div class="alert alert-danger" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="formError">
+                                <div *ngFor="let mss of alertSuc">
+                                  <div class="alert alert-success" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <form #branchform="ngForm" (ngSubmit)="addBranch(AllData.winchcompany.id)" id="form_branch" novalidate>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Phone</label>
+                              <input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
+                                     id="exampleFormControlFile1111111111hj111111" aria-describedby="" placeholder="Enter Phone Number"
+                                     name='phone' #phone_branch='ngModel' required [(ngModel)]='formPhone2' [class.error]="phone_branch.errors && phone_branch.invalid && phone_branch.touched">
+                              <div class="form-input-error" *ngIf="phone_branch.errors && phone_branch.invalid && phone_branch.touched">
+                                <small *ngIf="phone_branch.errors.required" class='text-danger ml-2'>phone is required <br></small>
+                                <small *ngIf="phone_branch.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <p>Adress</p>
+                              <textarea name="test" id="asas" style="width:100%; height:120px;" [(ngModel)]='desOfBranches' required>
+
+                                                      </textarea>
+
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" form="form_branch"  [disabled]='branchform.form.invalid' class="btn btn-primary submitbtn" >Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end modal add branch-->
+
+                  <!--modal edit and delete branch-->
+                  <div *ngIf="editDataBranch" class="modal fade right" tabindex="-1" role="dialog" id="editAndDeletebranchModal">
+                    <div class="modal-dialog modal-side modal-top-bottom" role="document" >
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="formError">
+                                <div *ngFor="let mss of alertErr">
+                                  <div class="alert alert-danger" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="formError">
+                                <div *ngFor="let mss of alertSuc">
+                                  <div class="alert alert-success" role="alert">
+                                    <strong>Alert!</strong> {{mss}}.
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <form #branchform2="ngForm" (ngSubmit)="editBranch(AllData.winchcompany.id,editDataBranch.id)" id="form_branch2" novalidate>
+                            <div class="form-group">
+                              <label for="exampleFormControlFile1">Phone</label>
+                              <input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
+                                     id="exampleFormControlFile111111k111111" aria-describedby="" placeholder="Enter Phone Number"
+                                     name='phone' #phone_branch2='ngModel' required [(ngModel)]='editDataBranch.phone' [class.error]="phone_branch2.errors && phone_branch2.invalid && phone_branch2.touched">
+                              <div class="form-input-error" *ngIf="phone_branch2.errors && phone_branch2.invalid && phone_branch2.touched">
+                                <small *ngIf="phone_branch2.errors.required" class='text-danger ml-2'>phone is required <br></small>
+                                <small *ngIf="phone_branch2.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <p>Adress</p>
+                              <textarea name="taaest" id="asasasas" style="width:100%; height:120px;" [(ngModel)]='editDataBranch.address' required>
+
+                                                      </textarea>
+
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" (click)="deleteBranch(AllData.winchcompany.id,editDataBranch.id)">Delete</button>
+                          <button type="submit" form="form_branch2"  [disabled]='branchform2.form.invalid' class="btn btn-primary submitbtn" >Edit</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end modal edit and delete branch-->
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</section>
+  <!--------------------------------Modal 3 of edit winchCompany--------------------------->
+      
+  <div *ngIf="AllData" class="modal fade" id="winchModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="z-index: 9999999999999;">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Edit Winch Company</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="row">
+         <div class="col-12">
+          <div class="formError">
+            <div *ngFor="let mss of alertErr">
+              <div class="alert alert-danger" role="alert">
+                <strong>Alert!</strong> {{mss}}.
+              </div>
+            </div>
+        </div>
+        <div class="formError">
+          <div *ngFor="let mss of alertSuc">
+            <div class="alert alert-success" role="alert">
+              <strong>Alert!</strong> {{mss}}.
+            </div>
+          </div>
+      </div>
+         </div>
+        </div>
+        <form #winchCompany_validation="ngForm" (ngSubmit)='saveOrUpdateWinchCompany(1,AllData.id)' id="form_winchCompany" novalidate>
+        <div class="md-form mb-5" style="margin-bottom:0em !important">
+          <i class="fas fa-briefcase prefix grey-text"></i>
+          <input type="text" id="formName_winchCompany" class="form-control validate is-valid" placeholder="Winch Company Name" required
+          [(ngModel)]='AllData.name'name="FullName_winchCompany" #fullName_winchCompany='ngModel' [class.error]="fullName_winchCompany.errors && fullName_winchCompany.invalid && fullName_winchCompany.touched">
+
+          <div class="form-input-error" *ngIf="fullName_winchCompany.errors && fullName_winchCompany.invalid && fullName_winchCompany.touched">
+              <small *ngIf="fullName_winchCompany.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                  <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Companty is required 
+                <br></small>
+              <small *ngIf="fullName_winchCompany.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span>Winch Company is invalid
+              </small>
+          </div>
+        </div>
+
+          <div class="md-form mb-5">
+            From
+              <i class="far fa-clock prefix grey-text"></i>
+              
+              <input type="time" value="13:00" step="900"   id="formTimeStart_winchCompany" class="form-control validate is-valid" 
+               style="width:calc(40% - 2.5rem);display:inline-block" required
+              [(ngModel)]='AllData.work_from' name="timeStart_winchCompany" #TimeStart_winchCompany='ngModel' [class.error]="TimeStart_winchCompany.errors && TimeStart_winchCompany.invalid && TimeStart_winchCompany.touched">
+    
+              
+              To
+                <i class="far fa-clock prefix grey-text"></i>
+                <input type="time" value="13:00" step="900" id="formTimeEnd_winchCompany" class="form-control validate is-valid" 
+                style="width:calc(40% - 2.5rem);display:inline-block" required
+                [(ngModel)]='AllData.work_to' name="timeEnd_winchCompany" #TimeEnd_winchCompany='ngModel' [class.error]="TimeEnd_winchCompany.errors && TimeEnd_winchCompany.invalid && TimeEnd_winchCompany.touched">
+
+                <div class="form-input-error" *ngIf="TimeStart_winchCompany.errors && TimeStart_winchCompany.invalid && TimeStart_winchCompany.touched" style="display:inline-block;">
+                    <small *ngIf="TimeStart_winchCompany.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                        <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                      <br></small>
+                    <small *ngIf="TimeStart_winchCompany.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
+                    </small>
+                </div>
+                <div class="form-input-error" *ngIf="TimeEnd_winchCompany.errors && TimeEnd_winchCompany.invalid && TimeEnd_winchCompany.touched" style="display:inline-block;">
+                    <small *ngIf="TimeEnd_winchCompany.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                        <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                      <br></small>
+                    <small *ngIf="TimeEnd_winchCompany.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
+                    </small>
+                </div>
+              </div>
+              <div class="row my-4">
+                <div class="col-6">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input [(ngModel)]='companyType_winchCompany' value="0" type="radio" id="customRadioInline10" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline10">Locally</label>
+                      </div>
+                </div>
+                <div class="col-6">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input [(ngModel)]='companyType_winchCompany' value="1" type="radio" id="customRadioInline20" name="customRadioInline1" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline20">International</label>
+                      </div>
+                </div>
+              </div>
+
+        <div class="md-form md-outline">
+                  <textarea id="form75" [(ngModel)]='AllData.description' name="description_winchCompany" class="form-control" rows="3" required></textarea>
+                  <label for="form75">Write Description Of Your Winch Company</label>
+       </div>
+         <div class="md-form text-center">
+           <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
+           
+         </div>
+           <div class="row">
+               <div class="col-6">
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing11"
+                       [(ngModel)]='arr_WorkingDay[1]' value="Saturday" name="Saturday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing11">Saturday</label>
+                   </div>
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing22"
+                       [(ngModel)]='arr_WorkingDay[2]' name="Sunday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing22">Sunday</label>
+                   </div>
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing33"
+                       [(ngModel)]='arr_WorkingDay[3]' name="Monday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing33">Monday</label>
+                   </div>
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing44"
+                       [(ngModel)]='arr_WorkingDay[4]' name="Teusday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing44">Teusday</label>
+                   </div>
+               </div>
+               <div class="col-6">
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing55"
+                       [(ngModel)]='arr_WorkingDay[5]' name="Wensday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing55">Wensday</label>
+                   </div>
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing66"
+                       [(ngModel)]='arr_WorkingDay[6]' name="Thursday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing66">Thursday</label>
+                   </div>
+                   <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <input type="checkbox" class="custom-control-input" id="customControlAutosizing77"
+                       [(ngModel)]='arr_WorkingDay[0]' name="Friday_winchCompany">
+                       <label class="custom-control-label" for="customControlAutosizing77">Friday</label>
+                   </div>
+               </div>
+           </div>
+      </form>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="submit" form="form_winchCompany"  [disabled]='winchCompany_validation.form.invalid'  class="btn btn-warning">Update <i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div>
+    
+    </div>
+    <!--/.Content-->
+    
+  </div>
+</div>
+
+  <!-- end Modal 3 of adding winchCompany -->
+
+  <!-- Modal nmm 2 of Adding Or Update Or Deleteing in=mage-->
+  <div *ngIf="testObject()" style="z-index: 9999999999999;" class="modal fade" id="imagearray" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="row">
+            <div class="col-12">
+                <h5 class="modal-title" id="exampleModalLongTitle_2">Profile Picture</h5>
+                
+            </div>
+
+            <div class="col-12" >
+              <div class="formError">
+                <div *ngFor="let mss of alertErr">
+                  <div class="alert alert-danger" role="alert">
+                    <strong>Alert!</strong> {{mss}}.
+                  </div>
+                </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+          </div>
+            </div>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <div class="custom-file">
+                  <input required #file type="file" multiple accept='image/*' (change)="preview(file.files)" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                  <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                  
+                </div>
+              </div>
+             
+              <div class="">
+                  <span style="color:red;" *ngIf="message">{{message}} <br></span>
+                  <hr>
+                  <h3 *ngIf="imgURL.length" class="text-center text-muted">New Images</h3>
+                  <div *ngFor="let img of imgURL" class="mb-3">
+                    <img [src]="img" height="200"  width="auto" *ngIf="imgURL">
+          
+                  </div>
+                  <div>
+                      <h3 *ngIf="AllData.roleimgs.length" class="text-center text-muted">Old Images</h3>
+                    <div  *ngFor="let img of AllData.roleimgs;let i=index" class="row mb-3">
+                        <div class="col">
+                         
+                            <img src="{{img.image}}" height="200"  width="auto" *ngIf="imgURL">
+                           
+                        </div>
+                        
+                        <div class="col text-right">
+                            <span class="badge badge-danger badge-pill" style="padding:5px !important;cursor: pointer;"
+                            (click)="deleteImages(AllData.id,AllData.roleimgs[i].id)"  >X</span>
+                        </div>
+                     
+                    </div>                      
+                  </div>
+                  
+                
+              </div>
+              
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" id="closeModalAfterDeleting" [disabled]='file.invalid'  (click)="addImages(AllData.id)"  class="btn btn-primary">ADD</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+   <!--end modal -->
+
+    <!--------------------------------Modal 4 of adding winchDriver--------------------------->
+      
+    <div class="modal fade" id="winchDriverModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="z-index: 9999999999999;" >
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h4 class="modal-title white-text w-100 font-weight-bold py-2">Add New Winch Driver</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+  
+        <!--Body-->
+        <div class="modal-body">
+          <div class="row">
+           <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+          </div>
+          <div class="formError">
+            <div *ngFor="let mss of alertSuc">
+              <div class="alert alert-success" role="alert">
+                <strong>Alert!</strong> {{mss}}.
+              </div>
+            </div>
+        </div>
+           </div>
+          </div>
+          <form #winchDriver_validation="ngForm" (ngSubmit)='saveWinchDriver()' id="form_winchDriver" novalidate>
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <i class="fas fa-briefcase prefix grey-text"></i>
+            <input type="text" id="formName_winchDriver" class="form-control validate is-valid" placeholder="Winch Driver Name" required
+            [(ngModel)]='FullName_winchDriver'name="FullName_winchDriver" #fullName_winchDriver='ngModel' [class.error]="fullName_winchDriver.errors && fullName_winchDriver.invalid && fullName_winchDriver.touched">
+  
+            <div class="form-input-error" *ngIf="fullName_winchDriver.errors && fullName_winchDriver.invalid && fullName_winchDriver.touched">
+                <small *ngIf="fullName_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Driver is required 
+                  <br></small>
+                <small *ngIf="fullName_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                  <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Driver is invalid
+                </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <i class="fas fa-briefcase prefix grey-text"></i>
+            <input type="email" id="formemail_winchDriver" class="form-control validate is-valid" placeholder="Email" required
+            [(ngModel)]='Email_winchDriver'name="Email_winchDriver" #email_winchDriver='ngModel' [class.error]="email_winchDriver.errors && email_winchDriver.invalid && email_winchDriver.touched">
+  
+            <div class="form-input-error" *ngIf="email_winchDriver.errors && email_winchDriver.invalid && email_winchDriver.touched">
+                <small *ngIf="email_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Email is required 
+                  <br></small>
+                <small *ngIf="email_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                  <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Email  is invalid
+                </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <i class="fas fa-briefcase prefix grey-text"></i>
+            <input type="password" id="formpass_winchDriver" class="form-control validate is-valid" placeholder="Password" required
+            [(ngModel)]='Pass_winchDriver'name="Pass_winchDriver" #pass_winchDriver='ngModel' [class.error]="pass_winchDriver.errors && pass_winchDriver.invalid && pass_winchDriver.touched">
+  
+            <div class="form-input-error" *ngIf="pass_winchDriver.errors && pass_winchDriver.invalid && pass_winchDriver.touched">
+                <small *ngIf="pass_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> pass is required 
+                  <br></small>
+                <small *ngIf="pass_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                  <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> pass  is invalid
+                </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <i class="fas fa-briefcase prefix grey-text"></i>
+            <input type="password" id="formpassConfirm_winchDriver" class="form-control validate is-valid" placeholder="Confirm Password" required
+            [(ngModel)]='Pass2_winchDriver'name="Pass2_winchDriver" #pass2_winchDriver='ngModel' [class.error]="pass2_winchDriver.errors && pass2_winchDriver.invalid && pass2_winchDriver.touched">
+  
+            <div class="form-input-error" *ngIf="pass2_winchDriver.errors && pass2_winchDriver.invalid && pass2_winchDriver.touched">
+                <small *ngIf="pass2_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span>Confirm pass is required 
+                  <br></small>
+                <small *ngIf="pass2_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                  <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span>Confirm pass  is invalid
+                </small>
+            </div>
+          </div>
+
+
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+             <i class="fas fa-money-check-alt prefix grey-text" style="font-size:24px"></i>
+             <input type="number" id="price_winchDriver" class="form-control validate is-valid" placeholder="Price Per Km" required
+             [(ngModel)]='Price_winchDriver'name="Price_winchDriver" #price_winchDriver='ngModel' [class.error]="price_winchDriver.errors && price_winchDriver.invalid && price_winchDriver.touched">
+   
+             <div class="form-input-error" *ngIf="price_winchDriver.errors && price_winchDriver.invalid && price_winchDriver.touched">
+                 <small *ngIf="price_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                     <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is required 
+                   <br></small>
+                 <small *ngIf="price_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                   <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is invalid
+                 </small>
+             </div>
+           </div>
+  
+          
+            <div class="md-form mb-5">
+              From
+                <i class="far fa-clock prefix grey-text"></i>
+                
+                <input type="time" value="13:00" step="900"   id="formTimeStart_winchDriver" class="form-control validate is-valid" 
+                 style="width:calc(40% - 2.5rem);display:inline-block" required
+                [(ngModel)]='timestart_winchDriver' name="timeStart_winchDriver" #TimeStart_winchDriver='ngModel' [class.error]="TimeStart_winchDriver.errors && TimeStart_winchDriver.invalid && TimeStart_winchDriver.touched">
+      
+                
+                To
+                  <i class="far fa-clock prefix grey-text"></i>
+                  <input type="time" value="13:00" step="900" id="formTimeEnd_winchDriver" class="form-control validate is-valid" 
+                  style="width:calc(40% - 2.5rem);display:inline-block" required
+                  [(ngModel)]='timeend_winchDriver' name="timeEnd_winchDriver" #TimeEnd_winchDriver='ngModel' [class.error]="TimeEnd_winchDriver.errors && TimeEnd_winchDriver.invalid && TimeEnd_winchDriver.touched">
+
+                  <div class="form-input-error" *ngIf="TimeStart_winchDriver.errors && TimeStart_winchDriver.invalid && TimeStart_winchDriver.touched" style="display:inline-block;">
+                      <small *ngIf="TimeStart_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                          <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                        <br></small>
+                      <small *ngIf="TimeStart_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                        <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
+                      </small>
+                  </div>
+                  <div class="form-input-error" *ngIf="TimeEnd_winchDriver.errors && TimeEnd_winchDriver.invalid && TimeEnd_winchDriver.touched" style="display:inline-block;">
+                      <small *ngIf="TimeEnd_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                          <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                        <br></small>
+                      <small *ngIf="TimeEnd_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                        <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
+                      </small>
+                  </div>
+                </div>
+
+                
+
+          <div class="md-form md-outline">
+                    <textarea id="form75" [(ngModel)]='desc_winchDriver' name="description_winchDriver" class="form-control" rows="3" required></textarea>
+                    <label for="form75">Write Description Of Your WinchDriver</label>
+         </div>
+           <div class="md-form text-center">
+             <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
+             
+           </div>
+             <div class="row">
+                 <div class="col-6">
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing1"
+                         [(ngModel)]='Saturday_winchDriver' value="Saturday" name="Saturday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing1">Saturday</label>
+                     </div>
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing2"
+                         [(ngModel)]='Sunday_winchDriver' name="Sunday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing2">Sunday</label>
+                     </div>
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing3"
+                         [(ngModel)]='Monday_winchDriver' name="Monday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing3">Monday</label>
+                     </div>
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing4"
+                         [(ngModel)]='Teusday_winchDriver' name="Teusday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing4">Teusday</label>
+                     </div>
+                 </div>
+                 <div class="col-6">
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing5"
+                         [(ngModel)]='Wensday_winchDriver' name="Wensday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing5">Wensday</label>
+                     </div>
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing6"
+                         [(ngModel)]='Thursday_winchDriver' name="Thursday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing6">Thursday</label>
+                     </div>
+                     <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                         <input type="checkbox" class="custom-control-input" id="customControlAutosizing7"
+                         [(ngModel)]='Friday_winchDriver' name="Friday_winchDriver">
+                         <label class="custom-control-label" for="customControlAutosizing7">Friday</label>
+                     </div>
+                 </div>
+             </div>
+        </form>
+        </div>
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <button type="submit" form="form_winchDriver"  [disabled]='winchDriver_validation.form.invalid'  class="btn btn-warning">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+        </div>
+      
+      </div>
+      <!--/.Content-->
+      
+    </div>
+  </div>
+  
+    <!-- end Modal 4 of adding winchDriver -->
+
+
+    <!--------------------------------Modal 4 of edit winchDriver--------------------------->
+      
+    <div *ngIf="manageData" class="modal fade" id="winchDriverModal2" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" style="z-index: 9999999999999;">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h4 class="modal-title white-text w-100 font-weight-bold py-2">Edit Winch Driver</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="white-text">&times;</span>
+          </button>
+        </div>
+  
+        <!--Body-->
+        <div class="modal-body">
+          <div class="row">
+           <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+          </div>
+          <div class="formError">
+            <div *ngFor="let mss of alertSuc">
+              <div class="alert alert-success" role="alert">
+                <strong>Alert!</strong> {{mss}}.
+              </div>
+            </div>
+        </div>
+           </div>
+          </div>
+          <form #winchDriver_validation2="ngForm" (ngSubmit)='editWinchDriver()' id="form_winchDriver2" novalidate>
+      
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+             <i class="fas fa-money-check-alt prefix grey-text" style="font-size:24px"></i>
+             <input type="number" id="price_winchDriver2" class="form-control validate is-valid" placeholder="Price Per Km" required
+             [(ngModel)]='manageData.price_per_km' name="Price_winchDriver2" #price_winchDriver2='ngModel' [class.error]="price_winchDriver2.errors && price_winchDriver2.invalid && price_winchDriver2.touched">
+   
+             <div class="form-input-error" *ngIf="price_winchDriver2.errors && price_winchDriver2.invalid && price_winchDriver2.touched">
+                 <small *ngIf="price_winchDriver2.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                     <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is required 
+                   <br></small>
+                 <small *ngIf="price_winchDriver2.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                   <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is invalid
+                 </small>
+             </div>
+           </div>
+           <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+              <input type="checkbox" class="custom-control-input" id="customControlAutosizing0001"
+              [(ngModel)]='manageData.availability' value="avilability" name="avilable">
+              <label class="custom-control-label" for="customControlAutosizing0001">Avilability</label>
+          </div>
+
+        </form>
+        </div>
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+          <button type="submit" form="form_winchDriver2"  [disabled]='winchDriver_validation2.form.invalid'  class="btn btn-warning">Update<i class="fas fa-paper-plane-o ml-1"></i></button>
+        </div>
+      
+      </div>
+      <!--/.Content-->
+      
+    </div>
+  </div>
+  
+    <!-- end Modal 4 of edit winchDriver -->
+
+     <!--------------------------------Modal 4 of View Free winchDriver--------------------------->
+      
+     <div *ngIf="dataOfOneWinchDriver" class="modal fade" id="ViewWinchDriver" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" style="z-index: 9999999999999;">
+     <div class="modal-dialog modal-notify modal-warning" role="document">
+       <!--Content-->
+       <div class="modal-content">
+         <!--Header-->
+         <div class="modal-header text-center">
+           <h4 class="modal-title white-text w-100 font-weight-bold py-2">Information</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true" class="white-text">&times;</span>
+           </button>
+         </div>
+   
+         <!--Body-->
+         <div class="modal-body">
+            <div class="row">
+                <div class="col-12">
+                  <div class="formError">
+                    <div *ngFor="let mss of alertErr">
+                      <div class="alert alert-danger" role="alert">
+                        <strong>Alert!</strong> {{mss}}.
+                      </div>
+                    </div>
+                </div>
+                <div class="formError">
+                  <div *ngFor="let mss of alertSuc">
+                    <div class="alert alert-success" role="alert">
+                      <strong>Alert!</strong> {{mss}}.
+                    </div>
+                  </div>
+              </div>
+                </div>
+               </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                    Name Of Winch Driver 
+                </div>
+                <div class="col-6 text-center" style="background-color: #dddddd;">
+                    {{dataOfOneWinchDriver.username}}
+                </div>
+              </div>
+             
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6">
+                        Price Per KM 
+                    </div>
+                    <div class="col-6 text-center" style="background-color: #dddddd;">
+                        {{dataOfOneWinchDriver.price_per_km}}
+                    </div>
+                  </div>
+              </div>
+          </div>
+         </div>
+         <!--Footer-->
+         <div class="modal-footer justify-content-center">
+           <button type="submit"  class="btn btn-warning" (click)="assignToWinchCompany(dataOfOneWinchDriver.id)">Assign To Company<i class="fas fa-paper-plane-o ml-1" ></i></button>
+         </div>
+       
+       </div>
+       <!--/.Content-->
+       
+     </div>
+   </div>
+   
+     <!-- end Modal 4 of View Free winchDriver -->
+
+          <!--------------------------------Modal 4 of View Free winchDriver--------------------------->
+      
+          <div *ngIf="manageData AllData" class="modal fade" id="DeleteAssgin" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+          aria-hidden="true" style="z-index: 9999999999999;">
+          <div class="modal-dialog modal-notify modal-warning" role="document">
+            <!--Content-->
+            <div class="modal-content">
+              <!--Header-->
+              <div class="modal-header text-center">
+                <h4 class="modal-title white-text w-100 font-weight-bold py-2">Cancel Assign</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+              </div>
+        
+              <!--Body-->
+              <div class="modal-body">
+                 <div class="row">
+                     <div class="col-12">
+                      <div class="formError">
+                        <div *ngFor="let mss of alertErr">
+                          <div class="alert alert-danger" role="alert">
+                            <strong>Alert!</strong> {{mss}}.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="formError">
+                      <div *ngFor="let mss of alertSuc">
+                        <div class="alert alert-success" role="alert">
+                          <strong>Alert!</strong> {{mss}}.
+                        </div>
+                      </div>
+                  </div>
+                     </div>
+                    </div>
+               Are You Sure To Delete {{manageData.role.name}} from {{AllData.name}} ?
+              </div>
+              <!--Footer-->
+              <div class="modal-footer justify-content-center">
+                <button type="submit"  class="btn btn-warning" (click)="cancelAssign(manageData.id)">Delete<i class="fas fa-paper-plane-o ml-1" ></i></button>
+              </div>
+            
+            </div>
+            <!--/.Content-->
+            
+          </div>
+        </div>
+        
+          <!-- end Modal 4 of View Free winchDriver -->

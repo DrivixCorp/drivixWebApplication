@@ -1,0 +1,204 @@
+.mainSection{
+    margin-top:10px;
+    margin-bottom: 50px;
+}
+.noServiceClass{
+
+}
+.card-header  .btn_Me{
+    color: #1b1b1b;
+    background-color: #eeab1047;
+    border-color: #eeab1047;
+    transition-duration: .5s;
+}
+
+.card-header  .btn_Me:hover{
+    color: #000;
+    background-color: #eeab10;
+    border-color: #eeab10;
+}
+.Choose{
+    font-size: 27px;
+    margin-bottom: 0px;
+    letter-spacing: 6px;
+    color: #aca8a8;
+}
+
+.btn-secondary {
+    font-weight: bolder;
+}
+.btnChange{
+    padding: 14px;
+    width: 70%;
+}
+.addNewService{
+    
+}
+.btn__{
+    line-height: 2.82;
+    color: #000 !important;
+    margin: 0px;
+    padding: 4px;
+    padding-right: 5px;
+    padding-left: 5px;
+    height: 50px;
+    margin: 0px;
+    background-color: #acacac9c !important;
+}
+.md-form .validate {
+    margin-bottom: 0rem;
+}
+.md-form .form-control {
+   margin-bottom: 0rem; 
+}
+.md-form {
+    margin-bottom: .2rem !important;
+}
+@media (max-width: 780px) { 
+    .position{
+        text-align: center !important;
+    }
+    .btnChange{
+        width:80%;
+    }
+}
+.btn{
+    color: #000;
+    background: #a7a7a7;
+    margin: 0px;
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+.modal-notify .modal-header {
+    border-radius: 3px 3px 0 0;
+}
+.modal-notify .modal-content {
+    border-radius: 3px;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #ffc107;
+}
+.close ,.close:hover{
+    opacity: 1 !important;
+}
+.navMe{
+    
+    color: #fff;
+    padding: 15px;
+}
+.linkMe{
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background-color: #0000002e;
+    text-align: center;
+}
+.btnTest a{
+    background: #1b1b1beb;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    
+     background-color: #ffc107 !important; 
+}
+/*OF VIEW OF SERVICES*/
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.dotAndActiveOrDisable{
+    line-height: 4.3;
+}
+.CardWidth{
+    width:21em;
+}
+.card-body h4{
+    font-weight: bolder !important;
+    font-size: 18px !important;
+    color: #333333 !important;
+}
+@media (max-width: 768px) { 
+    .CardWidth{
+        width:32em;
+    }
+}
+@media (max-width: 576px) { 
+    .CardWidth{
+        width:29em;
+    }
+}
+@media (max-width: 575px) { 
+    .CardWidth{
+        width:28em;
+    }
+}
+
+@media (max-width: 520px) { 
+    .CardWidth{
+        width:26em;
+    }
+}
+@media (max-width: 510px) { 
+    .CardWidth{
+        width:25em;
+    }
+}
+
+@media (max-width: 470px) { 
+    .CardWidth{
+        width:18em;
+    }
+}
+.btnTest{
+    min-width:265px;
+}
+
+@media (max-width: 548px) {
+   .btnTest{
+       min-width: 100%;
+   }
+ }
+ .dropdown-menu.show {
+    width: 14%;
+    transform: translate3d(648px, 38px, 0px);
+}
+.card-footer:last-child {
+    padding-bottom: 0px;
+}
+/* updates */
+.nav-item {
+  margin: auto;
+}
+.dropdown-toggle {
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
+}
+.nav-item a {
+  margin: auto;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.text-muted .btn {
+  color: white;
+  background-color: #39ac73;
+}
+.service-name {
+  font-size: 15px;
+}
+.service-card,
+.card-body {
+  border-radius: 10px;
+}
+.card-img-top {
+  border-radius: 10px;
+}
+.nav-link {
+  font-size: 18px;
+}

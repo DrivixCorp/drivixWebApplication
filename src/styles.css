@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif !important;
+}
+*{
+	--redColor : #C7081B;
+	--grayColor : #2D2D2D;
+    --graybgColor:#F0F0F0;
+    --buttonBg: rgba(0,0,0,0.65);
+}
+.nicescroll-rails{
+    z-index: 20 !important;
+}
+
+::selection{
+	background-color: gray;
+	color: #fff;
+}

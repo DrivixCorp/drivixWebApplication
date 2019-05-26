@@ -1,0 +1,105 @@
+  
+  <section class="credential">
+    <div class="container">
+  
+      <nav class="internal-nav" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">register</li>
+        </ol>
+      </nav>
+  
+      <div class="formError">
+        <div *ngFor="let error of errorMsgs">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>ERROR!</strong> {{error}}.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="credentialCard">
+        <div class="credentialHeader">
+            <span class="circle">
+                <span><i class="fas fa-user-plus"></i></span>
+            </span>
+            <span class="credentialtext">Register</span>
+        </div>
+  
+        <div class="credentialform">
+            <form #credentialform="ngForm" (ngSubmit)='register()'>
+  
+                <div class="form-group">
+                  <label for="InputName">
+                    <span>
+                      Name <span>*</span>
+                    </span>
+                  </label>
+                  <input required type="text" name='name' #name='ngModel' [(ngModel)]='formName' class="form-control" id="InputName" aria-describedby="nameHelp" placeholder="Enter your Name" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z ]*)*$" minlength="5" maxlength="50"
+                    [class.error]="name.errors && name.invalid && name.touched">
+                </div>
+    
+                <div class="form-input-error" *ngIf="name.errors && name.invalid && name.touched">
+                  <small *ngIf="name.errors.required" class='text-danger ml-2'>name is required</small>
+                  <small *ngIf="name.errors.pattern" class='text-danger ml-2'>name is invalid</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="InputEmail">
+                    <span>
+                      Email address <span>*</span>
+                    </span>
+                  </label>
+                  <input required type="email" name='email' #email='ngModel' [(ngModel)]='formEmail' class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                  [class.error]="email.errors && email.invalid && email.touched">
+                </div>
+  
+                <div class="form-input-error" *ngIf="email.errors && email.invalid && email.touched">
+                  <small *ngIf="email.errors.required" class='text-danger ml-2'>email is required</small>
+                  <small *ngIf="email.errors.pattern" class='text-danger ml-2'>email is invalid</small>
+                </div>
+  
+                <div class="form-group">
+                    <label for="InputPassword">
+                      <span>
+                        Password <span>*</span>
+                      </span>
+                    </label>
+                    <div class='pass-input'>
+                        <input required type="password" name='pass' #pass='ngModel' [(ngModel)]='formPassword' class="form-control" id="InputPassword" aria-describedby="passHelp" placeholder="Enter Password"
+                        minlength="5" maxlength="15" pattern="(?!^[0-9]*$)(?!^[a-zA-Z._ ]*$)^([a-z._ A-Z0-9]{5,15})$"
+                        (blur)='checkPassword()'
+                        [class.error]="pass.errors && pass.invalid && pass.touched">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+  
+                <div class="form-input-error" *ngIf="pass.errors && pass.invalid && pass.touched">
+                  <small *ngIf="pass.errors.required" class='text-danger ml-2'>password is required</small>
+                  <small *ngIf="pass.errors.minlength" class='text-danger ml-2'>
+                    password lenght must between 5 to 15 character
+                  </small>
+                  <br>
+                  <small *ngIf="pass.errors.pattern" class='text-danger ml-2'>
+                    password should contains at least one letter and one number and doesn't contain any space
+                  </small>
+                  <br>
+                  <small *ngIf="pass.errors.pattern" class='text-danger ml-2'>
+                    password can only contains dot(.) or underscore(_) special character  
+                  </small>
+                </div>
+  
+                <button [disabled]='credentialform.form.invalid' type='submit' class="btn btn-dark submitbtn">
+                  Register <i class="fas fa-sign-in-alt"></i>
+                </button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  

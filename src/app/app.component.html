@@ -1,0 +1,227 @@
+<ngx-ui-loader></ngx-ui-loader>
+
+<main>
+    <app-header></app-header>
+            
+    <router-outlet></router-outlet>
+            
+    <div class="fixedScroll">
+      <div>
+        <i class="fas fa-angle-up"></i>
+       </div>
+    </div>
+
+    <div style="z-index:9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999">
+      <div id="chatTab1" data-toggle="modal" data-target="#chatbotModal">
+        <button type="button" class="btn chatbot-tab">
+            Chatbot | need a help ? <i class="fas fa-question"></i>
+        </button>
+      </div>
+    
+      <div id="chatTab2" data-toggle="modal" data-target="#chattingModal">
+        <button type="button" class="btn chatting-tab">
+          <i class="far fa-comments"></i>
+        </button>
+      </div>
+    
+    
+    
+      <!-- chatbot -->
+      <div class="modal left fade" id="chatbotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header chatting-modal-header">
+              <span> <i class="fas fa-ellipsis-h"></i> </span>
+              <span class="header-title"> Welcome to Divix Chatbot </span>
+              <span> <i class="fas fa-angle-down" data-dismiss="modal"></i> </span>
+            </div>
+            <div class="modal-body">
+              <div class="nav flex-sm-column flex-row">
+    
+                
+                      <div class="chat-receiver">
+                        <div class="card chat-msg-card">
+                          <div class="card-body">
+                            Send Message To ChatBot Of Your Problem And get Your Answer Imeddiately
+                          </div>
+                        </div>
+                      </div>
+          
+                <!--start chat-->
+                <div *ngFor="let mss of arrMessageOfChatBot">
+                            <!--start chat bot-->
+                          
+                            <div *ngIf="mss.token != userData.token">
+                              <div class="row">
+                                <div class="col-12 text-left">
+                                    <span class="user-chat">
+                                      <span class="co-chat">
+                                        <i class="fas fa-dot-circle"></i> Drivix Chatbot
+                                      </span>
+                                      </span>
+                                </div>
+                                <div class="col-12 text-left">
+                                    <div class="chat-receiver">
+                                        <div class="card chat-msg-card">
+                                          <div class="card-body">
+                                            <span style="color: blue;">Name</span>
+                                            <br>
+                                            {{mss.Name}}
+                                            <br>
+                                            <span style="color: blue;">Notice</span>
+                                            <br>
+                                            {{mss.notice}}
+                                            <br>
+                                            <span style="color: blue;">Solution</span>
+                                            <br>
+                                            {{mss.soultion}}
+                                            <br>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                              </div>
+                              
+                             
+                            </div>
+                            <!--end chatbot-->
+                            <!--start chat of me-->
+                            <div *ngIf="mss.token == userData.token">
+                                <div class="row">
+                                  <div class="col-12 text-right">
+                                      <span class="user-chat user-sender" *ngIf="userData">
+                                          {{userData.name}}
+                                        </span>
+                                       
+                                  </div>
+                                  <div class="col-12">
+                                      <div class="chat-sender">
+                                          <div class="card chat-msg-card">
+                                            <div class="card-body">
+                                              {{mss.message2}}
+                                            </div>
+                                           
+                                          </div>
+                                        </div>
+                                  </div>
+                                </div>
+                              
+                            </div>
+                            <!--end chat of me-->
+                  </div>
+                  <div class="row">
+                    <div class="col-12 text-right">
+                      
+                        <span class="user-chat user-sender" style="color:gray;font-size: 13px;" *ngIf="checkSend2">
+                            sending...
+                          </span>
+                    </div>
+                </div>
+                    <!--end chat-->
+                          </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form-group msg-form-group">
+                <input type="text" class="form-control chat-msg-input" name="mscccsag" id="msxcs" [(ngModel)]="message2" placeholder="write your message .. ">
+                <i class="fas fa-arrow-circle-right" (click)="sendMessageChatBot()" id="sendMss2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+        cc
+      -->
+    
+      <!-- chatting -->
+      <div class="modal left fade" id="chattingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header liveChat-modal-header">
+              <span> <i class="fas fa-ellipsis-h"></i> </span>
+              <span class="header-title"> Welcome to Divix LiveChat </span>
+              <span> <i class="fas fa-angle-down" data-dismiss="modal"></i> </span>
+            </div>
+            <div class="modal-body">
+              <div class="nav flex-sm-column flex-row">
+    <!--start chat-->
+    <div *ngFor="let mss of All_arrMessage">
+                <!--start chat other-->
+              
+                <div *ngIf="mss.token != userData.token">
+                  <div class="row">
+                    <div class="col-12 text-left">
+                        <span class="user-chat">
+                            {{mss.name}}
+                          </span>
+                    </div>
+                    <div class="col-12 text-left">
+                        <div class="chat-receiver">
+                            <div class="card chat-msg-card">
+                              <div class="card-body">
+                                {{mss.message}}
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                  
+                 
+                </div>
+                <!--end chat other-->
+                <!--start chat of me-->
+                <div *ngIf="mss.token == userData.token">
+                    <div class="row">
+                      <div class="col-12 text-right">
+                          <span class="user-chat user-sender" *ngIf="userData">
+                              {{userData.name}}
+                            </span>
+                           
+                      </div>
+                      <div class="col-12">
+                          <div class="chat-sender">
+                              <div class="card chat-msg-card">
+                                <div class="card-body">
+                                  {{mss.message}}
+                                </div>
+                               
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                  
+                </div>
+                <!--end chat of me-->
+      </div>
+      <div class="row">
+        <div class="col-12 text-right">
+          
+            <span class="user-chat user-sender" style="color:gray;font-size: 13px;" *ngIf="checkSend">
+                sending...
+              </span>
+        </div>
+    </div>
+        <!--end chat-->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="form-group msg-form-group">
+                <input type="text" class="form-control chat-msg-input" name="mssag" id="mss" [(ngModel)]="message" placeholder="write your message .. ">
+                <i class="fas fa-arrow-circle-right" id="sendMss" (click)="sendMessage()"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div *ngIf="!isConnected" class="not-connected">
+            <div class="spinner-border text-warning" role="status"></div>
+            <div class="pt-3">Please check Internet connection</div> 
+        </div>
+    </div>
+
+ 
+            
+    <app-footer></app-footer>
+</main>

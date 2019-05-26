@@ -1,0 +1,467 @@
+<div class="row">
+  <!--start product-->
+
+  <div class="col">
+    <div class="offer-title-dec col-12">
+      <span class="offer-title"><i class="fas fa-cogs"></i> Spare Parts Products <i
+        class="fas fa-chevron-right"></i></span>
+
+      <button type="button" class="btn btn-primary add-btn" data-target="#AddProductModal" data-toggle="modal">
+        Add New Product <i class="fas fa-plus"></i>
+      </button>
+    </div>
+
+    <div *ngIf="AllProduct">
+      <div class="col-12 products-container" *ngIf="AllProduct.length" style="background-color: #f2f2f2">
+
+        <div class="row">
+          <div *ngFor="let data of AllProduct;let i = index" class="col mb-2">
+            <div class="card product-card" style="width: 18rem;">
+
+            <span *ngIf="!data.productimg.length" class="p-5" style="height: 260px;">
+              <span class="text-muted" style="text-decoration: underline; cursor: pointer;"
+                    (click)="passDataProduct(data)" data-toggle="modal"
+                    data-target="#imagearray2">No Image Uploaded</span>
+            </span>
+
+              <div *ngIf="data.productimg.length" style="height: 260px;" id="carouselExampleControls{{i}}"
+                   class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <!--                    <span class="text-muted" style=" cursor: pointer; position:absolute;top:0; right:5px;  font-size: 20px; color: blue !important; font-weight: 800;z-index:999999999999;"  (click)="passDataProduct(data)"  data-toggle="modal" data-target="#imagearray2" >X</span>-->
+                    <span class="badge img-badge" (click)="passDataProduct(data)" data-toggle="modal"
+                          data-target="#imagearray2"><i class="fas fa-camera"></i></span>
+                    <img src="{{data.productimg[0].image}}" height="260px" class="d-block w-100" alt="...">
+                  </div>
+
+                  <div *ngFor="let img of data.productimg | slice:1" class="carousel-item">
+                    <span class="text-muted"
+                          style=" cursor: pointer; position:absolute;top:0; right:5px;  font-size: 20px; color: blue !important; font-weight: 800;z-index:999999999999;"
+                          (click)="passDataProduct(data)" data-toggle="modal" data-target="#imagearray2">X</span>
+                    <img src="{{img.image}}" height="260px" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleControls{{i}}" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#carouselExampleControls{{i}}" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+
+              </div>
+
+              <hr>
+              <div class="card-body product-card-body">
+                <h5 class="card-title product-name">{{data.name}}</h5>
+                <span class="card-title">Brand : {{data.brand}}</span>
+                <span class="card-title price"> <i class="fas fa-tags"></i> {{data.price}} EGP</span>
+                <p class="card-text">Description | {{data.description}}</p>
+                <div class="row">
+                  <div class="col text-left">
+                    <button class="btn btn-edit btn-md btn-inline-block" data-toggle="modal"
+                            data-target="#editProductModal" (click)="passProductData(data)"><i class="far fa-edit"></i>
+                      Edit
+                    </button>
+                  </div>
+                  <div class="col text-right">
+                    <button class="btn btn-delete btn-md btn-inline-block" data-toggle="modal"
+                            data-target="#deleteProductModal" (click)="passProductData(data)"><i
+                      class="far fa-times-circle"></i> Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-12 m-3">
+    <div *ngIf="!AllProduct.length" class="container noServiceClass no-offers-container">
+      <h5 class="card-title text-muted text-center no-offers">
+        <i class="fas fa-info"></i> You Don't Have Any Products.
+      </h5>
+    </div>
+  </div>
+
+  <!--end product-->
+</div>
+
+
+<!--start all modals -->
+
+<!--------------------------------Modal 4 of ad product--------------------------->
+
+<div class="modal fade app-modal" id="AddProductModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" style="z-index: 9999999999999;">
+  <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title">Add Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form #product_validation="ngForm" (ngSubmit)='addProduct()' id="form_product" novalidate>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <label>Product Name</label>
+            <input type="text" id="product_name" class="form-control validate is-valid"
+                   required style="margin-bottom: 5px;"
+                   [(ngModel)]='P_Name' name="Product_name" #product_name='ngModel'
+                   [class.error]="product_name.errors && product_name.invalid && product_name.touched">
+
+            <div class="form-input-error" *ngIf="product_name.errors && product_name.invalid && product_name.touched">
+              <small *ngIf="product_name.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Product Name is
+                required
+                <br></small>
+              <small *ngIf="product_name.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Product Name is
+                invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <label>Product Brand</label>
+            <input type="text" id="product_brand" class="form-control validate is-valid"
+                   required style="margin-bottom: 5px;"
+                   [(ngModel)]='P_Brand' name="Product_brand" #product_brand='ngModel'
+                   [class.error]="product_brand.errors && product_brand.invalid && product_brand.touched">
+
+            <div class="form-input-error"
+                 *ngIf="product_brand.errors && product_brand.invalid && product_brand.touched">
+              <small *ngIf="product_brand.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Brand is required
+                <br></small>
+              <small *ngIf="product_brand.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Brand is invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <label>Product Price</label>
+            <input type="number" id="product_price" class="form-control validate is-valid" required
+                   style="margin-bottom: 5px;"
+                   [(ngModel)]='P_Price' name="Product_price" #product_price='ngModel'
+                   [class.error]="product_price.errors && product_price.invalid && product_price.touched">
+
+            <div class="form-input-error"
+                 *ngIf="product_price.errors && product_price.invalid && product_price.touched">
+              <small *ngIf="product_price.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is required
+                <br></small>
+              <small *ngIf="product_price.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form md-outline">
+            <textarea id="form75" [(ngModel)]='P_Description' name="description_workshop" class="form-control" rows="3"
+                      required></textarea>
+            <label for="form75">Write Description Of Your Product</label>
+          </div>
+        </form>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="submit" form="form_product" [disabled]='product_validation.form.invalid' class="btn submit-btn"><i
+          class="fas fa-plus"></i> Add
+        </button>
+      </div>
+
+    </div>
+    <!--/.Content-->
+
+  </div>
+</div>
+
+<!-- end Modal 4 of add producr -->
+
+
+<!--------------------------------Modal 4 of edit product2--------------------------->
+
+<div *ngIf="mangeProduct" class="modal fade app-modal" id="editProductModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true" style="z-index: 9999999999999;">
+  <div class="modal-dialog modal-notify modal-warning" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title">edit Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form #product2_validation2="ngForm" (ngSubmit)='editProduct()' id="form_product22" novalidate>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <label>Product Name</label>
+            <input type="text" id="product2_name" class="form-control validate is-valid" placeholder="Product Name"
+                   required style="margin-bottom: 5px;"
+                   [(ngModel)]='mangeProduct.name' name="Product2_name" #product2_name='ngModel'
+                   [class.error]="product2_name.errors && product2_name.invalid && product2_name.touched">
+
+            <div class="form-input-error"
+                 *ngIf="product2_name.errors && product2_name.invalid && product2_name.touched">
+              <small *ngIf="product2_name.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Product2 Name is
+                required
+                <br></small>
+              <small *ngIf="product2_name.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Product2 Name is
+                invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <label>Product Brand</label>
+            <input type="text" id="product2_brand" class="form-control validate is-valid" placeholder="Product2 Brand"
+                   required style="margin-bottom: 5px;"
+                   [(ngModel)]='mangeProduct.brand' name="Product2_brand" #product2_brand='ngModel'
+                   [class.error]="product2_brand.errors && product2_brand.invalid && product2_brand.touched">
+
+            <div class="form-input-error"
+                 *ngIf="product2_brand.errors && product2_brand.invalid && product2_brand.touched">
+              <small *ngIf="product2_brand.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Brand is required
+                <br></small>
+              <small *ngIf="product2_brand.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Brand is invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <label>Product Price</label>
+            <input type="number" id="product2_price" class="form-control validate is-valid" placeholder="Price" required
+                   style="margin-bottom: 5px;"
+                   [(ngModel)]='mangeProduct.price' name="Product2_price" #product2_price='ngModel'
+                   [class.error]="product2_price.errors && product2_price.invalid && product2_price.touched">
+
+            <div class="form-input-error"
+                 *ngIf="product2_price.errors && product2_price.invalid && product2_price.touched">
+              <small *ngIf="product2_price.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is required
+                <br></small>
+              <small *ngIf="product2_price.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form md-outline">
+            <textarea id="form75" [(ngModel)]='mangeProduct.description' name="description_workshop"
+                      class="form-control" rows="3" required></textarea>
+            <label for="form75">Write Description Of Your Product</label>
+          </div>
+
+
+        </form>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="submit" form="form_product22" [disabled]='product2_validation2.form.invalid'
+                class="btn submit-btn"><i class="fas fa-check"></i> Update<i class="fas fa-paper-plane-o ml-1"></i>
+        </button>
+      </div>
+
+    </div>
+    <!--/.Content-->
+
+  </div>
+</div>
+
+<!-- end Modal 4 of edit product -->
+
+
+<!--------------------------------Modal 4 of delete product2--------------------------->
+
+<div *ngIf="mangeProduct" class="modal fade app-modal" id="deleteProductModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true" style="z-index: 9999999999999;">
+  <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Delete Alert!</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        Are you sure you want to delete this product ?
+
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button class="btn cancel-btn" (click)="deleteProduct()"><i class="far fa-trash-alt"></i> Delete<i
+          class="fas fa-paper-plane-o ml-1"></i>
+        </button>
+      </div>
+
+    </div>
+    <!--/.Content-->
+
+  </div>
+</div>
+
+<!-- end Modal 4 of delete product -->
+
+<!-- Modal nmm 2 of Adding Or Update Or Deleteing image in producy-->
+<div *ngIf="testObject2()" style="z-index: 9999999999999;" class="modal fade app-modal" id="imagearray2" tabindex="-1"
+     role="dialog" aria-labelledby="profileData" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-12">
+            <h5 class="modal-title" id="exampleModalLongTitle_2"><i class="far fa-images"></i> Product Images</h5>
+
+          </div>
+
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <div class="custom-file">
+            <input required #file2 type="file" multiple accept='image/*' (change)="preview(file2.files)"
+                   class="custom-file-input" id="inputGroupFile044" aria-describedby="inputGroupFileAddon04">
+            <label class="custom-file-label" for="inputGroupFile044">Choose file</label>
+          </div>
+        </div>
+
+        <div class="">
+          <span style="color:red;" *ngIf="message">{{message}} <br></span>
+          <hr>
+          <h3 *ngIf="imgURL.length" class="text-muted modal-label"><i class="fas fa-check"></i> uploaded image</h3>
+          <div *ngFor="let img of imgURL" class="mb-3">
+            <img [src]="img" height="200" width="auto" *ngIf="imgURL">
+
+          </div>
+          <div *ngIf="productImage.productimg.length">
+            <h3 *ngIf="AllData.roleimgs.length" class="text-muted modal-label"><i class="fas fa-th-large"></i> all
+              images</h3>
+            <div *ngFor="let img of productImage.productimg;let i=index" class="row mb-3">
+              <div class="col">
+                <img src="{{img.image}}" height="200" width="auto" *ngIf="imgURL">
+              </div>
+              <div class="col text-right">
+                         <span class="badge badge-dark badge-pill" style="padding:5px !important;cursor: pointer;"
+                               (click)="deleteProductImage(img.id,productImage,i)"><i
+                           class="fas fa-times-circle"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="closeModalAfterDeleting" [disabled]='file2.invalid' (click)="addProductImage()"
+                class="btn btn-primary">ADD
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--end modal add or update or delete image for product -->

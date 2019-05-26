@@ -1,0 +1,144 @@
+
+  .spanOfAdd{
+    border: 1px solid #cecece;
+      margin-left: 5px;
+      /* margin-bottom: 52px; */
+      font-size: 52px;
+      /* height: 62px; */
+      padding-top: 1px;
+      padding-bottom: 17px;
+      padding-left: 10px;
+      padding-right: 10px;
+      /* line-height: 2; */
+      cursor: pointer;
+  }
+  .spanOfAdd i{
+    position: relative;
+      top: 8px;
+  }
+  .slider_circle_10{
+          width: 52vw;
+          height: 37.2vw;
+  }
+  .md-form .validate {
+    margin-bottom: 0rem;
+}
+.md-form .form-control {
+   margin-bottom: 0rem; 
+}
+  /* updates */
+  .name-title{
+    margin: auto;
+    font-size: 18px;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 3px;
+    color: #999999 !important;
+    border-bottom: 1px solid #cccccc;
+    /*background-color: #ffc107;*/
+  }
+  .name-title span {
+    color: #0f0f0f;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Rubik', sans-serif;
+  }
+  .name-title .card-title{
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #ffffff !important;
+    text-align: center !important;
+    font-family: 'Rubik', sans-serif;
+  }
+  .locations-card .card-header,
+  .working-day-card .card-header,
+  .phones-card .card-header,
+  .branch-card .card-header{
+    background-color: #262626;
+  }
+  .locations-card .card-header h5,
+  .working-day-card .card-header h5,
+  .phones-card .card-header h5,
+  .branch-card .card-header h5{
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .phones-card .card-title,
+  .locations-card .card-title,
+  .working-day-card .card-title,
+  .branch-card .card-title{
+    font-size: 16px;
+    font-family: 'Cabin', sans-serif;
+  }
+  .locations-card .m-0,
+  .working-day-card .m-0,
+  .phones-card .m-0,
+  .branch-card .m-0{
+    font-size: 14px;
+    font-family: 'Cabin', sans-serif;
+  }
+  .xzoom .xzoom-thumbs{
+    background-color: #e6e6e6;
+  }
+  .service-operation-btn{
+    color: white;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #eeab10;
+  }
+  .no-imgs-alert{
+    font-family: 'Open Sans', sans-serif;
+  }
+  .imgs-section{
+    margin-top: 30px;
+  }
+  .badge-close{
+    background-color: #e63900;
+  }
+  .badge-open{
+    background-color: #00b386;
+  }
+
+  .description-container{
+    margin: 20px;
+    padding: 15px;
+    /*background-color: #f2f2f2;*/
+    border-bottom: 2px solid #999999;
+  }
+  .description{
+    color: #666666;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .description-title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .offers-btn{
+    float: right;
+    margin-top: 30px;
+    font-family: 'Cabin', sans-serif;
+  }
+  .description-container{
+    margin: 20px;
+    padding: 15px;
+    /*background-color: #f2f2f2;*/
+    border-bottom: 2px solid #999999;
+  }
+  .description{
+    color: #666666;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .description-title{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .offers-btn{
+    float: right;
+    margin-top: 30px;
+    font-family: 'Cabin', sans-serif;
+  }

@@ -1,0 +1,271 @@
+.os{
+	background-color: gray;
+	color:#fff;
+	margin: 10px;
+	padding: 10px;
+}
+body{
+height: 8000px;
+}
+.container{
+
+}
+.bg-dark{
+	margin-bottom: 1px;
+}
+.carousel {
+    width: 55%;
+    margin: auto;
+
+}
+.sr-only{
+	color:#ff0018;
+}
+
+.carousel-inner{
+	height: auto;
+
+}
+/* stat section about */
+.about{
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.features{
+	background-color: #eee;
+	color: #000;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.features .featuers1234{
+	border: 5px solid #e2e2e2;
+	border-radius: 20px;
+	padding: 15px;
+}
+.features h1{
+	margin-bottom: 50px;
+	color: red;
+	font-weight: bold;
+}
+.features .feat p{
+	line-height: 2em;
+}
+.test{
+	background-size: cover;
+}
+.carousel-indicators li {
+	width: 75px;
+	opacity: 1px;
+	height: 70px;
+	text-indent: 0;
+
+}
+.carousel-indicators li img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.carousel-indicators{
+	position: relative;
+	bottom: 0px;
+}
+.testmonial h1{
+	color: red;
+	font-weight: bold;
+}
+
+.allBoxes{
+	background-color: #e2e2e2;
+	border-radius: 10px;
+	padding: 10px;
+}
+.allBoxes .pricebox:hover p{
+	border: solid 1px #f00;
+	transform: scale(1.1,1.1) rotate(360deg);
+}
+.allBoxes h1{
+	padding: 10px;
+	color: red;
+	font-weight: bold;
+}
+.allBoxes .pricebox{
+	background-color: #fff;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 20px;
+}
+.allBoxes .pricebox p{
+	
+	font-weight: bold;
+	color: #666;
+	width: 60px;
+	height: 60px;
+	background-color: #f3f3f3;
+	border-radius: 50%;
+	line-height: 60px;
+	margin: 0px auto;
+	-webkit-transition-duration: .7s;
+	-moz-transition-duration: .7s;
+	-o-transition-duration: .7s;
+	transition-duration: .7s;
+}
+.pricebox ul{
+	line-height: 35px;
+}
+.our_team{
+	background: url("../t.png") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	min-height: 500px;
+	color: #fff;
+}
+.our_team .team{
+	background: rgba(2,2,2,.75);
+	min-height: 500px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.our_team .team h1{
+	margin-bottom: 50px;
+}
+.our_team .team p{
+	    min-height: 72px;
+}
+.img-person{
+    height: 175px;
+}
+.subscribe{
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background: #eee; 
+}
+.subscribe h1{
+	color: #888;
+	margin-bottom: 20px;
+	letter-spacing: 2px;
+}
+.subscribe p{
+	margin-bottom: 30px;
+
+}
+.myform{
+display: inline-block;
+}
+.form-inline .form-control{
+	width: 312px;
+}
+.statistics{
+	background: url("../lab.jpg")  center center fixed;
+	-webkit-background-size: cover;
+	background-size: cover;
+	width: 100%;
+	min-height: 300px;
+}
+.statistics .data{
+	background: rgba(4,4,4,.8);
+	min-height: 300px;
+	color: #b6b5b5;
+	padding-top: 40px;
+}
+.statistics h1{
+	margin-bottom: 40px;
+}
+.statistics p{
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+.iconstyle{
+	font-size: 3em;
+}
+.statistics .status {
+	-webkit-transition: all 2s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+.statistics .status:hover {
+	color: #fff;
+}
+.prostyle{
+	margin-bottom: 30px;
+}
+.our-skills{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.our-skills h1{
+	margin-bottom: 50px;
+}
+.progress{
+	height: 2em;
+}
+.ourClint{
+	background: #eee;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.ourClint img{
+	opacity: 0.4;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	-webkit-transition:all .4s ease-in-out;
+	transition:all .4s ease-in-out;
+}
+.ourClint img:hover{
+opacity: 1;
+cursor: pointer;
+}
+.footer{
+	background: #333;
+	color: #aaa;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.footer a{
+	color: #aaa;
+}
+.footer a:hover{
+	color: #fff;
+}
+.footer h3{
+	color: #0895d1;
+	letter-spacing: 1px;
+	margin:30px 0px 20px;
+}
+.footer .three-coulumns{
+	overflow: hidden;
+}
+.footer .three-coulumns li{
+	width: 33.333333%;
+	float: left;
+	padding: 5px 0;
+
+}
+
+.optionbox{
+	position: fixed;
+	top: 70px;
+	left: 0px;
+	z-index: 9999;
+}
+.optionbox .color-option{
+	float: left;
+	background: #333;
+	color: #fff;
+	padding: 10px;
+	width: 200px;
+	border: 2px solid #e41b17;
+	display: none;
+}
+.optionbox ul li{
+	width: 20px;
+	height: 20px;
+	background: #f00;
+	display: inline-block;
+	margin-right: 5px;
+}
+.gear-check{
+	padding: 5px;
+	border: 2px solid #e41b17;
+	background: #333;
+	color: #fff;
+	font-size: 1.7em;
+}

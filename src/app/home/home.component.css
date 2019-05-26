@@ -1,0 +1,744 @@
+/* 
+
+	ThemeName : HOME PAGE OF GP;
+	DesignBy:Sameh M.Omar;
+
+*/
+
+/* Start my FrameWork */
+/*9 map css 9*/
+
+agm-map {
+    height: 500px;
+    width: 100%;
+}
+/* end map */
+.current{color: var(--secondColor) !important;}
+
+.section-heading{
+	color: #242833;
+    font-size: 45px;
+    line-height: 42px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    line-height: 1.3;
+}
+
+.section-paragraph{
+	color: #555;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 2;	
+	letter-spacing: 2px;
+	width: 69%;
+	margin: auto; /* center paragraph */
+}
+
+.section-padding{padding: 80px 0;}
+
+/* END my FrameWork */
+
+/* Start drive-test-ads */
+section.drive-test-ads{
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--graybgColor);
+    padding: 20px 0 15px;
+    border-bottom: solid 2px #fff;
+    border-top: solid 3px #fff;
+    background: #f0f0f0 url(src/assets/images/message-shadow.png) top center repeat-x;
+}
+
+section.drive-test-ads .message-shadow {
+    margin-top: 20px;
+    position: absolute;
+    width: 100%;
+    z-index: 77;
+    background: url(src/assets/images/message-shadow.png) top center repeat-x;
+    height: 21px;
+}
+
+section.drive-test-ads h2{
+    font-size: 30px;
+    font-weight: 300;
+    color: #000;
+    letter-spacing: -2px;
+    margin: 0;
+    line-height: 30px;
+}
+
+section.drive-test-ads h2 span{
+    font-family: 'Yellowtail', cursive;
+    font-size: 45px;
+    color: var(--redColor);
+    line-height: 30px;
+    font-weight: 400;
+}
+
+section.drive-test-ads .container > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+section.drive-test-ads button{
+    background: var(--redColor);
+    border: 0;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 6px 15px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1em;
+    position: relative;
+    bottom: 3px;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+section.drive-test-ads button:hover{
+    background-color: rgba(0,0,0,0.65);
+}
+
+/* END drive-test-ads */
+
+
+/* Start latest-news */
+
+section.latest-news{
+    background-color: #fff;
+    overflow: hidden;
+    padding: 80px 0 70px;
+}
+
+section.latest-news .news .card{border: 0;}
+
+section.latest-news .news .card .card-title{
+    color: var(--redColor);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Secular One', sans-serif;
+    font-size: 1.35em;
+}
+
+section.latest-news .news .card .card-text{color: #767880;}
+
+section.latest-news .news .card .card-body{padding-left: 0px;}
+
+section.latest-news .news .card img{cursor: pointer;}
+
+/* The flip box container - set the width and height to whatever you want. 
+We have added the border property to demonstrate that the flip itself goes out of the box on hover
+ (remove perspective if you don't want the 3D effect */
+
+section.latest-news .flip-box {
+    background-color: transparent;
+    width: 100%;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+section.latest-news .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    -webkit-transition: transform 0.8s;
+    -moz-transition: transform 0.8s;
+    -o-transition: transform 0.8s;
+    -ms-transition: transform 0.8s;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+section.latest-news .flip-box:hover .flip-box-inner {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+section.latest-news .flip-box-front,
+section.latest-news .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+section.latest-news .flip-box-front {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+section.latest-news .flip-box-back {
+    background-color: var(--redColor);
+    color: white;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section.latest-news .flip-box-back span i{
+    border:2px solid #fff;
+    color: #fff;
+    border-radius: 50%;
+    padding: 15px;
+    margin: 5px;
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+section.latest-news .flip-box-back span:hover i{
+    border-color: #fff;
+    background-color: #fff; 
+    color: var(--redColor);
+    cursor: pointer;
+}
+
+section.latest-news .flip-box-back span:first-of-type i{
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+section.latest-news .flip-box-back span:last-of-type i{
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+section.latest-news .flip-box-back h2{
+    font-size: 2.5em
+}
+
+section.latest-news .flip-box-back span i{
+    font-size: 1.5em;
+}
+
+@media (max-width: 575px) {    
+    section.latest-news .news .card img{
+        height: 200px;
+    }
+
+    section.latest-news .flip-box {
+        height: 200px;
+    }
+}
+
+@media (min-width: 576px) {    
+    section.latest-news .news .card img{
+        height: 300px;
+    }
+
+    section.latest-news .flip-box {
+        height: 300px;
+    }
+}
+
+@media (min-width: 768px) { 
+    section.latest-news .news .card img{
+        height: 400px;
+    }
+
+    section.latest-news .flip-box {
+        height: 400px;
+    }
+}
+
+@media (min-width: 992px) { 
+    section.latest-news .news .card img{
+        height: 200px;
+    }
+    section.latest-news .flip-box {
+        height: 200px;
+    }
+}
+
+/* END latest-news */
+
+/* Start features */
+
+section.features{
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-image: url('src/assets/images/parallax11.jpg');
+	overflow: hidden;
+}
+
+section.features .overlay{
+    padding: 50px 0;
+    height: 100%;
+    background-color: rgba(240,240,240,0.95);
+    color: #2d2d2d;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.features > div{text-align: center;}
+
+
+section.features div.icon i{
+	color: #2D2D2D;
+    font-size: 70px;
+}
+
+section.features h4{
+	margin: 18px 0 12px 0;
+    letter-spacing: 1px;
+    font-size: 29px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+section.features p{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+}
+/* END features */
+
+/* Start why-choose-us */
+
+section.why-choose-us{
+    background-color: #fff;
+}
+
+section.why-choose-us .row h2{
+    color: var(--redColor);
+    text-transform: capitalize;
+    font-size: 1.6em;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 30px;
+}
+
+section.why-choose-us .row h2 span{
+    font-family: 'Secular One', sans-serif;
+    font-weight: bold; 
+}
+
+section.why-choose-us .row  p{
+    font-family: Open Sans;
+    font-size: 14px;
+    color: #5a5757;
+    line-height: 24px;
+    font-weight: 400;
+    width: 97%;
+}
+
+section.why-choose-us .row  p span{
+    font-family: 'Yellowtail', cursive;
+    color: var(--redColor);
+    font-size: 1.5em;
+}
+
+section.why-choose-us .search-inventory{
+    background-color: #F0F0F0;
+    padding: 20px;
+}
+
+section.why-choose-us .form-control:focus{
+    border-color: #ced4da;
+    outline: 0;
+    box-shadow: none;
+}
+
+section.why-choose-us .form-row{
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: space-between;
+}
+
+section.why-choose-us select,
+section.why-choose-us select:focus{
+    background-color: #F7F7F7;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+section.why-choose-us select + span{
+    font-size: 0.9em;
+    margin-top: 8px;
+}
+
+section.why-choose-us input[type='search']{
+    font-size: 0.7em;
+}
+
+section.why-choose-us .checkbox{
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+section.why-choose-us .custom-control-input:checked~.custom-control-label::before{
+    background-color: var(--buttonBg);
+    border-color: var(--buttonBg);
+}
+
+section.why-choose-us .buttons input{
+    text-transform: capitalize;
+    background-color: var(--redColor);
+
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+section.why-choose-us .buttons input:hover{
+    background-color: var(--buttonBg);
+    border-color: #676262;
+}
+
+/* END why-choose-us */
+
+/* Start functionality */
+
+section.functionality{
+    overflow: hidden;
+}
+
+section.functionality .overlay{
+    height: 100%;
+    color: var(--grayColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.functionality i{
+    display: block;
+    font-size: 83px;
+    line-height: 52px;
+    margin-top: 50px;
+}
+
+section.functionality h5{
+    font-size: 26px;
+    margin: 25px 0;
+    font-family: 'Secular One', sans-serif;
+}
+
+section.functionality h5,
+section.functionality i{
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+section.functionality h5:hover,
+section.functionality h5:hover + i{
+    color: var(--redColor);
+}
+
+section.functionality table{
+    color: #666;
+    font-size:12px;
+    text-align: left;
+    width: 80%;
+}
+
+section.functionality .secondTable{
+    position: relative;
+}
+
+@media (min-width: 576px) {  }
+
+@media (min-width: 768px) {
+    section.functionality .secondTable{
+        left:-10.5%;
+    }
+}
+
+@media (min-width: 992px) { 
+    section.functionality .secondTable{
+        left:-14.5%;
+    }
+
+    section.functionality .firstTable{
+        position: relative;
+        left: -2%;
+    }
+}
+
+@media (min-width: 1200px) { 
+    section.functionality .secondTable{
+        left:-7%;
+    }
+}
+
+section.functionality table strong{
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+section.functionality table td{
+    padding: 0;
+}
+
+/* END functionality */
+
+section.recent-vehicles .row div:first-of-type h3{
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #c7081b;
+    margin: 0;
+    font-family: 'Secular One', sans-serif;
+    font-size: 20px;
+    margin-right: -15px;
+    margin-bottom: 10px;
+    line-height: 20px;
+}
+
+section.recent-vehicles .row div:first-of-type p{
+    font-family: Open Sans;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+section.recent-vehicles .row {
+    position: relative;
+}
+
+
+section.recent-vehicles .card-body{
+    background-color: #dddede;
+    padding: 15px 8px;
+}
+
+section.recent-vehicles .image-header{
+    position: relative;
+}
+
+section.recent-vehicles .image-header img{
+    height: 147px;
+}
+
+section.recent-vehicles .image-header .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #d3d6da;
+    visibility: hidden;
+}
+
+
+section.recent-vehicles .image-header .triangle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0 solid transparent;
+    border-left-width: 120px;
+    border-right-width: 0px;
+    border-top: 120px solid;
+    z-index: 3;
+    cursor: pointer;
+}
+
+section.recent-vehicles .image-header .triangle span{
+    left: -69px;
+    position: absolute;
+    bottom: 63px;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    font-size: 1.2em;
+}
+
+.triangle-light{border-top-color: #F4F4F4 !important;}
+
+.triangle-blue{border-top-color: #0541AF !important; color: #fff;}
+
+.triangle-red{border-top-color: var(--redColor) !important; color: #fff;}
+
+section.recent-vehicles .image-header .overlay i{font-size: 3em;}
+
+section.recent-vehicles .card:hover .card-body{
+    background-color: var(--redColor) !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+section.recent-vehicles .card:hover p{
+    color: #fff;
+}
+
+section.recent-vehicles .card:hover .overlay{
+    visibility: visible;
+    cursor: pointer;
+}
+
+section.recent-vehicles .card-title{
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+section.recent-vehicles .card-text{
+    margin-bottom: 10px;
+}
+
+section.recent-vehicles .owl-dots{
+    display: none;
+}
+
+section.recent-vehicles .owl-nav{
+    margin-top:30px;
+}
+
+@media (min-width: 992px) { 
+    section.recent-vehicles .owl-nav{
+        display: inline;
+        position: absolute;
+        left: -21%;
+        top: 65%;
+    }
+}
+
+@media (min-width: 1200px) {
+    section.recent-vehicles .owl-nav{
+        display: inline;
+        position: absolute;
+        left: -21%;
+        top: 38%;
+    }   
+}
+
+section.recent-vehicles .owl-nav button.owl-prev,
+section.recent-vehicles .owl-nav button.owl-next{
+    background-color: #ccc;
+    line-height: 16px;
+
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+section.recent-vehicles .owl-nav button.owl-prev:hover,
+section.recent-vehicles .owl-nav button.owl-next:hover{
+    background-color: var(--redColor);
+}
+
+section.recent-vehicles .owl-nav button span{
+    padding: 8px;
+    color: #fff;
+    font-size: 30px;
+}
+
+section.recent-vehicles .owl-nav:active,
+section.recent-vehicles .owl-nav button.owl-prev:focus,
+section.recent-vehicles .owl-nav button.owl-next:focus,
+section.recent-vehicles .owl-nav button span:focus{
+    outline: 0;
+    border: 0;
+}
+
+/* Start MAP */
+
+section.map{
+    height: 450px;
+}
+
+/* END MAP */
+
+/* Start statistics */
+
+section.statistics{
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-image: url('src/assets/images/parallax21.jpg');
+    background-attachment: fixed;
+    overflow: hidden;
+    color: #fff;
+}
+
+section.statistics .overlay{
+    height: 100%;
+    background-color: rgba(0,0,0,0.65);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.statistics i{
+	display: block;
+    font-size: 60px;
+    line-height: 52px;
+}
+
+section.statistics h5{
+    font-size: 40px;
+    margin: 25px 0;
+    font-weight: 900;
+    font-family: 'Secular One', sans-serif;
+}
+
+section.statistics .info-counter-text {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* END statistics */
+
+

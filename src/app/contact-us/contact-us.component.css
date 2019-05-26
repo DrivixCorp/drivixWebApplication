@@ -1,0 +1,53 @@
+.map{
+    padding: 50px 0px;
+}
+.map h2{
+    color: #c7081b;
+    font-family: "Open Sans";
+    font-weight: bolder;
+}
+agm-map {
+    height: 500px;
+    width: 100%;
+}
+.contactInformation h5{
+    color: #c7081b;
+    font-family: "Open Sans";
+    font-weight: bolder;
+    font-size: 22px;
+}
+.contactInformation .Contact_info_Adress{
+    font-family: "Open Sans";
+    font-weight: bolder;
+    color: #2d2d2d;
+    font-size: 20px;
+}
+
+.contactInformation .fa, .contactInformation .fas ,.contactInformation .far {
+    font-size: 17px;
+    font-weight: bolder;
+}
+.infoSuchAsPhone i{
+    line-height: 1.8em;
+}
+.fa-phone:before ,.fa-envelope:before {
+    margin-right: 7px;
+}
+.card .form-control {
+    margin-bottom: 17px;
+}
+ .card .btn:not(:disabled):not(.disabled){
+    margin-top: 11px;
+}
+.card{
+    margin-bottom: 20px;
+}
+.card table{
+    width: 100%;
+}
+.card table .caption{
+    font-weight: bolder;
+    color: #c7081b;
+    font-size: 15px;
+}
+

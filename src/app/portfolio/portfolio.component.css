@@ -1,0 +1,33 @@
+.portfolio{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.portfolio .nav{
+    margin-bottom: 20px;
+}
+.portfolio span{
+    margin-right: .5%;
+    font-weight: bolder;
+    transition-duration: .3s;
+    padding: 8px;
+}
+.portfolio span:hover{
+    color: brown;
+    
+    cursor: pointer;
+}
+.portfolio .images .editImages{
+    height: 296px;
+    margin-bottom: 30px;
+    width: 100%;
+    transition: transform 0.25s ease;
+    cursor: zoom-in;
+}
+.portfolio .images .editImages:hover{
+    cursor: zoom-in;
+    transform: scale(1.1);
+}
+nav ol li{
+    cursor:pointer
+}
