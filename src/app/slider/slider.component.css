@@ -23,19 +23,19 @@ section.slider .carousel-inner .carousel-item{
 }
 
 section.slider .carousel-inner > div.carousel-item:first-of-type{
-	background-image: url(../../assets/images/slider1-min.jpg);
+	background-image: url(../../assets/images/car/s1.jpg);
 }
 
 section.slider .carousel-inner > div:nth-of-type(2){
-	background-image: url(../../assets/images/slider2-min.jpg);
+	background-image: url(../../assets/images/car/s2.jpg);
 }
 
-section.slider .carousel-inner > div:nth-of-type(3){
-	background-image: url(../../assets/images/slider3-min.jpg);
-}
+/*section.slider .carousel-inner > div:nth-of-type(3){*/
+/*	background-image: url(../../assets/images/slider3-min.jpg);*/
+/*}*/
 
 section.slider .carousel-inner > div:last-of-type{
-	background-image: url(../../assets/images/slider4-min.jpg);
+	background-image: url(../../assets/images/car/s3.jpg);
 }
 
 section.slider .carousel-bullets li{
@@ -183,3 +183,97 @@ section.slider:hover .arrow-control:last-of-type{right: 0;}
 
 .indicator:hover{background-color: var(--secondColor);}
 /* END Slider */
+.title1 {
+  float: left;
+  font-size: 60px;
+  text-transform: uppercase;
+  text-shadow: 2px 1px #000;
+  font-family: 'Rubik', sans-serif;
+}
+.title2 {
+  float: left;
+  color: #eeab10;
+  font-size: 45px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-family: 'Cabin', sans-serif;
+}
+.title3 {
+  float: left;
+  color: #e6e6e6;
+  font-size: 40px;
+  text-transform: capitalize;
+  text-shadow: 2px 1px #eeab10;
+  font-family: 'Rubik', sans-serif;
+}
+.shop-btn {
+  width: 200px;
+  padding: 5px;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  border-radius: 7px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  font-family: 'Open Sans', sans-serif;
+}
+.shop-btn:hover {
+  color: #2e2e2e;
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+.offers {
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+}
+.offer-square {
+  text-align: left;
+  margin: 10px;
+  padding: 30px;
+  font-family: 'Rubik',sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #868686;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+.offer-square1 {
+  background-image: url(../../assets/images/offers/1.jpg);
+}
+.offer-square2 {
+  background-image: url(../../assets/images/offers/2.jpg);
+}
+.offer-square h5 {
+  color: #eeab10;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+}
+.offer-square h3 {
+  color: white;
+  margin-bottom: 10px;
+  font-family: 'Rubik', sans-serif;
+}
+.offer-square h6 {
+  color: white;
+  margin-bottom: 10px;
+}
+.offer-square h6 span {
+  color: #eeab10
+}
+.offer-btn {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #eeab10;
+  font-family: 'Cabin', sans-serif;
+}

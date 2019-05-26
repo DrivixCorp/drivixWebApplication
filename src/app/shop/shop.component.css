@@ -1,158 +1,163 @@
 /* start page header*/
 /* Start page header */
 
-.page-header{
-	background-image: url("../../assets/images/shop_header.jpg");
-    height: 532px; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    background-attachment: scroll;
+.page-header {
+  /*background-image: url("../../assets/images/shop_header.jpg");*/
+  /*  height: 532px; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-attachment: scroll;
 }
 
-.page-header .overlay{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba(0,0,0,0.5);
+.page-header .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.page-header h3{
-    color: #fff;
-    font-family: 'Secular One', sans-serif;
-    font-size: 40px;
+.page-header h3 {
+  color: #fff;
+  font-family: 'Secular One', sans-serif;
+  font-size: 40px;
 }
 
-.page-nav{
-    text-transform: capitalize;
-    display: flex;
-    justify-content: flex-end;
+.page-nav {
+  text-transform: capitalize;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.page-nav .breadcrumb{
-    background: none;
+.page-nav .breadcrumb {
+  background: none;
 }
 
 .page-nav .breadcrumb li,
-.page-nav .breadcrumb li a{
-     font-family: 'Roboto', sans-serif;
-    color: #fff;
-    text-decoration: none;
+.page-nav .breadcrumb li a {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  text-decoration: none;
 }
 
-.page-nav .breadcrumb li a:hover{
-    color: var(--redColor);
-    font-weight: bold;
+.page-nav .breadcrumb li a:hover {
+  /*color: var(--redColor);*/
+  font-weight: bold;
+  font-family: 'Cabin', sans-serif;
 }
 
-.page-nav .breadcrumb li:before{
-    color: #fff;
+.page-nav .breadcrumb li:before {
+  color: #fff;
 }
 
-.page-header .container{
-    height: 100%;
+.page-header .container {
+  height: 100%;
 }
 
-.page-header .content{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+.page-header .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* END page header*/
 /* Start Shop */
 
 
-
 /* END Shop */
 
 /* start search bar */
 
-section.shop div.search-bar{
-	padding-top: 30px;
+section.shop div.search-bar {
+  padding-top: 30px;
 }
 
-section.shop div.search-bar .input-group-prepend span{
-	text-transform: capitalize;
+section.shop div.search-bar .input-group-prepend span {
+  text-transform: capitalize;
 }
 
-section.shop div.search-bar .row{
-	flex-direction: column;
+section.shop div.search-bar .row {
+  flex-direction: column;
 }
 
-section.shop div.search-bar .row h4{
-	font-size: 1.2em;
-    color: #988f8f;
-    text-transform: capitalize;
+section.shop div.search-bar .row h4 {
+  font-size: 1.2em;
+  color: #988f8f;
+  text-transform: capitalize;
 }
 
 /* end search bar */
-section.shop div.product-area .row{margin-right: 0;}
+section.shop div.product-area .row {
+  margin-right: 0;
+}
+
 /* Start category-nav */
 
-section.shop div.product-area .categories .row{
-	height: inherit;
+section.shop div.product-area .categories .row {
+  height: inherit;
 }
 
-section.shop div.product-area .categories{
-	height: inherit;
-	padding-right: 0;
+section.shop div.product-area .categories {
+  height: inherit;
+  padding-right: 0;
 }
 
-@media (min-width: 992px) { 
-	section.shop div.product-area .categories .navbar-expand-lg .navbar-nav {
-	    flex-direction: column;
-	}
+@media (min-width: 992px) {
+  section.shop div.product-area .categories .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+  }
 }
 
 
-section.shop div.product-area .categories .navbar-nav{
-	width: 100%;
+section.shop div.product-area .categories .navbar-nav {
+  width: 100%;
 }
 
-section.shop div.product-area .categories .navbar{padding: 0;}
+section.shop div.product-area .categories .navbar {
+  padding: 0;
+}
 
 section.shop div.product-area .categories,
-section.shop div.product-area .categories li{
-	background-color: #F1F1F1;
-	color: #000;
+section.shop div.product-area .categories li {
+  background-color: #F1F1F1;
+  color: #000;
 }
 
-section.shop div.product-area .categories li a{
-	color: #000;
+section.shop div.product-area .categories li a {
+  color: #000;
 }
 
-section.shop div.product-area .categories li{
-	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
-	text-transform: capitalize;
+section.shop div.product-area .categories li {
+  font-family: 'Cabin', sans-serif;
+  font-size: 18px;
+  text-transform: capitalize;
 }
 
-section.shop div.product-area .categories h3{
-	text-transform: uppercase;
-    font-family: 'Secular One', sans-serif;
-    font-size: 20px;
-    text-align: center;
-    margin: 30px 0;
+section.shop div.product-area .categories h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  margin: 30px 0;
+  font-family: 'Rubik', sans-serif;
 }
 
-section.shop div.product-area .categories h3:hover{
-	color: var(--redColor);
-	cursor: pointer;
+section.shop div.product-area .categories h3:hover {
+  cursor: pointer;
 }
 
-section.shop div.product-area .categories ul.navbar-nav > li:hover{
-	cursor: pointer;
-	background-color: #fff9;
+section.shop div.product-area .categories ul.navbar-nav > li:hover {
+  cursor: pointer;
+  background-color: #fff9;
 }
 
-section.shop div.product-area .categories ul.navbar-nav li.indent-items:hover ul li{
-	background-color: #F9F9F9;
+section.shop div.product-area .categories ul.navbar-nav li.indent-items:hover ul li {
+  background-color: #F9F9F9;
 }
+
 /*
 section.shop div.product-area .categories ul.navbar-nav li.indent-items:hover ul li a{
 	font-weight: bold;
@@ -160,65 +165,66 @@ section.shop div.product-area .categories ul.navbar-nav li.indent-items:hover ul
 */
 section.shop div.product-area .categories ul.navbar-nav > li:hover > a,
 section.shop div.product-area .categories ul.navbar-nav > li.indent-items:hover h5 a,
-section.shop div.product-area .categories ul.navbar-nav > li.indent-items ul li:hover a{
-	font-weight: bold;
+section.shop div.product-area .categories ul.navbar-nav > li.indent-items ul li:hover a {
+  font-weight: bold;
+  font-family: 'Rubik', sans-serif;
 }
 
-section.shop div.product-area .categories  li.indent-items i{
-	font-size: 1.7em;
+section.shop div.product-area .categories li.indent-items i {
+  font-size: 1.7em;
+  font-family: 'Rubik', sans-serif;
 }
 
-section.shop div.product-area .categories  li.indent-items i:hover{
-    color: var(--redColor); 
+section.shop div.product-area .categories li.indent-items i:hover {
 }
 
-section.shop div.product-area .categories  li.indent-items button:focus{
-	outline: 0 !important;
-    box-shadow: none;
+section.shop div.product-area .categories li.indent-items button:focus {
+  outline: 0 !important;
+  box-shadow: none;
 }
 
-section.shop div.product-area .categories  li.indent-items .row > div,
-section.shop div.product-area .categories  li.indent-items .row button{
-	padding: 0;
+section.shop div.product-area .categories li.indent-items .row > div,
+section.shop div.product-area .categories li.indent-items .row button {
+  padding: 0;
 }
 
-section.shop div.product-area .categories li.indent-items ul{
-	padding-left: 0;
+section.shop div.product-area .categories li.indent-items ul {
+  padding-left: 0;
 }
 
-section.shop button.navbar-toggler{
-    font-size: 25px;
+section.shop button.navbar-toggler {
+  font-size: 25px;
 }
 
-section.shop div.product-area div.button-toggle{
-	margin: 20px 0;
+section.shop div.product-area div.button-toggle {
+  font-family: 'Rubik', sans-serif;
 }
 
-section.shop div.product-area div.button-toggle button i:hover{
-	color: var(--redColor);
+section.shop div.product-area div.button-toggle button i:hover {
 }
 
-section.shop div.product-area div.button-toggle button:focus{
-	outline: 0 !important;
-    box-shadow: none;
+section.shop div.product-area div.button-toggle button:focus {
+  outline: 0 !important;
+  box-shadow: none;
 }
 
-@media (min-width: 992px) { 
-	section.shop div.product-area div.button-toggle{
-		display: none;
-	}
+@media (min-width: 992px) {
+  section.shop div.product-area div.button-toggle {
+    display: none;
+  }
 }
+
 /* category-nav */
 
 
 /* start product */
 
-div.products{
-	padding: 10px 30px 20px;
+div.products {
+  padding: 10px 30px 20px;
 }
 
-div.products .row{
-	margin-left: 0;
+div.products .row {
+  margin-left: 0;
 }
 
 /* end product */
@@ -227,118 +233,130 @@ div.products .row{
 
 
 div.product-item .row {
-    position: relative;
+  position: relative;
 }
 
-div.product-item .card-body{
-    padding: 15px 8px;
+div.product-item .card-body {
+  padding: 15px 8px;
 }
 
-div.product-item .image-header{
-    position: relative;
+div.product-item .image-header {
+  position: relative;
 }
 
-div.product-item .image-header .overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #d3d6da;
-    visibility: hidden;
+div.product-item .image-header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #d3d6da;
+  visibility: hidden;
 }
 
 
-div.product-item .image-header .triangle{
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 0 solid transparent;
-    border-left-width: 100px;
-    border-right-width: 0px;
-    border-top: 100px solid;
-    z-index: 3;
-    cursor: pointer;
+div.product-item .image-header .triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0 solid transparent;
+  border-left-width: 100px;
+  border-right-width: 0px;
+  border-top: 100px solid;
+  z-index: 3;
+  cursor: pointer;
 }
 
-div.product-item .image-header .triangle span{
-	left: -69px;
-    position: absolute;
-    bottom: 53px;
-    text-transform: uppercase;
-    transform: rotate(45deg);
-    font-size: 1em;
-    font-weight: bold;
+div.product-item .image-header .triangle span {
+  left: -69px;
+  position: absolute;
+  bottom: 53px;
+  text-transform: uppercase;
+  transform: rotate(45deg);
+  font-size: 1em;
+  font-weight: bold;
 }
 
-.triangle-light{border-top-color: #F4F4F4 !important;}
-
-.triangle-blue{border-top-color: #0541AF !important; color: #fff;}
-
-.triangle-red{border-top-color: var(--redColor) !important; color: #fff;}
-
-div.product-item .image-header .overlay button{text-transform: uppercase;}
-
-
-div.product-item .card:hover .overlay{
-    visibility: visible;
-    cursor: pointer;
+.triangle-light {
+  border-top-color: #F4F4F4 !important;
 }
 
-div.product-item .card-title{
-    font-size: 15px;
-    margin-bottom: 5px;
+.triangle-blue {
+  border-top-color: #0541AF !important;
+  color: #fff;
 }
 
-div.product-item .card-text{
-    margin-bottom: 10px;
+.triangle-red {
+  border-top-color: var(--redColor) !important;
+  color: #fff;
 }
 
-div.product-item .item .card-title a{
-	color: inherit;
-	text-decoration: none;
-	font-size: 1.2em;
+div.product-item .image-header .overlay button {
+  text-transform: uppercase;
 }
 
-div.product-item .item .card-text{color: #A3A3A3;}
 
-div.product-item .item .card-subtitle{
-	color: var(--redColor);
-	font-weight: bold;
-	font-size: 1.2em;
+div.product-item .card:hover .overlay {
+  visibility: visible;
+  cursor: pointer;
+}
+
+/*div.product-item .card-title {*/
+/*  font-size: 15px;*/
+/*  margin-bottom: 5px;*/
+/*}*/
+
+div.product-item .card-text {
+  margin-bottom: 10px;
+}
+
+div.product-item .item .card-title a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+div.product-item .item .card-text {
+  color: #A3A3A3;
+}
+
+div.product-item .item .card-subtitle {
+  /*color: var(--redColor);*/
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 div.product-item .rating {
-  	unicode-bidi: bidi-override;
-  	direction: rtl;
+  unicode-bidi: bidi-override;
+  direction: rtl;
 }
 
 div.product-item .rating > span {
-  	display: inline-block;
-  	position: relative;
-  	width: 1.1em;
-  	font-size: 1.8em;
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  font-size: 1.8em;
 }
 
-div.product-item  .rating > span:hover:before,
+div.product-item .rating > span:hover:before,
 .rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-   color: #FFD700;
-   cursor: pointer;
+  content: "\2605";
+  position: absolute;
+  color: #FFD700;
+  cursor: pointer;
 }
 
-div.product-item .image-header img{
-	height: 250px;
+div.product-item .image-header img {
+  height: 250px;
 }
 
 /* end product-item */
@@ -346,10 +364,66 @@ div.product-item .image-header img{
 
 /* start pagination-style */
 
-nav.nav-product{
-	display: flex;
-    flex-direction: column;
-    align-items: center;
+nav.nav-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* end pagination-style */
+
+/* updates */
+.category-title {
+  margin-top: 20px;
+  background-color: white;
+}
+
+section.shop div.product-area {
+  margin-top: 20px;
+}
+
+.categories {
+  background-color: white;
+}
+
+.categories-row {
+  background-color: white;
+}
+
+.btn-view {
+  color: white;
+  font-weight: bold;
+  background-color: #eeab10;
+  font-family: 'Rubik', sans-serif;
+}
+
+.offer-triangle span {
+  color: white;
+}
+
+.part-card-header {
+  padding: 0px;
+  background-color: white;
+}
+
+div.product-item .part-card-title {
+  color: #455a64;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Cabin', sans-serif;
+}
+.part-price {
+  color: #0d0d0d;
+  font-family: 'Rubik', sans-serif;
+}
+.add-btn {
+  background-color: #808080;
+  font-family: 'Open Sans', sans-serif;;
+}
+.results {
+  color: #0d0d0d;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  font-family: 'Rubik', sans-serif;
+}
