@@ -29,6 +29,7 @@ import { WinchCompanyViewComponent } from './winch-company-view/winch-company-vi
 import { OffersComponent } from './offers/offers.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { AboutComponent } from "./about/about.component";
 // 1. Import the libs you need
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -79,6 +80,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SliderComponent,
     FooterComponent,
     ContactUsComponent,
+    AboutComponent,
     HomeComponent,
     PortfolioComponent,
     ShopComponent,

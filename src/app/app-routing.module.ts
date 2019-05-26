@@ -17,6 +17,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GasStaionComponent } from './gas-staion/gas-staion.component';
 import { SparePartViewComponent } from './spare-part-view/spare-part-view.component';
 import { OffersComponent } from './offers/offers.component';
+import { AboutComponent } from "./about/about.component";
 
 const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:'offer',component:OffersComponent},
   {path:'product',component:ProductComponent},
   {path:'order',component:OrderComponent},
+  {path:'about',component:AboutComponent},
   {path:'**', component:HomeComponent}
   
 ];

@@ -3,29 +3,27 @@
 }
 .map h2{
     color: #c7081b;
-    font-family: "Open Sans";
+    font-family: 'Rubik', sans-serif;
     font-weight: bolder;
 }
 agm-map {
     height: 500px;
     width: 100%;
 }
+.contactInformation{
+  margin-top: 40px;
+}
 .contactInformation h5{
     color: #c7081b;
-    font-family: "Open Sans";
+    font-family: 'Rubik', sans-serif;
     font-weight: bolder;
     font-size: 22px;
 }
 .contactInformation .Contact_info_Adress{
-    font-family: "Open Sans";
+    font-family: 'Rubik', sans-serif;
     font-weight: bolder;
     color: #2d2d2d;
     font-size: 20px;
-}
-
-.contactInformation .fa, .contactInformation .fas ,.contactInformation .far {
-    font-size: 17px;
-    font-weight: bolder;
 }
 .infoSuchAsPhone i{
     line-height: 1.8em;
@@ -50,4 +48,125 @@ agm-map {
     color: #c7081b;
     font-size: 15px;
 }
+/* new updates */
+.contact-info-card{
+  height: 500px;
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #eeab10;
 
+}
+.card-info-row{
+  margin-top: 15px;
+}
+.contact-info-card .card-title{
+  color: #1a1a1a;
+  font-family: 'Rubik', sans-serif;
+}
+.contact-info-card .card-separator{
+  width: 100%;
+  height:3px;
+  border:none;
+  margin-left: 0px;
+  border-radius: 5px;
+  color:rgb(238, 171, 16);
+  background-color: aliceblue;
+  background-color:rgb(238, 171, 16);
+}
+.contact-info-card .card-info-label{
+  color: rgb(238, 171, 16);
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+}
+.contact-info-card .card-info{
+  color:#4d4d4d;
+  font-family: 'Hind Guntur', sans-serif;
+}
+.contact-info-card .card-view-btn{
+  margin: 15px;
+  display: block;
+  font-size: 16px;
+  background-color: #0d0d0d;
+  font-family: 'Rubik', sans-serif;
+}
+.contact-info-card .card-view-btn:hover{
+  color: white;
+  background-color: rgb(238, 171, 16);
+}
+.card-info-icon,
+.card-info-label
+{
+  color: rgb(238, 171, 16);
+}
+.form-card{
+  height: 500px;
+  background-color: #d9d9d9;
+}
+.form-card .card-title{
+  color: #000000;
+  font-family: 'Rubik', sans-serif;
+}
+.form-card .card-separator{
+  height:3px;
+  border:none;
+  border-radius: 5px;
+  color:rgb(238, 171, 16);
+  background-color: #0d0d0d;
+}
+.form_contact label{
+  color: #1a1a1a;
+  font-size: 13px;
+  font-family: 'Rubik', sans-serif;
+}
+.form_contact input,
+.form_contact textarea{
+  color: #333333;
+  font-size: 13px;
+  font-family: 'Rubik', sans-serif;
+}
+.form_contact .submit_contact_form{
+  font-family: 'Rubik', sans-serif;
+}
+.separator{
+  width: 100%;
+  height:3px;
+  border:none;
+  border-radius: 5px;
+  color:rgb(238, 171, 16);
+  background-color:rgb(238, 171, 16);
+}
+.map-title{
+  color: #0d0d0d !important;
+  font-family: 'Rubik', sans-serif;
+}
+.social-media-btns{
+  text-align: center;
+}
+.social-media-btns i{
+  font-size: 40px;
+  margin: 15px;
+  text-shadow: 2px 2px 4px #d9d9d9;
+}
+.social-media-btns .fa-facebook-square{
+  color: #0e4377;
+}
+.social-media-btns .fa-twitter-square{
+  color: #33ccff;
+}
+.social-media-btns .fa-google-plus-square{
+  color: #cc2900;
+}
+.contact-info-card .social-media-btns .card-separator{
+  width: 50%;
+  height:2px;
+  border:none;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 5px;
+  color:rgb(238, 171, 16);
+  background-color: #d9d9d9;
+}
+.map-container{
+  border: 4px solid #e6e6e6;
+  box-shadow: 2px 2px 7px #d9d9d9;
+}
