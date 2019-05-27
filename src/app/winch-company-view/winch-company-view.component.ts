@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { ManageRolesService } from '../Services/manage-roles.service';
 import { user } from 'src/OOP/classes/user';
+import {ViewChild, ElementRef, NgZone } from '@angular/core';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 declare var $:any;
 
 @Component({
@@ -67,9 +69,23 @@ export class WinchCompanyViewComponent implements OnInit {
   DataOfFreeWinchDriver:any;
   dataOfOneWinchDriver:any;
 
+   //location
+   title: string = 'AGM project';
+   latitude: number;
+   editLocation:any;
+   longitude: number;
+   zoom: number;
+   address: string;
+   private geoCoder:any;
+   colorLike:any;
+   @ViewChild('search')
+   public searchElementRef: ElementRef;
+   // end location
+
    constructor(private router:Router,private manageRoleService:ManageRolesService,
        private jq:JqueryCallingService,public Authentication:AuthenticationService,
-       private route:ActivatedRoute) { }
+       private route:ActivatedRoute, private mapsAPILoader: MapsAPILoader,
+       private ngZone: NgZone) { }
 
  ngOnInit() {
    console.log(this.router.url);
@@ -88,6 +104,8 @@ export class WinchCompanyViewComponent implements OnInit {
    
 
 this.loadMultiple();
+
+
    
 }
 GoToViewOrder(id:any){
@@ -153,6 +171,75 @@ loadMultiple(){
    .catch(err =>{
        console.log(err);
    });
+
+    // statt location
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+ 
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+     
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          console.log("place")
+          console.log(place.geometry)
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+ 
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
+          this.zoom = 12;
+        });
+      });
+    });
+    //end location
+}
+// Get Current Location Coordinates
+private setCurrentLocation() {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.zoom = 8;
+      this.getAddress(this.latitude, this.longitude);
+    });
+  }
+}
+
+
+markerDragEnd($event: MouseEvent) {
+  console.log($event);
+  this.latitude = $event.coords.lat;
+  this.longitude = $event.coords.lng;
+  this.getAddress(this.latitude, this.longitude);
+}
+markerDragEnd2(lat:number,long:number) {
+  this.latitude = lat;
+  this.longitude = long;
+  this.getAddress(this.latitude, this.longitude);
+}
+
+getAddress(latitude, longitude) {
+  this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+    if (status === 'OK') {
+      if (results[0]) {
+        this.zoom = 12;
+        this.address = results[0].formatted_address;
+      } else {
+        window.alert('No results found');
+      }
+    } else {
+      window.alert('Geocoder failed due to: ' + status);
+    }
+
+  });
 }
 passDataOfWinchDriver(data){
   this.dataOfOneWinchDriver = data;
@@ -580,5 +667,56 @@ preview(files :any) {
   }
   passDataBranch(data:any){
     this.editDataBranch = data;
+  }
+
+  passDataLocation(data:any){
+    this.editLocation = data;
+    this.markerDragEnd2(parseFloat(this.editLocation.lat),parseFloat(this.editLocation.long));
+  }
+  addLocation(id:any){
+    this.manageRoleService.addLocation(this.userData.token,id,this.address,this.latitude,this.longitude,"")
+    .then(sucess =>{
+      this.allAlerts = [];
+      this.allAlerts.push("Location Add Sucessfull");
+      this.showsucess(this.allAlerts);
+      this.loadMultiple();
+    })
+    .catch(err =>{
+      this.allAlerts = [];
+      this.allAlerts.push("Faild To ADD Location");
+      this.showMsgError(this.allAlerts);
+      console.log(err);
+    });
+  }
+  editLocatio(id:any){
+    this.manageRoleService.editLocatio(this.userData.token,id,this.address,this.latitude,this.longitude,this.editLocation.id)
+    .then(sucess =>{
+      this.allAlerts = [];
+      this.allAlerts.push("Location edit Sucessfull");
+      this.showsucess(this.allAlerts);
+      this.loadMultiple();
+    })
+    .catch(err =>{
+      this.allAlerts = [];
+      this.allAlerts.push("Faild To edit Location");
+      this.showMsgError(this.allAlerts);
+      console.log(err);
+    });
+  }
+  
+  deleteLocatio(id:any){
+    this.manageRoleService.deleteLocatio(this.userData.token,id,this.editLocation.id)
+    .then(sucess =>{
+      this.allAlerts = [];
+      this.allAlerts.push("Location deleted Sucessfull");
+      this.showsucess(this.allAlerts);
+      this.loadMultiple();
+    })
+    .catch(err =>{
+      this.allAlerts = [];
+      this.allAlerts.push("Faild To deleted Location");
+      this.showMsgError(this.allAlerts);
+      console.log(err);
+    });
   }
 }

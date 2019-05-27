@@ -30,7 +30,7 @@ export class WorkShopViewComponent implements OnInit {
     splitted_workingDay:any;
     arr_WorkingDay:any = [];
 
-    editLocation:any;
+    
     
     roleID:any;
     type:any;
@@ -57,15 +57,18 @@ export class WorkShopViewComponent implements OnInit {
   longitude: number;
   zoom: number;
   address: string;
+  editLocation:any;
   private geoCoder:any;
   colorLike:any;
   @ViewChild('search')
   public searchElementRef: ElementRef;
+  // end location
 
      constructor(private router:Router,private manageRoleService:ManageRolesService,
          private jq:JqueryCallingService,public Authentication:AuthenticationService,
          private route:ActivatedRoute, private mapsAPILoader: MapsAPILoader,
-         private ngZone: NgZone) { }
+         private ngZone: NgZone
+         ) { }
   
    ngOnInit() {
      console.log(this.router.url);
@@ -114,7 +117,7 @@ export class WorkShopViewComponent implements OnInit {
          }
            
         //  console.log(this.AllComments[0].commentlikes.length)
-        this.AllComments[0].commentlikes[0].userToken ="asas";
+     //   this.AllComments[0].commentlikes[0].userToken ="asas";
           for (let i = 0; i < this.AllComments.length; i++) {
            this.AllComments[i].liketype = -1;
              for (let y = 0; y < this.AllComments[i].commentlikes.length; y++) {
@@ -147,11 +150,6 @@ export class WorkShopViewComponent implements OnInit {
              }
              }
           }
-          console.log("--------")
-         console.log(this.AllComments);
-         this.AllComments[0].userToken ="sasa";
-         
-
         })
         .catch(e =>{
            console.log(e);
@@ -212,73 +210,75 @@ export class WorkShopViewComponent implements OnInit {
    });
     
     // statt location
-       //load Places Autocomplete
-   this.mapsAPILoader.load().then(() => {
-     this.setCurrentLocation();
-     this.geoCoder = new google.maps.Geocoder;
-
-     let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-       types: ["address"]
-     });
-     autocomplete.addListener("place_changed", () => {
-       this.ngZone.run(() => {
-         //get the place result
-         let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-
-         //verify result
-         if (place.geometry === undefined || place.geometry === null) {
-           return;
-         }
-
-         //set latitude, longitude and zoom
-         this.latitude = place.geometry.location.lat();
-         this.longitude = place.geometry.location.lng();
-         this.zoom = 12;
-       });
-     });
-   });
-    //end location
-  }
-
-  private setCurrentLocation() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = -position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 8;
-        this.getAddress(this.latitude, this.longitude);
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+ 
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
       });
-    }
-  }
-
-
+     
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          console.log("place")
+          console.log(place.geometry)
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
  
- 
-  markerDragEnd($event: MouseEvent) {
-    console.log($event);
-    this.latitude = $event.coords.lat;
-    this.longitude = $event.coords.lng;
-    this.getAddress(this.latitude, this.longitude);
-  }
- 
-  getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
-      console.log(results);
-      console.log(status);
-      if (status === 'OK') {
-        if (results[0]) {
+          //set latitude, longitude and zoom
+          this.latitude = place.geometry.location.lat();
+          this.longitude = place.geometry.location.lng();
           this.zoom = 12;
-          this.address = results[0].formatted_address;
-        } else {
-          window.alert('No results found');
-        }
-      } else {
-        window.alert('Geocoder failed due to: ' + status);
-      }
- 
+        });
+      });
+    });
+    //end location
+    
+  }
+// Get Current Location Coordinates
+private setCurrentLocation() {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.zoom = 8;
+      this.getAddress(this.latitude, this.longitude);
     });
   }
-  
+}
+
+
+markerDragEnd($event: MouseEvent) {
+  console.log($event);
+  this.latitude = $event.coords.lat;
+  this.longitude = $event.coords.lng;
+  this.getAddress(this.latitude, this.longitude);
+}
+markerDragEnd2(lat:number,long:number) {
+  this.latitude = lat;
+  this.longitude = long;
+  this.getAddress(this.latitude, this.longitude);
+}
+
+getAddress(latitude, longitude) {
+  this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+    if (status === 'OK') {
+      if (results[0]) {
+        this.zoom = 12;
+        this.address = results[0].formatted_address;
+      } else {
+        window.alert('No results found');
+      }
+    } else {
+      window.alert('Geocoder failed due to: ' + status);
+    }
+
+  });
+}
      showMsgError(Messsage:any){
       this.alertErr = [];
       this.alertSuc = [];
@@ -533,10 +533,9 @@ saveOrUpdateWorkshop(type:any,roleID:any){
       });
  
 }
-passDataLocation(data:any,lat:any,long:any){
+passDataLocation(data:any){
   this.editLocation = data;
-  
-  console.log(this.editLocation);
+  this.markerDragEnd2(parseFloat(this.editLocation.lat),parseFloat(this.editLocation.long));
 }
 addLocation(id:any){
   this.manageRoleService.addLocation(this.userData.token,id,this.address,this.latitude,this.longitude,"")
@@ -928,3 +927,4 @@ removeeditComment(id:any){
      $(".iconEdit"+id).hide();
   }
 }
+

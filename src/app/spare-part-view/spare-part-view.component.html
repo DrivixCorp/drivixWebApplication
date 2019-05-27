@@ -1,197 +1,248 @@
-
 <section style="margin:50px 20px;" *ngIf="AllData">
   <div class="row">
-      <div class="col-lg-8 col-12">
-         <div class="row">
-           <div class="col-12 text-muted">
-            <div class="row">
-              <div class="col name-title">
-                SPARE PARTS SHOPS <i class="fas fa-chevron-right"></i><span> {{ AllData.name }} </span>
-              </div>
-              <div class="col text-right text-muted">
-                <button class="btn service-operation-btn" data-toggle="modal" data-target="#imagearray">
-                  Manage Images <i class="fas fa-images"></i>
-                </button>
-                <button class="btn service-operation-btn" data-toggle="modal" data-target="#workshopModal00">
-                  Edit Service <i class="fas fa-edit" style="cursor:pointer;" data-toggle="modal" data-target="#workshopModal"></i>
-                </button>
-              </div>
-           </div>
+    <div class="col-lg-8 col-12">
+      <div class="row">
+        <div class="col-12 text-muted">
+          <div class="row">
+            <div class="col name-title">
+              SPARE PARTS SHOPS <i class="fas fa-chevron-right"></i><span> {{ AllData.name }} </span>
+            </div>
+            <div class="col text-right text-muted">
+              <button class="btn service-operation-btn" data-toggle="modal" data-target="#imagearray">
+                Manage Images <i class="fas fa-images"></i>
+              </button>
+              <button class="btn service-operation-btn" data-toggle="modal" data-target="#workshopModal00">
+                Edit Service <i class="fas fa-edit" style="cursor:pointer;" data-toggle="modal"
+                                data-target="#workshopModal"></i>
+              </button>
+            </div>
+          </div>
 
 
+        </div>
+        <div class="col-12 imgs-section">
+          <div class="slider slider_circle_10" *ngIf="AllData.roleimgs.length">
+            <div *ngFor="let img of AllData.roleimgs">
+              <div><img width="100%" height="100%" src="{{img.image}}" alt=""></div>
+            </div>
 
-           </div>
-           <div class="col-12 imgs-section">
-             <div class="slider slider_circle_10" *ngIf="AllData.roleimgs.length">
-               <div *ngFor ="let img of AllData.roleimgs">
-                 <div><img width="100%" height="100%" src="{{img.image}}" alt=""></div>
-               </div>
+            <div class="next_button"></div>
+            <div class="prev_button"></div>
+          </div>
+          <div *ngIf="!AllData.roleimgs.length" class="text-center text-muted p-5 mb-3"
+               style="background-color: #f2f2f294;">
 
-               <div class="next_button"></div>
-               <div class="prev_button"></div>
-             </div>
-             <div *ngIf="!AllData.roleimgs.length"  class="text-center text-muted p-5 mb-3" style="background-color: #f2f2f294;">
+            <h5 class="no-imgs-alert">
+              <i class="fas fa-info"></i> No Images yet
+            </h5>
+          </div>
+        </div>
 
-               <h5 class="no-imgs-alert">
-                 <i class="fas fa-info"></i> No Images yet
-               </h5>
-             </div>
-           </div>
-
-           <div class="col-8 description-container">
-             <span class="description-title">Description</span>
-             <span class="description">
+        <div class="col-8 description-container">
+          <span class="description-title">Description</span>
+          <span class="description">
                   {{ AllData.description }}
                 </span>
-           </div>
-           <div class="col-3">
-             <button class="btn btn-blue-grey btn-block offers-btn" (click)="goToOffer()"><i class="fas fa-star"></i> View Offers</button>
-             <button class="btn btn-blue-grey btn-block offers-btn" (click)="goToProduct()"><i class="fas fa-cogs"></i> View Products</button>
-           </div>
-           
-         </div>
-        <section class="mb-5">
-          <div class="container text-center">
-            <div class="">
-              <!--start card comment-->
-              <div class="card comments-card mb-3" style="min-width: 18rem;">
-                <div class="card-header text-center text-muted">
-                  <h5 style="margin:0px;">Comments</h5>
-                </div>
-                <div class="card-body">
-                  <div class="row" *ngIf="true">
-                    <div *ngIf="!AllComments.length"  class="col-12 text-muted text-center">
-                      <h5 class="m-0 p-0">No Comments Yet</h5>
-                    </div>
+        </div>
+        <div class="col-3">
+          <button class="btn btn-blue-grey btn-block offers-btn" (click)="goToOffer()"><i class="fas fa-star"></i> View
+            Offers
+          </button>
+          <button class="btn btn-blue-grey btn-block offers-btn" (click)="goToProduct()"><i class="fas fa-cogs"></i>
+            View Products
+          </button>
+        </div>
+
+      </div>
+      <section class="mb-5">
+        <div class="container text-center">
+          <div class="">
+            <!--start card comment-->
+            <div class="card comments-card mb-3" style="min-width: 18rem;">
+              <div class="card-header text-center text-muted">
+                <h5 style="margin:0px;">Comments</h5>
+              </div>
+              <div class="card-body">
+                <div class="row" *ngIf="true">
+                  <div *ngIf="!AllComments.length" class="col-12 text-muted text-center">
+                    <h5 class="m-0 p-0">No Comments Yet</h5>
                   </div>
-                  <div *ngIf="AllComments">
-                    <div *ngFor="let data of AllComments;let i = index">
+                </div>
+                <div *ngIf="AllComments">
+                  <div *ngFor="let data of AllComments;let i = index">
 
-                      <div class="mb-1" style="padding: 6px;">
-                        <div style="text-align:left">
+                    <div class="mb-1" style="padding: 6px;">
+                      <div style="text-align:left">
 
-                          <h3 style="color: #eeab10;font-size:18px; font-weight: bolder;">
-                            <img width="50px" height="50px" style="border-radius: 50%" src="{{data.userImg}}" alt="">
-                            {{data.username}} <br>
-                          </h3>
-                          <hr>
-                          <div class="col-lg-10">
-                            <textarea type="text" *ngIf="userData.token == data.userToken " [(ngModel)] ="data.comment" disabled id="editInput{{data.id}}" class="inputOfComment"></textarea>
-                            <textarea type="text" *ngIf="userData.token != data.userToken " [(ngModel)] ="data.comment" disabled class="inputOfComment"></textarea>
-                          </div>
-                          <div class="col-lg-2" style="margin: auto; text-align: center">
-                            <button class="btn btn-primary comment-operation-btn ei ml-2 iconEdit{{data.id}}" (click)="removeeditComment(data.id)">
-                              cancel <i  class="far fa-times-circle ei ml-2 iconEdit{{data.id}}" style="color:white;" (click)="removeeditComment(data.id)"></i>
-                            </button>
-
-                            <button class="btn btn-success comment-operation-btn ei ml-2 iconEdit{{data.id}}" (click)="removeeditComment(data.id)">
-                              save <i  class="fas fa-edit  ei ml-2 iconEdit{{data.id}}" style="color:white;" (click)="editComment(data.comment,data.id)"></i>
-                            </button>
-                          </div>
-                          <hr>
+                        <h3 style="color: #eeab10;font-size:18px; font-weight: bolder;">
+                          <img width="50px" height="50px" style="border-radius: 50%" src="{{data.userImg}}" alt="">
+                          {{data.username}} <br>
+                        </h3>
+                        <hr>
+                        <div class="col-lg-10">
+                          <textarea type="text" *ngIf="userData.token == data.userToken " [(ngModel)]="data.comment"
+                                    disabled id="editInput{{data.id}}" class="inputOfComment"></textarea>
+                          <textarea type="text" *ngIf="userData.token != data.userToken " [(ngModel)]="data.comment"
+                                    disabled class="inputOfComment"></textarea>
                         </div>
-                        <div class="row mt-3" >
-                          <div class="col text-left" *ngIf="userData.token == data.userToken ">
-                            <span style="" class="ml-3 comment-operations" (click)="editInput(data.id)">Edit</span><!--(click)="editComment(data.comment,data.id)"-->
-                            <span style="" class="ml-3 comment-operations" (click)="deleteComment(data.id)">Delete</span>
-                          </div>
-                          <div class="col text-right">
+                        <div class="col-lg-2" style="margin: auto; text-align: center">
+                          <button class="btn btn-primary comment-operation-btn ei ml-2 iconEdit{{data.id}}"
+                                  (click)="removeeditComment(data.id)">
+                            cancel <i class="far fa-times-circle ei ml-2 iconEdit{{data.id}}" style="color:white;"
+                                      (click)="removeeditComment(data.id)"></i>
+                          </button>
+
+                          <button class="btn btn-success comment-operation-btn ei ml-2 iconEdit{{data.id}}"
+                                  (click)="removeeditComment(data.id)">
+                            save <i class="fas fa-edit  ei ml-2 iconEdit{{data.id}}" style="color:white;"
+                                    (click)="editComment(data.comment,data.id)"></i>
+                          </button>
+                        </div>
+                        <hr>
+                      </div>
+                      <div class="row mt-3">
+                        <div class="col text-left" *ngIf="userData.token == data.userToken ">
+                          <span style="" class="ml-3 comment-operations" (click)="editInput(data.id)">Edit</span>
+                          <!--(click)="editComment(data.comment,data.id)"-->
+                          <span style="" class="ml-3 comment-operations" (click)="deleteComment(data.id)">Delete</span>
+                        </div>
+                        <div class="col text-right">
                                 <span *ngIf="data.liketype == 1">
-                                    <span  style="color:blue; cursor: pointer;" (click)="deleteestimateComment(data.id)">{{data.likesCount}} <i class="fas fa-thumbs-up"></i></span>
-                                    <span style="color:gray;cursor: pointer;" class="ml-3" (click)="estimateComment(0,data.id)">{{data.dislikesCount}} <i class="fas fa-thumbs-down"></i></span>
+                                    <span style="color:blue; cursor: pointer;"
+                                          (click)="deleteestimateComment(data.id)">{{data.likesCount}} <i
+                                      class="fas fa-thumbs-up"></i></span>
+                                    <span style="color:gray;cursor: pointer;" class="ml-3"
+                                          (click)="estimateComment(0,data.id)">{{data.dislikesCount}} <i
+                                      class="fas fa-thumbs-down"></i></span>
 
                                 </span><span *ngIf="data.liketype == 0">
-                                    <span  style="color:gray; cursor: pointer;" (click)="estimateComment(1,data.id)">{{data.likesCount}} <i class="fas fa-thumbs-up"></i></span>
-                                    <span style="color:blue;cursor: pointer;" class="ml-3" (click)="deleteestimateComment(data.id)">{{data.dislikesCount}} <i class="fas fa-thumbs-down"></i></span>
+                                    <span style="color:gray; cursor: pointer;"
+                                          (click)="estimateComment(1,data.id)">{{data.likesCount}} <i
+                                      class="fas fa-thumbs-up"></i></span>
+                                    <span style="color:blue;cursor: pointer;" class="ml-3"
+                                          (click)="deleteestimateComment(data.id)">{{data.dislikesCount}} <i
+                                      class="fas fa-thumbs-down"></i></span>
 
                                 </span>
-                            <span *ngIf="data.liketype == -1">
-                                    <span  style="color:gray; cursor: pointer;" (click)="estimateComment(1,data.id)">{{data.likesCount}} <i class="fas fa-thumbs-up"></i></span>
-                                    <span style="color:gray;cursor: pointer;" class="ml-3" (click)="estimateComment(0,data.id)">{{data.dislikesCount}} <i class="fas fa-thumbs-down"></i></span>
+                          <span *ngIf="data.liketype == -1">
+                                    <span style="color:gray; cursor: pointer;"
+                                          (click)="estimateComment(1,data.id)">{{data.likesCount}} <i
+                                      class="fas fa-thumbs-up"></i></span>
+                                    <span style="color:gray;cursor: pointer;" class="ml-3"
+                                          (click)="estimateComment(0,data.id)">{{data.dislikesCount}} <i
+                                      class="fas fa-thumbs-down"></i></span>
 
                                 </span>
-                            <span class="ml-3 comment-operations" data-toggle="collapse" [attr.data-target]="'#aa' + data.id" aria-expanded="true" aria-controls="collapseOne">Replys</span>
-
-                          </div>
+                          <span class="ml-3 comment-operations" data-toggle="collapse"
+                                [attr.data-target]="'#aa' + data.id" aria-expanded="true" aria-controls="collapseOne">Replys</span>
 
                         </div>
-                        <div class="row text-center mt-2">
-                          <div class="col text-center">
-                            <div class="accordion" id="accordionExample">
-                              <div class="card reply-card">
-                                <div id="aa{{data.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                  <div class="card-body">
-                                    <div *ngIf="data.replay">
-                                      <div *ngFor="let data2 of data.replay">
-                                        <div class="mb-1" style="background: #f2f2f2;padding: 6px;border-radius: 10px;">
-                                          <div style="text-align:left">
 
-                                            <h3 style="color: #eeab10;font-size:18px; font-weight: bolder;">
-                                              <img width="50px" height="50px" style="border-radius: 50%" src="{{data2.userImg}}" alt="">
-                                              {{data2.username}} <br>
-                                            </h3>
+                      </div>
+                      <div class="row text-center mt-2">
+                        <div class="col text-center">
+                          <div class="accordion" id="accordionExample">
+                            <div class="card reply-card">
+                              <div id="aa{{data.id}}" class="collapse show" aria-labelledby="headingOne"
+                                   data-parent="#accordionExample">
+                                <div class="card-body">
+                                  <div *ngIf="data.replay">
+                                    <div *ngFor="let data2 of data.replay">
+                                      <div class="mb-1" style="background: #f2f2f2;padding: 6px;border-radius: 10px;">
+                                        <div style="text-align:left">
 
-                                            <hr>
+                                          <h3 style="color: #eeab10;font-size:18px; font-weight: bolder;">
+                                            <img width="50px" height="50px" style="border-radius: 50%"
+                                                 src="{{data2.userImg}}" alt="">
+                                            {{data2.username}} <br>
+                                          </h3>
 
-                                            <textarea type="text" *ngIf="userData.token == data2.userToken " [(ngModel)] ="data2.comment"   disabled id="editInput{{data2.id}}" class="inputOfComment"></textarea>
-                                            <textarea type="text" *ngIf="userData.token != data2.userToken " [(ngModel)] ="data2.comment" disabled class="inputOfComment"></textarea>
-                                            <br>
-                                            <div style="margin-left:7%">
-
-                                              <button class="btn btn-primary comment-operation-btn  ei ml-2 iconEdit{{data2.id}}" (click)="removeeditComment(data2.id)">
-                                                cancel <i  class="far fa-times-circle ei ml-2 iconEdit{{data2.id}}" style="color:white;" (click)="removeeditComment(data2.id)"></i>
-                                              </button>
-
-                                              <button class="btn btn-success comment-operation-btn ei ml-2 iconEdit{{data2.id}}" (click)="editComment(data2.comment,data2.id)">
-                                                save <i  class="fas fa-edit  ei ml-2 iconEdit{{data2.id}}" style="color:white;" (click)="editComment(data2.comment,data2.id)"></i>
-                                              </button>
-
-                                            </div>
-
-                                          </div>
                                           <hr>
-                                          <div class="row mt-3" >
-                                            <div class="col text-left" *ngIf="userData.token == data2.userToken ">
-                                              <span class="ml-3 comment-operations"  (click)="editInput(data2.id)">Edit</span>
-                                              <span class="ml-3 comment-operations" (click)="deleteComment(data2.id)">Delete</span>
-                                            </div>
-                                            <div class="col text-right">
-                                                              <span *ngIf="data2.liketype == 1">
-                                                                  <span  style="color:blue; cursor: pointer;" (click)="deleteestimateComment(data2.id)">{{data2.replayLikesCount}} <i class="fas fa-thumbs-up"></i></span>
-                                                                  <span style="color:gray;cursor: pointer;" class="ml-3" (click)="estimateComment(0,data2.id)">{{data2.replayDislikesCount}} <i class="fas fa-thumbs-down"></i></span>
 
-                                                              </span><span *ngIf="data2.liketype == 0">
-                                                                  <span  style="color:gray; cursor: pointer;" (click)="estimateComment(1,data2.id)">{{data2.replayLikesCount}} <i class="fas fa-thumbs-up"></i></span>
-                                                                  <span style="color:blue;cursor: pointer;" class="ml-3" (click)="deleteestimateComment(data2.id)">{{data2.replayDislikesCount}} <i class="fas fa-thumbs-down"></i></span>
+                                          <textarea type="text" *ngIf="userData.token == data2.userToken "
+                                                    [(ngModel)]="data2.comment" disabled id="editInput{{data2.id}}"
+                                                    class="inputOfComment"></textarea>
+                                          <textarea type="text" *ngIf="userData.token != data2.userToken "
+                                                    [(ngModel)]="data2.comment" disabled
+                                                    class="inputOfComment"></textarea>
+                                          <br>
+                                          <div style="margin-left:7%">
 
-                                                              </span>
-                                              <span *ngIf="data2.liketype == -1">
-                                                                  <span  style="color:gray; cursor: pointer;" (click)="estimateComment(1,data2.id)">{{data2.replayLikesCount}} <i class="fas fa-thumbs-up"></i></span>
-                                                                  <span style="color:gray;cursor: pointer;" class="ml-3" (click)="estimateComment(0,data2.id)">{{data2.replayDislikesCount}} <i class="fas fa-thumbs-down"></i></span>
+                                            <button
+                                              class="btn btn-primary comment-operation-btn  ei ml-2 iconEdit{{data2.id}}"
+                                              (click)="removeeditComment(data2.id)">
+                                              cancel <i class="far fa-times-circle ei ml-2 iconEdit{{data2.id}}"
+                                                        style="color:white;" (click)="removeeditComment(data2.id)"></i>
+                                            </button>
 
-                                                              </span>
-
-
-                                            </div>
+                                            <button
+                                              class="btn btn-success comment-operation-btn ei ml-2 iconEdit{{data2.id}}"
+                                              (click)="editComment(data2.comment,data2.id)">
+                                              save <i class="fas fa-edit  ei ml-2 iconEdit{{data2.id}}"
+                                                      style="color:white;"
+                                                      (click)="editComment(data2.comment,data2.id)"></i>
+                                            </button>
 
                                           </div>
 
                                         </div>
+                                        <hr>
+                                        <div class="row mt-3">
+                                          <div class="col text-left" *ngIf="userData.token == data2.userToken ">
+                                            <span class="ml-3 comment-operations"
+                                                  (click)="editInput(data2.id)">Edit</span>
+                                            <span class="ml-3 comment-operations" (click)="deleteComment(data2.id)">Delete</span>
+                                          </div>
+                                          <div class="col text-right">
+                                                              <span *ngIf="data2.liketype == 1">
+                                                                  <span style="color:blue; cursor: pointer;"
+                                                                        (click)="deleteestimateComment(data2.id)">{{data2.replayLikesCount}}
+                                                                    <i class="fas fa-thumbs-up"></i></span>
+                                                                  <span style="color:gray;cursor: pointer;" class="ml-3"
+                                                                        (click)="estimateComment(0,data2.id)">{{data2.replayDislikesCount}}
+                                                                    <i class="fas fa-thumbs-down"></i></span>
+
+                                                              </span><span *ngIf="data2.liketype == 0">
+                                                                  <span style="color:gray; cursor: pointer;"
+                                                                        (click)="estimateComment(1,data2.id)">{{data2.replayLikesCount}}
+                                                                    <i class="fas fa-thumbs-up"></i></span>
+                                                                  <span style="color:blue;cursor: pointer;" class="ml-3"
+                                                                        (click)="deleteestimateComment(data2.id)">{{data2.replayDislikesCount}}
+                                                                    <i class="fas fa-thumbs-down"></i></span>
+
+                                                              </span>
+                                            <span *ngIf="data2.liketype == -1">
+                                                                  <span style="color:gray; cursor: pointer;"
+                                                                        (click)="estimateComment(1,data2.id)">{{data2.replayLikesCount}}
+                                                                    <i class="fas fa-thumbs-up"></i></span>
+                                                                  <span style="color:gray;cursor: pointer;" class="ml-3"
+                                                                        (click)="estimateComment(0,data2.id)">{{data2.replayDislikesCount}}
+                                                                    <i class="fas fa-thumbs-down"></i></span>
+
+                                                              </span>
+
+
+                                          </div>
+
+                                        </div>
+
                                       </div>
-                                    </div>
-                                    <div *ngIf="!data.replay.length" class="no-reply">
-                                      No Replys Yet!
                                     </div>
                                   </div>
-                                  <div class="card-footer text-center">
-                                    <div class="row">
-                                      <div  class="col-12 text-left">
-                                        <input type="text" #comment2 class="inComment2" placeholder="Reply This Comment">
-                                        <i class="fas fa-chevron-right" style="margin-left: 14px;font-size: 22px;color: #4d4d4d;" (click)="addComment(comment2.value,data.id)"></i>
-                                      </div>
-
-
+                                  <div *ngIf="!data.replay.length" class="no-reply">
+                                    No Replys Yet!
+                                  </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                  <div class="row">
+                                    <div class="col-12 text-left">
+                                      <input type="text" #comment2 class="inComment2" placeholder="Reply This Comment">
+                                      <i class="fas fa-chevron-right"
+                                         style="margin-left: 14px;font-size: 22px;color: #4d4d4d;"
+                                         (click)="addComment(comment2.value,data.id)"></i>
                                     </div>
+
+
                                   </div>
                                 </div>
                               </div>
@@ -202,28 +253,30 @@
                     </div>
                   </div>
                 </div>
-                <div class="card-footer text-center">
-                  <div class="row">
-                    <div  class="col-12 text-left">
-                      <input type="text" #comment class="inComment" placeholder="Write Comment">
-                      <i class="fab fas fa-chevron-right" style="margin-left: 14px;font-size: 22px;color: #4d4d4d;" (click)="addComment(comment.value,'')"></i>
-                    </div>
-
-
+              </div>
+              <div class="card-footer text-center">
+                <div class="row">
+                  <div class="col-12 text-left">
+                    <input type="text" #comment class="inComment" placeholder="Write Comment">
+                    <i class="fab fas fa-chevron-right" style="margin-left: 14px;font-size: 22px;color: #4d4d4d;"
+                       (click)="addComment(comment.value,'')"></i>
                   </div>
+
+
                 </div>
               </div>
-              <!--end card comment-->
             </div>
+            <!--end card comment-->
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+    </div>
 
     <div class="col-lg-2" style="margin:0px;padding:5px;margin-left:50px;">
       <div class="row">
         <div class="col-12">
           <!--start card working day-->
-          <div class="card mb-3 working-day-card" style="min-width: 18rem; margin:0px;" >
+          <div class="card mb-3 working-day-card" style="min-width: 18rem; margin:0px;">
             <div class="card-header text-center text-muted">
               <h5 style="margin:0px;"><i class="fas fa-calendar-minus"></i> Working Day</h5>
             </div>
@@ -301,7 +354,9 @@
 
             </div>
             <div class="card-footer text-center" style="letter-spacing:2px;">
-              <h6><span class="text-muted"><i class="far fa-clock"></i> </span><span style="font-weight:bolder">{{AllData.work_from}}</span> <span class="text-muted"> - </span> <span style="font-weight:bolder">{{AllData.work_to}}</span></h6>
+              <h6><span class="text-muted"><i class="far fa-clock"></i> </span><span
+                style="font-weight:bolder">{{AllData.work_from}}</span> <span class="text-muted"> - </span> <span
+                style="font-weight:bolder">{{AllData.work_to}}</span></h6>
             </div>
           </div>
           <!--end card working day-->
@@ -325,7 +380,8 @@
                             <h5 class="card-title">0{{phone.phone}}</h5>
                           </div>
                           <div class="col-4 text-right">
-                            <i class="fas fa-edit" style="color:#cccccc;cursor:pointer" (click)="passData(phone)" data-toggle="modal" data-target="#editPhoneModal"></i>
+                            <i class="fas fa-edit" style="color:#cccccc;cursor:pointer" (click)="passData(phone)"
+                               data-toggle="modal" data-target="#editPhoneModal"></i>
                           </div>
                         </div>
 
@@ -337,13 +393,15 @@
 
                       </div>
                       <div class="card-footer text-center">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPhoneModal" >Add New Phone</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPhoneModal">
+                          Add New Phone
+                        </button>
                       </div>
                     </div>
                   </div>
                   <!--modal add phone-->
                   <div class="modal fade right" tabindex="-1" role="dialog" id="addPhoneModal">
-                    <div class="modal-dialog modal-side modal-top-bottom" role="document" >
+                    <div class="modal-dialog modal-side modal-top-bottom app-modal" role="document">
                       <div class="modal-content">
                         <div class="modal-body">
                           <div class="row">
@@ -369,17 +427,21 @@
                               <label for="exampleFormControlFile1">Phone</label>
                               <input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
                                      id="exampleFormControlFile1" aria-describedby="" placeholder="Enter Phone Number"
-                                     name='phone' #phone='ngModel' required [(ngModel)]='formPhone' [class.error]="phone.errors && phone.invalid && phone.touched">
+                                     name='phone' #phone='ngModel' required [(ngModel)]='formPhone'
+                                     [class.error]="phone.errors && phone.invalid && phone.touched">
                               <div class="form-input-error" *ngIf="phone.errors && phone.invalid && phone.touched">
-                                <small *ngIf="phone.errors.required" class='text-danger ml-2'>phone is required <br></small>
+                                <small *ngIf="phone.errors.required" class='text-danger ml-2'>phone is required <br>
+                                </small>
                                 <small *ngIf="phone.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
                               </div>
                             </div>
                           </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" form="form_phone"  [disabled]='Phoneform.form.invalid' class="btn btn-primary submitbtn">Save</button>
+                          <button type="button" class="btn cancel-btn" data-dismiss="modal">Close</button>
+                          <button type="submit" form="form_phone" [disabled]='Phoneform.form.invalid'
+                                  class="btn submit-btn submitbtn"><i class="fas fa-plus"></i> Add
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -387,7 +449,7 @@
                   <!--end modal add phone-->
                   <!--modal edit phone-->
                   <div *ngIf="phoneData" class="modal fade right" tabindex="-1" role="dialog" id="editPhoneModal">
-                    <div class="modal-dialog modal-side modal-top-bottom" role="document" >
+                    <div class="modal-dialog modal-side modal-top-bottom app-modal" role="document">
                       <div class="modal-content">
                         <div class="modal-body">
                           <div class="row">
@@ -408,22 +470,28 @@
                               </div>
                             </div>
                           </div>
-                          <form #Phoneform2="ngForm"  id="form_phone2" novalidate>
+                          <form #Phoneform2="ngForm" id="form_phone2" novalidate>
                             <div class="form-group">
-                              <label for="exampleFormControlFile1">Phone</label>
+                              <label for="exampleFormControlFile1"><i class="fas fa-minus"></i> Enter phone <i class="fas fa-minus"></i></label>
                               <input type="number" class="form-control" pattern="[\+()]*(?:\d[\s\-\.()xX]*){10,11}"
                                      id="exampleFormControlFile1" aria-describedby="" placeholder="Enter Edit Number"
-                                     name='Phone2' #phone2='ngModel' required [(ngModel)]='phoneData.phone' [class.error]="phone2.errors && phone2.invalid && phone2.touched">
+                                     name='Phone2' #phone2='ngModel' required [(ngModel)]='phoneData.phone'
+                                     [class.error]="phone2.errors && phone2.invalid && phone2.touched">
                               <div class="form-input-error" *ngIf="phone2.errors && phone2.invalid && phone2.touched">
-                                <small *ngIf="phone2.errors.required" class='text-danger ml-2'>phone is required <br></small>
+                                <small *ngIf="phone2.errors.required" class='text-danger ml-2'>phone is required <br>
+                                </small>
                                 <small *ngIf="phone2.errors.pattern" class='text-danger ml-2'>phone is invalid</small>
                               </div>
                             </div>
                           </form>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" (click) ="deletePhone()" data-dismiss="modal">Delete</button>
-                          <button type="submit" form="form_phone2" (click) ="editPhone()" [disabled]='Phoneform2.form.invalid' class="btn btn-primary submitbtn">Update</button>
+                          <button type="button" class="btn cancel-btn" (click)="deletePhone()" data-dismiss="modal">
+                            <i class="far fa-trash-alt"></i> Delete
+                          </button>
+                          <button type="submit" form="form_phone2" (click)="editPhone()"
+                                  [disabled]='Phoneform2.form.invalid' class="btn submit-btn"><i class="fas fa-check"></i> Update
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -443,23 +511,26 @@
                             <h5 class="card-title text-muted">{{addrs.location}}</h5>
                           </div>
                           <div class="col-4 text-right">
-                            <i  class="fas fa-edit" style="color:#cccccc;cursor:pointer" (click)="passDataLocation(addrs)" data-toggle="modal" data-target="#exampleModalScrollable2"></i>
+                            <i class="fas fa-edit" style="color:#cccccc;cursor:pointer"
+                               (click)="passDataLocation(addrs)" data-toggle="modal"
+                               data-target="#exampleModalScrollable2"></i>
                           </div>
                         </div>
 
-                        <div class="row" *ngIf="!AllData.rolephone.length">
+                        <div class="row" *ngIf="!AllData.rolelocation.length">
                           <div class="col-12 text-muted text-center">
                             <h5 class="m-0 p-0">No Address Please Add New Adress</h5>
                           </div>
                         </div>
                       </div>
                       <div class="card-footer text-center">
-                        <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalScrollable">Add Location</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModalScrollable">Add Location
+                        </button>
                       </div>
                     </div>
                   </div>
                   <!--end card location-->
-
                 </div>
               </section>
             </div>
@@ -468,264 +539,407 @@
       </div>
     </div>
   </div>
-      
+
 </section>
 
 
-
 <!--------------------------------Modal 2 of edit spareparts--------------------------->
-      
-<div *ngIf="AllData"  class="modal fade" id="workshopModal00" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true" style="z-index: 9999999999999;">
-<div class="modal-dialog modal-notify modal-warning" role="document">
-  <!--Content-->
-  <div class="modal-content">
-    <!--Header-->
-    <div class="modal-header text-center">
-      <h4 class="modal-title white-text w-100 font-weight-bold py-2">Edit Spare Parts</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true" class="white-text">&times;</span>
-      </button>
-    </div>
 
-    <!--Body-->
-    <div class="modal-body">
-      <div class="row">
-       <div class="col-12">
-        <div class="formError">
-          <div *ngFor="let mss of alertErr">
-            <div class="alert alert-danger" role="alert">
-              <strong>Alert!</strong> {{mss}}.
-            </div>
-          </div>
-      </div>
-      <div class="formError">
-        <div *ngFor="let mss of alertSuc">
-          <div class="alert alert-success" role="alert">
-            <strong>Alert!</strong> {{mss}}.
-          </div>
-        </div>
-    </div>
-       </div>
-      </div>
-      <form #spareparts_validation="ngForm" (ngSubmit)='saveOrUpdateSpareParts(3,AllData.id)' id="form_spareparts" novalidate>
-      <div class="md-form mb-5" style="margin-bottom:0em !important">
-        <i class="fas fa-briefcase prefix grey-text"></i>
-        <input type="text" id="formName_spareparts" class="form-control validate is-valid" placeholder="Spare Parts Name" required
-        [(ngModel)]='AllData.name'name="FullName_spareparts" #fullName_spareparts='ngModel' [class.error]="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
-
-        <div class="form-input-error" *ngIf="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
-            <small *ngIf="fullName_spareparts.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is required 
-              <br></small>
-            <small *ngIf="fullName_spareparts.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
-              <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is invalid
-            </small>
-        </div>
-      </div>
-
-        <div class="md-form mb-5">
-          From
-            <i class="far fa-clock prefix grey-text"></i>
-            
-            <input type="time" value="13:00" step="900"   id="formTimeStart_spareparts" class="form-control validate is-valid" 
-             style="width:calc(40% - 2.5rem);display:inline-block" required
-            [(ngModel)]='AllData.work_from' name="timeStart_spareparts" #TimeStart_spareparts='ngModel' [class.error]="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched">
-  
-            
-            To
-              <i class="far fa-clock prefix grey-text"></i>
-              <input type="time" value="13:00" step="900" id="formTimeEnd_spareparts" class="form-control validate is-valid" 
-              style="width:calc(40% - 2.5rem);display:inline-block" required
-              [(ngModel)]='AllData.work_to' name="timeEnd_spareparts" #TimeEnd_spareparts='ngModel' [class.error]="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched">
-
-              <div class="form-input-error" *ngIf="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched" style="display:inline-block;">
-                  <small *ngIf="TimeStart_spareparts.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
-                    <br></small>
-                  <small *ngIf="TimeStart_spareparts.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
-                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
-                  </small>
-              </div>
-              <div class="form-input-error" *ngIf="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched" style="display:inline-block;">
-                  <small *ngIf="TimeEnd_spareparts.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
-                    <br></small>
-                  <small *ngIf="TimeEnd_spareparts.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
-                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
-                  </small>
-              </div>
-            </div>
-
-            <div class="input-group my-3">
-               <div class="input-group-prepend">
-                 <span class="input-group-text" id="basic-addon3">https:</span>
-               </div>
-               <input [(ngModel)]='AllData.carservice.URL' name="URL_spareParts" placeholder="Your socail Url"  type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-             </div>
-
-            <div class="row my-4">
-               <div class="col-6">
-                   <div class="custom-control custom-radio custom-control-inline">
-                       <input [(ngModel)]='sparePartsType_spareparts' value="0" type="radio" id="customRadioInline10__00" name="customRadioInline1__000" class="custom-control-input">
-                       <label class="custom-control-label" for="customRadioInline10__00">Normal Shop</label>
-                     </div>
-               </div>
-               <div class="col-6">
-                   <div class="custom-control custom-radio custom-control-inline">
-                       <input [(ngModel)]='sparePartsType_spareparts' value="1" type="radio" id="customRadioInline10__01" name="customRadioInline1__000" class="custom-control-input">
-                       <label class="custom-control-label" for="customRadioInline10__01">Agent Shop</label>
-                     </div>
-               </div>
-             </div>
-
-            
-
-      <div class="md-form md-outline">
-                <textarea id="form75" [(ngModel)]='AllData.description' name="description_spareparts" class="form-control" rows="3" required></textarea>
-                <label for="form75">Write Description Of Your spareparts</label>
-     </div>
-       <div class="md-form text-center">
-         <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
-         
-       </div>
-         <div class="row">
-             <div class="col-6">
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing1111"
-                     [(ngModel)]='arr_WorkingDay[1]' value="Saturday" name="Saturday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing1111">Saturday</label>
-                 </div>
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing2222"
-                     [(ngModel)]='arr_WorkingDay[2]' name="Sunday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing2222">Sunday</label>
-                 </div>
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing3333"
-                     [(ngModel)]='arr_WorkingDay[3]' name="Monday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing3333">Monday</label>
-                 </div>
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing4444"
-                     [(ngModel)]='arr_WorkingDay[4]' name="Teusday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing4444">Teusday</label>
-                 </div>
-             </div>
-             <div class="col-6">
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing5555"
-                     [(ngModel)]='arr_WorkingDay[5]' name="Wensday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing5555">Wensday</label>
-                 </div>
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing6666"
-                     [(ngModel)]='arr_WorkingDay[6]' name="Thursday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing6666">Thursday</label>
-                 </div>
-                 <div class="custom-control custom-checkbox mr-sm-2 mt-1">
-                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing7777"
-                     [(ngModel)]='arr_WorkingDay[0]' name="Friday_spareparts">
-                     <label class="custom-control-label" for="customControlAutosizing7777">Friday</label>
-                 </div>
-             </div>
-         </div>
-    </form>
-    </div>
-    <!--Footer-->
-    <div class="modal-footer justify-content-center">
-      <button type="submit" form="form_spareparts"  [disabled]='spareparts_validation.form.invalid'  class="btn btn-warning">Update <i class="fas fa-paper-plane-o ml-1"></i></button>
-    </div>
-  
-  </div>
-  <!--/.Content-->
-  
-</div>
-</div>
-
-<!-- end Modal 2 of adding spareParts -->
-
-<!-- Modal nmm 2 of Adding Or Update Or Deleteing in=mage-->
-<div *ngIf="testObject()" style="z-index: 9999999999999;" class="modal fade" id="imagearray" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div *ngIf="AllData" class="modal fade app-modal" id="workshopModal00" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true" style="z-index: 9999999999999;">
+  <div class="modal-dialog modal-notify modal-warning modal-label" role="document">
+    <!--Content-->
     <div class="modal-content">
-      <div class="modal-header">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h4 class="modal-title"><i class="far fa-edit" style="color: white !important"></i> Edit Spare Parts shop</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
         <div class="row">
           <div class="col-12">
-              <h5 class="modal-title" id="exampleModalLongTitle_2">Profile Picture</h5>
-              
-          </div>
-
-          <div class="col-12" >
             <div class="formError">
               <div *ngFor="let mss of alertErr">
                 <div class="alert alert-danger" role="alert">
                   <strong>Alert!</strong> {{mss}}.
                 </div>
               </div>
-          </div>
-          <div class="formError">
-            <div *ngFor="let mss of alertSuc">
-              <div class="alert alert-success" role="alert">
-                <strong>Alert!</strong> {{mss}}.
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
               </div>
             </div>
+          </div>
         </div>
+        <form #spareparts_validation="ngForm" (ngSubmit)='saveOrUpdateSpareParts(3,AllData.id)' id="form_spareparts"
+              novalidate>
+          <div class="md-form mb-5" style="margin-bottom:0em !important">
+            <i class="fas fa-briefcase prefix grey-text"></i>
+            <input type="text" id="formName_spareparts" class="form-control validate is-valid"
+                   placeholder="Spare Parts Name" required
+                   [(ngModel)]='AllData.name' name="FullName_spareparts" #fullName_spareparts='ngModel'
+                   [class.error]="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
+
+            <div class="form-input-error"
+                 *ngIf="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
+              <small *ngIf="fullName_spareparts.errors.required" class='text-danger ml-2'
+                     style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is
+                required
+                <br></small>
+              <small *ngIf="fullName_spareparts.errors.pattern" class='text-danger ml-2'
+                     style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is
+                invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="md-form mb-5">
+            <i class="far fa-clock prefix grey-text"></i>
+
+            <input type="time" value="13:00" step="900" id="formTimeStart_spareparts"
+                   class="form-control validate is-valid"
+                   style="width:calc(40% - 2.5rem);display:inline-block" required
+                   [(ngModel)]='AllData.work_from' name="timeStart_spareparts" #TimeStart_spareparts='ngModel'
+                   [class.error]="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched">
+            <i class="fas fa-chevron-right"></i>
+            <input type="time" value="13:00" step="900" id="formTimeEnd_spareparts"
+                   class="form-control validate is-valid"
+                   style="width:calc(40% - 2.5rem);display:inline-block" required
+                   [(ngModel)]='AllData.work_to' name="timeEnd_spareparts" #TimeEnd_spareparts='ngModel'
+                   [class.error]="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched">
+
+            <div class="form-input-error"
+                 *ngIf="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched"
+                 style="display:inline-block;">
+              <small *ngIf="TimeStart_spareparts.errors.required" class='text-danger ml-2'
+                     style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
+                <br></small>
+              <small *ngIf="TimeStart_spareparts.errors.pattern" class='text-danger ml-2'
+                     style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
+              </small>
+            </div>
+            <div class="form-input-error"
+                 *ngIf="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched"
+                 style="display:inline-block;">
+              <small *ngIf="TimeEnd_spareparts.errors.required" class='text-danger ml-2'
+                     style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
+                <br></small>
+              <small *ngIf="TimeEnd_spareparts.errors.pattern" class='text-danger ml-2'
+                     style="margin-left:3em !important">
+                <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
+              </small>
+            </div>
+          </div>
+
+          <div class="input-group my-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">https:</span>
+            </div>
+            <input [(ngModel)]='AllData.carservice.URL' name="URL_spareParts" placeholder="Your socail Url" type="text"
+                   class="form-control" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+
+          <div class="row my-4">
+            <div class="col-6">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input [(ngModel)]='sparePartsType_spareparts' value="0" type="radio" id="customRadioInline10__00"
+                       name="customRadioInline1__000" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline10__00">Normal Shop</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="custom-control custom-radio custom-control-inline">
+                <input [(ngModel)]='sparePartsType_spareparts' value="1" type="radio" id="customRadioInline10__01"
+                       name="customRadioInline1__000" class="custom-control-input">
+                <label class="custom-control-label" for="customRadioInline10__01">Agent Shop</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="md-form md-outline">
+            <textarea id="form75" [(ngModel)]='AllData.description' name="description_spareparts" class="form-control"
+                      rows="3" required></textarea>
+            <label for="form75">Write Description Of Your spareparts</label>
+          </div>
+          <div class="md-form text-center">
+            <h5 class="m-0 p-0 form-label">Working Days <i class="fas fa-grip-lines-vertical"></i></h5>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing1111"
+                       [(ngModel)]='arr_WorkingDay[1]' value="Saturday" name="Saturday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing1111">Saturday</label>
+              </div>
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing2222"
+                       [(ngModel)]='arr_WorkingDay[2]' name="Sunday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing2222">Sunday</label>
+              </div>
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing3333"
+                       [(ngModel)]='arr_WorkingDay[3]' name="Monday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing3333">Monday</label>
+              </div>
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing4444"
+                       [(ngModel)]='arr_WorkingDay[4]' name="Teusday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing4444">Teusday</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing5555"
+                       [(ngModel)]='arr_WorkingDay[5]' name="Wensday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing5555">Wensday</label>
+              </div>
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing6666"
+                       [(ngModel)]='arr_WorkingDay[6]' name="Thursday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing6666">Thursday</label>
+              </div>
+              <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                <input type="checkbox" class="custom-control-input" id="customControlAutosizing7777"
+                       [(ngModel)]='arr_WorkingDay[0]' name="Friday_spareparts">
+                <label class="custom-control-label" for="customControlAutosizing7777">Friday</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center">
+        <button type="submit" form="form_spareparts" [disabled]='spareparts_validation.form.invalid'
+                class="btn btn-warning">Update <i class="fas fa-paper-plane-o ml-1"></i></button>
+      </div>
+
+    </div>
+    <!--/.Content-->
+
+  </div>
+</div>
+
+<!-- end Modal 2 of adding spareParts -->
+
+<!-- Modal nmm 2 of Adding Or Update Or Deleteing in=mage-->
+<div *ngIf="testObject()" style="z-index: 9999999999999;" class="modal fade app-modal" id="imagearray" tabindex="-1" role="dialog"
+     aria-labelledby="profileData" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-12">
+            <h5 class="modal-title" id="exampleModalLongTitle_2"><i class="far fa-image"></i> Workshop Photo</h5>
+          </div>
+
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
-          <div class="input-group">
-              <div class="custom-file">
-                <input required #file type="file" multiple accept='image/*' (change)="preview(file.files)" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                
+        <div class="input-group">
+          <div class="custom-file">
+            <input required #file type="file" multiple accept='image/*' (change)="preview(file.files)"
+                   class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+
+          </div>
+        </div>
+
+        <div class="">
+          <span style="color:red;" *ngIf="message">{{message}} <br></span>
+          <hr>
+          <h3 *ngIf="imgURL.length" class="text-muted modal-label"><i class="fas fa-check"></i> uploaded image</h3>
+          <div *ngFor="let img of imgURL" class="mb-3">
+            <img [src]="img" height="200" width="auto" *ngIf="imgURL">
+
+          </div>
+          <div>
+            <h3 *ngIf="AllData.roleimgs.length" class="text-muted modal-label"><i class="fas fa-th-large"></i> all
+              images</h3>
+            <hr>
+            <div *ngFor="let img of AllData.roleimgs;let i=index" class="row mb-3">
+              <div class="col">
+
+                <img src="{{img.image}}" height="200" width="auto" *ngIf="imgURL">
+
               </div>
+
+              <div class="col text-right">
+                              <span class="badge badge-dark badge-pill" style="padding:5px !important;cursor: pointer;"
+                                    (click)="deleteImages(AllData.id,AllData.roleimgs[i].id)"><i
+                                class="fas fa-times-circle"></i></span>
+              </div>
+
             </div>
-           
-            <div class="">
-                <span style="color:red;" *ngIf="message">{{message}} <br></span>
-                <hr>
-                <h3 *ngIf="imgURL.length" class="text-center text-muted">New Images</h3>
-                <div *ngFor="let img of imgURL" class="mb-3">
-                  <img [src]="img" height="200"  width="auto" *ngIf="imgURL">
-        
-                </div>
-                <div>
-                    <h3 *ngIf="AllData.roleimgs.length" class="text-center text-muted">Old Images</h3>
-                  <div  *ngFor="let img of AllData.roleimgs;let i=index" class="row mb-3">
-                      <div class="col">
-                       
-                          <img src="{{img.image}}" height="200"  width="auto" *ngIf="imgURL">
-                         
-                      </div>
-                      
-                      <div class="col text-right">
-                          <span class="badge badge-danger badge-pill" style="padding:5px !important;cursor: pointer;"
-                          (click)="deleteImages(AllData.id,AllData.roleimgs[i].id)"  >X</span>
-                      </div>
-                   
-                  </div>                      
-                </div>
-                
-              
-            </div>
-            
-       
+          </div>
+
+
+        </div>
+
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" id="closeModalAfterDeleting" [disabled]='file.invalid'  (click)="addImages(AllData.id)"  class="btn btn-primary">ADD</button>
-        
+        <button type="button" class="btn cancel-btn" data-dismiss="modal">Cancel</button>
+        <button type="button" id="closeModalAfterDeleting" [disabled]='file.invalid' (click)="addImages(AllData.id)"
+                class="btn submit-btn">ADD
+        </button>
+
       </div>
     </div>
   </div>
 </div>
- <!--end modal -->
+<!--end modal -->
 
+
+<!--start modal add location-->
+<div style="z-index: 9999999999999;" class="modal fade app-modal" id="exampleModalScrollable" tabindex="-1"
+     role="dialog"
+     aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle"><i class="fas fa-map-marker-alt"></i> Adding New Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-minus"></i> Enter address <i class="fas fa-minus"></i></label>
+          <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+                 placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off"
+                 type="text" #search>
+        </div>
+
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                      (dragEnd)="markerDragEnd($event)"></agm-marker>
+        </agm-map>
+
+        <div style="margin-top: 10px">
+          <h5 class="form-label">Address: {{address}}</h5>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn cancel-btn" data-dismiss="modal">Close</button>
+        <button type="button" class="btn submit-btn" (click)="addLocation(AllData.id)"><i class="fas fa-plus"></i> Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end modal add locaation-->
+
+
+<!--start modal edit location-->
+<div *ngIf="editLocation" style="z-index: 9999999999999;" class="modal fade app-modal" id="exampleModalScrollable2"
+     tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalScrollableTitle2" aria-hidden="true">
+  <div class="modal-dialog app-modal modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Location</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="formError">
+              <div *ngFor="let mss of alertErr">
+                <div class="alert alert-danger" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+            <div class="formError">
+              <div *ngFor="let mss of alertSuc">
+                <div class="alert alert-success" role="alert">
+                  <strong>Alert!</strong> {{mss}}.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-minus"></i> Enter address <i class="fas fa-minus"></i></label>
+          <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()"
+                 placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off"
+                 type="text" #search>
+        </div>
+
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                      (dragEnd)="markerDragEnd($event)"></agm-marker>
+        </agm-map>
+
+        <div style="margin-top: 10px">
+          <h5 class="form-label">Address: {{address}}</h5>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn cancel-btn" data-dismiss="modal" (click)="deleteLocatio(AllData.id)">
+          <i class="far fa-trash-alt"></i> Delete
+        </button>
+        <button type="button" class="btn submit-btn" (click)="editLocatio(AllData.id)"><i class="fas fa-check"></i> Edit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end modal edit locaation-->
 
  
 

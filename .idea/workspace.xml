@@ -3,10 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="1c7db6cc-3e88-495f-912c-fee02532bef0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shop/shop.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shop/shop.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shop/shop.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shop/shop.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/slider/slider.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/slider/slider.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/header/header.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/slider/slider.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/slider/slider.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/winch-view/winch-view.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/winch-view/winch-view.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/winch-view/winch-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/winch-view/winch-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/winch-view/winch-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/winch-view/winch-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -20,43 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/slider/slider.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="61" column="73" selection-start-line="61" selection-start-column="73" selection-end-line="61" selection-end-column="73" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#section#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/slider/slider.component.css">
+        <entry file="file://$PROJECT_DIR$/src/app/header/header.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="32" selection-start-line="32" selection-start-column="2" selection-end-line="34" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="166" column="4" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="37" />
+            <state relative-caret-position="169">
+              <caret line="100" column="56" lean-forward="true" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -65,42 +43,43 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>phone</find>
-      <find>Enter</find>
-      <find>add</find>
-      <find>textarea</find>
-      <find>feer</find>
-      <find>Edit</find>
-      <find>btn-secondary</find>
-      <find>btn-primary</find>
-      <find>prima</find>
-      <find>edit</find>
-      <find>Add New</find>
-      <find>upl</find>
-      <find>duct2</find>
-      <find>nav-link px-2 waves-effect</find>
-      <find>waves-effect</find>
-      <find>/contact-us</find>
-      <find>addOfferModalModal</find>
-      <find>edit offer</find>
-      <find>plus</find>
-      <find>label</find>
-      <find>modal</find>
-      <find>check</find>
-      <find>about</find>
-      <find>product categories</find>
-      <find>quick</find>
-      <find>product-area</find>
-      <find>font-size: 15px;</find>
       <find>Resu</find>
       <find>result</find>
+      <find>about</find>
       <find>1.jpg</find>
+      <find>Adding New Location</find>
+      <find>9999999999999</find>
+      <find>Edit Wo</find>
+      <find>edit wor</find>
+      <find>&lt;input type=&quot;text&quot; id=&quot;formName_</find>
+      <find>arr_WorkingDay</find>
+      <find>edit work</find>
+      <find>From</find>
+      <find>Locally</find>
+      <find>deleteImages(AllData.id,AllData.roleimgs[i].id)</find>
+      <find>imagearray</find>
+      <find>imagea</find>
+      <find>modal fade</find>
+      <find>enter ph</find>
+      <find>Phoneform</find>
+      <find>phone</find>
+      <find>check</find>
+      <find>ADD NEW WINCH DRIVER</find>
+      <find>working da</find>
+      <find>&lt;div class=&quot;md-form mb-5&quot; style=&quot;margin-bottom:0em</find>
+      <find>EDIT WINCH DRIVER</find>
+      <find>working</find>
+      <find>working days</find>
+      <find>offer</find>
+      <find>send</find>
+      <find>plus</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;i class=&quot;fas fa-minus&quot;&gt;&lt;/i&gt;</replace>
       <replace>Enter phone</replace>
       <replace>cancel-btn</replace>
       <replace />
+      <replace>modal fade app-modal</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -113,19 +92,25 @@
         <option value="$PROJECT_DIR$/src/app/offers/offers.component.css" />
         <option value="$PROJECT_DIR$/src/app/product/product.component.ts" />
         <option value="$PROJECT_DIR$/src/app/product/product.component.css" />
-        <option value="$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.html" />
         <option value="$PROJECT_DIR$/src/app/product/product.component.html" />
         <option value="$PROJECT_DIR$/src/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/contact-us/contact-us.component.css" />
         <option value="$PROJECT_DIR$/src/app/offers/offers.component.html" />
         <option value="$PROJECT_DIR$/src/app/mycars/mycars.component.css" />
-        <option value="$PROJECT_DIR$/src/app/header/header.component.html" />
         <option value="$PROJECT_DIR$/src/app/mycars/mycars.component.html" />
         <option value="$PROJECT_DIR$/src/app/shop/shop.component.css" />
         <option value="$PROJECT_DIR$/src/app/shop/shop.component.html" />
-        <option value="$PROJECT_DIR$/src/app/slider/slider.component.html" />
         <option value="$PROJECT_DIR$/src/app/slider/slider.component.css" />
+        <option value="$PROJECT_DIR$/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.css" />
+        <option value="$PROJECT_DIR$/src/app/winch-view/winch-view.component.css" />
+        <option value="$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.html" />
+        <option value="$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.html" />
+        <option value="$PROJECT_DIR$/src/app/winch-view/winch-view.component.html" />
+        <option value="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.css" />
+        <option value="$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.html" />
+        <option value="$PROJECT_DIR$/src/app/slider/slider.component.html" />
+        <option value="$PROJECT_DIR$/src/app/header/header.component.html" />
       </list>
     </option>
   </component>
@@ -158,6 +143,20 @@
               <item name="DrivixWeb_V2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DrivixWeb_V2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DrivixWeb_V2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DrivixWeb_V2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DrivixWeb_V2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="slider" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -200,16 +199,15 @@
       <workItem from="1558817297854" duration="22000" />
       <workItem from="1558817995917" duration="16488000" />
       <workItem from="1558864079715" duration="5852000" />
-      <workItem from="1558882764455" duration="14666000" />
+      <workItem from="1558882764455" duration="25287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37028000" />
+    <option name="totallyTimeSpent" value="47649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="684" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962853" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -235,26 +233,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/winch-view/winch-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/winch-view/winch-view.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="287" lean-forward="true" selection-start-line="238" selection-end-line="287" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/product/product.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -276,16 +254,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="27" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#74#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -406,29 +374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="927" column="87" lean-forward="true" selection-start-line="927" selection-start-column="87" selection-end-line="927" selection-end-column="116" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#small#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#small#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#small#1;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/header/header.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="131" column="61" selection-start-line="131" selection-start-column="61" selection-end-line="131" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/mycars/mycars.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
@@ -485,17 +430,154 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/slider/slider.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#0#74#0" expanded="true" />
+            <element signature="e#1998#2048#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/winch-view/winch-view.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="176" column="41" lean-forward="true" selection-start-line="176" selection-start-column="41" selection-end-line="176" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="238" selection-start-line="238" selection-end-line="286" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="166" column="4" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="37" />
+        <state relative-caret-position="451">
+          <caret line="295" column="3" selection-start-line="295" selection-start-column="3" selection-end-line="295" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/work-shop-view/work-shop-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="491" column="30" lean-forward="true" selection-start-line="484" selection-start-column="24" selection-end-line="491" selection-end-column="30" />
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#1;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#!!top" />
+            <element signature="n#div#2;n#!!top" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/spare-part-view/spare-part-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="456" column="53" lean-forward="true" selection-start-line="456" selection-start-column="53" selection-end-line="456" selection-end-column="53" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#0;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#31053#31060#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#1;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#1;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#1;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#1;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#0;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#small#1;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#small#1;n#div#1;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#42268#42275#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#!!top" />
+            <element signature="e#44935#44942#1" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="1088" column="12" lean-forward="true" selection-start-line="1088" selection-start-column="12" selection-end-line="1088" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#div#6;n#div#0;n#section#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" />
+            <element signature="n#div#6;n#!!top" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#6;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/winch-company-view/winch-company-view.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="199" column="24" selection-start-line="199" selection-start-column="14" selection-end-line="199" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/winch-view/winch-view.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="217" column="67" selection-start-line="217" selection-start-column="67" selection-end-line="217" selection-end-column="95" />
+          <folding>
+            <element signature="n#div#0;n#!!top" />
+            <element signature="n#style#0;n#i#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#1;n#!!top" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/slider/slider.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="61" column="73" selection-start-line="61" selection-start-column="73" selection-end-line="61" selection-end-column="73" />
+        <state relative-caret-position="17">
+          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -508,15 +590,14 @@
             <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#section#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/slider/slider.component.css">
+    <entry file="file://$PROJECT_DIR$/src/app/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="32" selection-start-line="32" selection-start-column="2" selection-end-line="34" selection-end-column="3" />
+        <state relative-caret-position="169">
+          <caret line="100" column="56" lean-forward="true" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
         </state>
       </provider>
     </entry>

@@ -29,12 +29,12 @@ import { WinchCompanyViewComponent } from './winch-company-view/winch-company-vi
 import { OffersComponent } from './offers/offers.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
-import { AboutComponent } from "./about/about.component";
 // 1. Import the libs you need
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import {AboutComponent} from "./about/about.component";
 
 // 2. Add your credentials from step 1
 const config = {
@@ -80,7 +80,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     SliderComponent,
     FooterComponent,
     ContactUsComponent,
-    AboutComponent,
     HomeComponent,
     PortfolioComponent,
     ShopComponent,
@@ -89,7 +88,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ProfileComponent,
     GasStaionComponent,
     ManageServiceComponent,
-
+    AboutComponent,
     WorkShopViewComponent,
     SparePartViewComponent,
     WinchViewComponent,
@@ -106,7 +105,9 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     BrowserAnimationsModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAb1qML5aW84D-NJg4bnu3YPoFyNlZ387E'
+      apiKey: 'AIzaSyAb1qML5aW84D-NJg4bnu3YPoFyNlZ387E',
+      language: 'en',
+      libraries: ['geometry', 'places']
     }),
     HttpClientModule,
     //firebase  
