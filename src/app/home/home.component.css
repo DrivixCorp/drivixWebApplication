@@ -741,4 +741,82 @@ section.statistics .info-counter-text {
 
 /* END statistics */
 
-
+.review-section {
+  margin-bottom: 50px;
+  background-color: #e6e6e6;
+  padding-top: 150px !important;
+  /*background-repeat: no-repeat;*/
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*-o-background-size: cover;*/
+  /*-ms-background-size: cover;*/
+  /*background-size: cover;*/
+  /*background-image: url(../../assets/images/amanda-sandlin-10508-unsplash.jpg);*/
+  overflow: hidden;
+}
+.review {
+  padding: 20px;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+.review-title {
+  color: #0d0d0d;
+  margin-top: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Rubik', sans-serif;
+}
+.review-circle {
+  color: white;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  margin-top: -80px;
+  border-radius: 60px;
+  border: 6px solid #f3c558;
+  background-color: #eeab10;
+}
+.review-square {
+  padding: 20px;
+  height: 235px;
+  text-align: left;
+  margin-top: 20px;
+  border: 2px solid #d9d9d9;
+}
+.review-square h5{
+  margin-bottom: 10px;
+  font-family: 'Rubik', sans-serif;
+}
+.review-square span{
+  color: #808080;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+}
+.review-stars {
+  margin-bottom: 15px;
+}
+.review-stars .fas{
+  color: #eeab10;
+  margin-right: 10px;
+}
+.review-text {
+  margin-top: 8px;
+  font-weight: bold;
+  font-family: 'Rubik', sans-serif;
+}
+.review-horizontal-line {
+  width: 30px;
+  margin-right: 10px;
+  display: inline-block;
+  border-bottom: 2px solid;
+}
+.review-desc {
+  color: #808080;
+  font-size: 13px;
+  margin-top: 8px;
+  font-family: 'Open Sans', sans-serif;
+}
+.review-circle img {
+  color: white;
+  margin-top: 25px;
+}
