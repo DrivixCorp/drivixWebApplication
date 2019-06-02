@@ -5,7 +5,6 @@ import { WinchViewComponent } from './winch-view/winch-view.component';
 import { MycarsComponent } from './mycars/mycars.component';
 import { WorkShopViewComponent } from './work-shop-view/work-shop-view.component';
 import { ManageServiceComponent } from './manage-service/manage-service.component';
-import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ShopComponent } from './shop/shop.component';
@@ -27,7 +26,6 @@ const routes: Routes = [
   {path:'shop',component:ShopComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'profile',component:ProfileComponent},
   {path:'gasStaion',component:GasStaionComponent},
   {path:'manageService',component:ManageServiceComponent},
   {path:'workshopView/:id/:type',component:WorkShopViewComponent},

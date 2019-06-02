@@ -18,7 +18,6 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { ProfileComponent } from './profile/profile.component';
 import { GasStaionComponent } from './gas-staion/gas-staion.component';
 import { ManageServiceComponent } from './manage-service/manage-service.component';
 import { WorkShopViewComponent } from './work-shop-view/work-shop-view.component';
@@ -85,7 +84,6 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ShopComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
     GasStaionComponent,
     ManageServiceComponent,
     AboutComponent,

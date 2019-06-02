@@ -8,7 +8,7 @@ agm-map {
     width: 100%;
 }
 .rate {
-    
+    text-align: left;
     height: 50px;
     padding: 9px 9px;
 }
@@ -118,3 +118,62 @@ agm-map {
 
   }
   /* form err */
+
+  /* modal design */
+.app-modal {
+  text-align: center;
+}
+.rate {
+  text-align: left;
+}
+.app-modal .modal-header {
+  color: #ffffff;
+  text-align: center;
+  background-color: #eeab10;
+  text-transform: uppercase;
+  font-family: 'Rubik', sans-serif;
+}
+.app-modal .modal-label {
+  color: #eeab10;
+  font-size: 18px;
+  text-align: left;
+  font-family: 'Cabin', sans-serif;
+}
+.app-modal .cancel-btn {
+  color: #eeab10;
+  background-color: white;
+  border: 2px solid #d9d9d9;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal .submit-btn {
+  color: #ffffff;
+  background-color: #eeab10;
+  border: 2px solid #eeab10;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal small {
+  font-family: 'Rubik', sans-serif;
+}
+.app-modal label {
+  color: #808080;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal input {
+  color: #666666;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+}
+.app-modal .form-label {
+  float: left;
+  color: #eeab10;
+  font-size: 16px;
+  font-family: 'Rubik', sans-serif;
+}
+.badge-close {
+  background-color: #e63900;
+}
+
+.badge-open {
+  background-color: #00b386;
+}

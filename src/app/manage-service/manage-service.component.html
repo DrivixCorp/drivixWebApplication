@@ -176,9 +176,9 @@
     
       <!--------------------------------Modal 1 of adding workshop--------------------------->
       
-      <div class="modal fade" id="workshopModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+      <div class="modal fade app-modal" id="workshopModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
-      <div class="modal-dialog modal-notify modal-warning" role="document">
+      <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
         <!--Content-->
         <div class="modal-content">
           <!--Header-->
@@ -212,7 +212,7 @@
             </div>
             <form #workshop_validation="ngForm" (ngSubmit)='saveOrUpdateWorkshop(2,"")' id="form_workshop" novalidate>
             <div class="md-form mb-5" style="margin-bottom:0em !important">
-              <i class="fas fa-briefcase prefix grey-text"></i>
+              
               <input type="text" id="formName_workshop" class="form-control validate is-valid" placeholder="Work Shop Name" required
               [(ngModel)]='FullName_workshop'name="FullName_workshop" #fullName_workshop='ngModel' [class.error]="fullName_workshop.errors && fullName_workshop.invalid && fullName_workshop.touched">
     
@@ -227,16 +227,14 @@
             </div>
 
               <div class="md-form mb-5">
-                From
                   <i class="far fa-clock prefix grey-text"></i>
                   
                   <input type="time" value="13:00" step="900"   id="formTimeStart_workshop" class="form-control validate is-valid" 
                    style="width:calc(40% - 2.5rem);display:inline-block" required
                   [(ngModel)]='timestart_workshop' name="timeStart_workshop" #TimeStart_workshop='ngModel' [class.error]="TimeStart_workshop.errors && TimeStart_workshop.invalid && TimeStart_workshop.touched">
         
-                  
-                  To
-                    <i class="far fa-clock prefix grey-text"></i>
+                  <i class="fas fa-chevron-right"></i>
+
                     <input type="time" value="13:00" step="900" id="formTimeEnd_workshop" class="form-control validate is-valid" 
                     style="width:calc(40% - 2.5rem);display:inline-block" required
                     [(ngModel)]='timeend_workshop' name="timeEnd_workshop" #TimeEnd_workshop='ngModel' [class.error]="TimeEnd_workshop.errors && TimeEnd_workshop.invalid && TimeEnd_workshop.touched">
@@ -266,11 +264,11 @@
                     <input [(ngModel)]='URL_workshop' name="URL_workshopName" placeholder="Your socail Url"  type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                   </div>
 
-                  <div class="row" >
+                  <div class="row" style="text-align: left;">
                       <div class="col-6" *ngFor="let data of types_workShop;let i = index">
-                          <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                          <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                               <input type="checkbox" class="custom-control-input workshoptypes" id="typeWorkShopId{{i}}"
-                              [(ngModel)]='workshopType_workshop[i]'  value="{{data.id}}" name="typeWorkShopName{{i}}">
+                              [(ngModel)]='workshopType_workshop[i]' style="text-align: left;" value="{{data.id}}" name="typeWorkShopName{{i}}">
                               <label class="custom-control-label" for="typeWorkShopId{{i}}">{{data.workshopType}}</label>
                           </div>
                       </div>
@@ -280,45 +278,44 @@
                       <textarea id="form75" [(ngModel)]='desc_workshop' name="description_workshop" class="form-control" rows="3" required></textarea>
                       <label for="form75">Write Description Of Your workshop</label>
            </div>
-             <div class="md-form text-center">
-               <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
-               
-             </div>
+           <div class="md-form text-center">
+            <h5 class="m-0 p-0 form-label">Working Days <i class="fas fa-grip-lines-vertical"></i></h5>
+          </div>
                <div class="row">
-                   <div class="col-6">
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                   <div class="col-6" style="text-align: left;">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing111"
                            [(ngModel)]='Saturday_workshop' value="Saturday" name="Saturday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing111">Saturday</label>
                        </div>
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing222"
                            [(ngModel)]='Sunday_workshop' name="Sunday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing222">Sunday</label>
                        </div>
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing333"
                            [(ngModel)]='Monday_workshop' name="Monday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing333">Monday</label>
                        </div>
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing444"
                            [(ngModel)]='Teusday_workshop' name="Teusday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing444">Teusday</label>
                        </div>
                    </div>
                    <div class="col-6">
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing555"
                            [(ngModel)]='Wensday_workshop' name="Wensday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing555">Wensday</label>
                        </div>
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing666"
                            [(ngModel)]='Thursday_workshop' name="Thursday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing666">Thursday</label>
                        </div>
-                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
+                       <div class="custom-control custom-checkbox mr-sm-2 mt-1" style="text-align: left;">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing777"
                            [(ngModel)]='Friday_workshop' name="Friday_workshop">
                            <label class="custom-control-label" for="customControlAutosizing777">Friday</label>
@@ -329,7 +326,7 @@
           </div>
           <!--Footer-->
           <div class="modal-footer justify-content-center">
-            <button type="submit" form="form_workshop"  [disabled]='workshop_validation.form.invalid'  class="btn btn-warning">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+            <button type="submit" form="form_workshop"  [disabled]='workshop_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
           </div>
         
         </div>
@@ -342,9 +339,9 @@
 
      <!--------------------------------Modal 2 of adding spareparts--------------------------->
       
-     <div class="modal fade" id="sparpartsModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+     <div class="modal fade app-modal" id="sparpartsModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-     <div class="modal-dialog modal-notify modal-warning" role="document">
+     <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
        <!--Content-->
        <div class="modal-content">
          <!--Header-->
@@ -377,7 +374,6 @@
            </div>
            <form #spareparts_validation="ngForm" (ngSubmit)='saveOrUpdateSpareParts(3,"")' id="form_spareparts" novalidate>
            <div class="md-form mb-5" style="margin-bottom:0em !important">
-             <i class="fas fa-briefcase prefix grey-text"></i>
              <input type="text" id="formName_spareparts" class="form-control validate is-valid" placeholder="Spare Parts Name" required
              [(ngModel)]='FullName_spareparts'name="FullName_spareparts" #fullName_spareparts='ngModel' [class.error]="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
    
@@ -392,16 +388,14 @@
            </div>
 
              <div class="md-form mb-5">
-               From
                  <i class="far fa-clock prefix grey-text"></i>
                  
                  <input type="time" value="13:00" step="900"   id="formTimeStart_spareparts" class="form-control validate is-valid" 
                   style="width:calc(40% - 2.5rem);display:inline-block" required
                  [(ngModel)]='timestart_spareparts' name="timeStart_spareparts" #TimeStart_spareparts='ngModel' [class.error]="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched">
        
-                 
-                 To
-                   <i class="far fa-clock prefix grey-text"></i>
+                 <i class="fas fa-chevron-right"></i>
+
                    <input type="time" value="13:00" step="900" id="formTimeEnd_spareparts" class="form-control validate is-valid" 
                    style="width:calc(40% - 2.5rem);display:inline-block" required
                    [(ngModel)]='timeend_spareparts' name="timeEnd_spareparts" #TimeEnd_spareparts='ngModel' [class.error]="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched">
@@ -452,12 +446,11 @@
                      <textarea id="form75" [(ngModel)]='desc_spareparts' name="description_spareparts" class="form-control" rows="3" required></textarea>
                      <label for="form75">Write Description Of Your spareparts</label>
           </div>
-            <div class="md-form text-center">
-              <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
-              
-            </div>
-              <div class="row">
-                  <div class="col-6">
+          <div class="md-form text-center">
+            <h5 class="m-0 p-0 form-label">Working Days <i class="fas fa-grip-lines-vertical"></i></h5>
+          </div>
+              <div class="row" style="text-align: left;">
+                  <div class="col-6" style="text-align: left;">
                       <div class="custom-control custom-checkbox mr-sm-2 mt-1">
                           <input type="checkbox" class="custom-control-input" id="customControlAutosizing1111"
                           [(ngModel)]='Saturday_spareparts' value="Saturday" name="Saturday_spareparts">
@@ -501,7 +494,7 @@
          </div>
          <!--Footer-->
          <div class="modal-footer justify-content-center">
-           <button type="submit" form="form_spareparts"  [disabled]='spareparts_validation.form.invalid'  class="btn btn-warning">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+           <button type="submit" form="form_spareparts"  [disabled]='spareparts_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
          </div>
        
        </div>
@@ -516,9 +509,9 @@
 
       <!--------------------------------Modal 3 of adding winchCompany--------------------------->
       
-      <div class="modal fade" id="winchCompanyModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+      <div class="modal fade app-modal" id="winchCompanyModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
-      <div class="modal-dialog modal-notify modal-warning" role="document">
+      <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
         <!--Content-->
         <div class="modal-content">
           <!--Header-->
@@ -551,7 +544,6 @@
             </div>
             <form #winchCompany_validation="ngForm" (ngSubmit)='saveOrUpdateWinchCompany(1,"")' id="form_winchCompany" novalidate>
             <div class="md-form mb-5" style="margin-bottom:0em !important">
-              <i class="fas fa-briefcase prefix grey-text"></i>
               <input type="text" id="formName_winchCompany" class="form-control validate is-valid" placeholder="Winch Company Name" required
               [(ngModel)]='FullName_winchCompany'name="FullName_winchCompany" #fullName_winchCompany='ngModel' [class.error]="fullName_winchCompany.errors && fullName_winchCompany.invalid && fullName_winchCompany.touched">
     
@@ -566,16 +558,12 @@
             </div>
 
               <div class="md-form mb-5">
-                From
                   <i class="far fa-clock prefix grey-text"></i>
                   
                   <input type="time" value="13:00" step="900"   id="formTimeStart_winchCompany" class="form-control validate is-valid" 
                    style="width:calc(40% - 2.5rem);display:inline-block" required
                   [(ngModel)]='timestart_winchCompany' name="timeStart_winchCompany" #TimeStart_winchCompany='ngModel' [class.error]="TimeStart_winchCompany.errors && TimeStart_winchCompany.invalid && TimeStart_winchCompany.touched">
-        
-                  
-                  To
-                    <i class="far fa-clock prefix grey-text"></i>
+                  <i class="fas fa-chevron-right"></i>
                     <input type="time" value="13:00" step="900" id="formTimeEnd_winchCompany" class="form-control validate is-valid" 
                     style="width:calc(40% - 2.5rem);display:inline-block" required
                     [(ngModel)]='timeend_winchCompany' name="timeEnd_winchCompany" #TimeEnd_winchCompany='ngModel' [class.error]="TimeEnd_winchCompany.errors && TimeEnd_winchCompany.invalid && TimeEnd_winchCompany.touched">
@@ -616,12 +604,11 @@
                       <textarea id="form75" [(ngModel)]='desc_winchCompany' name="description_winchCompany" class="form-control" rows="3" required></textarea>
                       <label for="form75">Write Description Of Your Winch Company</label>
            </div>
-             <div class="md-form text-center">
-               <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
-               
-             </div>
-               <div class="row">
-                   <div class="col-6">
+           <div class="md-form text-center">
+            <h5 class="m-0 p-0 form-label">Working Days <i class="fas fa-grip-lines-vertical"></i></h5>
+          </div>
+               <div class="row" style="text-align: left;">
+                   <div class="col-6" style="text-align: left;">
                        <div class="custom-control custom-checkbox mr-sm-2 mt-1">
                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing11"
                            [(ngModel)]='Saturday_winchCompany' value="Saturday" name="Saturday_winchCompany">
@@ -665,7 +652,7 @@
           </div>
           <!--Footer-->
           <div class="modal-footer justify-content-center">
-            <button type="submit" form="form_winchCompany"  [disabled]='winchCompany_validation.form.invalid'  class="btn btn-warning">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+            <button type="submit" form="form_winchCompany"  [disabled]='winchCompany_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
           </div>
         
         </div>
@@ -679,9 +666,9 @@
 
        <!--------------------------------Modal 4 of adding winchDriver--------------------------->
       
-       <div class="modal fade" id="winchDriverModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
+       <div class="modal fade app-modal" id="winchDriverModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
        aria-hidden="true">
-       <div class="modal-dialog modal-notify modal-warning" role="document">
+       <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
          <!--Content-->
          <div class="modal-content">
            <!--Header-->
@@ -694,8 +681,8 @@
      
            <!--Body-->
            <div class="modal-body">
-             <div class="row">
-              <div class="col-12">
+             <div class="row" style="text-align: left;">
+              <div class="col-12" style="text-align: left;">
                 <div class="formError">
                   <div *ngFor="let mss of alertErr">
                     <div class="alert alert-danger" role="alert">
@@ -714,7 +701,6 @@
              </div>
              <form #winchDriver_validation="ngForm" (ngSubmit)='saveOrUpdateWinchDriver(0,"")' id="form_winchDriver" novalidate>
              <div class="md-form mb-5" style="margin-bottom:0em !important">
-               <i class="fas fa-briefcase prefix grey-text"></i>
                <input type="text" id="formName_winchDriver" class="form-control validate is-valid" placeholder="Winch Driver Name" required
                [(ngModel)]='FullName_winchDriver'name="FullName_winchDriver" #fullName_winchDriver='ngModel' [class.error]="fullName_winchDriver.errors && fullName_winchDriver.invalid && fullName_winchDriver.touched">
      
@@ -729,7 +715,6 @@
              </div>
 
              <div class="md-form mb-5" style="margin-bottom:0em !important">
-                <i class="fas fa-money-check-alt prefix grey-text" style="font-size:24px"></i>
                 <input type="number" id="price_winchDriver" class="form-control validate is-valid" placeholder="Price Per Km" required
                 [(ngModel)]='Price_winchDriver'name="Price_winchDriver" #price_winchDriver='ngModel' [class.error]="price_winchDriver.errors && price_winchDriver.invalid && price_winchDriver.touched">
       
@@ -745,16 +730,12 @@
      
              
                <div class="md-form mb-5">
-                 From
                    <i class="far fa-clock prefix grey-text"></i>
                    
                    <input type="time" value="13:00" step="900"   id="formTimeStart_winchDriver" class="form-control validate is-valid" 
                     style="width:calc(40% - 2.5rem);display:inline-block" required
                    [(ngModel)]='timestart_winchDriver' name="timeStart_winchDriver" #TimeStart_winchDriver='ngModel' [class.error]="TimeStart_winchDriver.errors && TimeStart_winchDriver.invalid && TimeStart_winchDriver.touched">
-         
-                   
-                   To
-                     <i class="far fa-clock prefix grey-text"></i>
+                   <i class="fas fa-chevron-right"></i>
                      <input type="time" value="13:00" step="900" id="formTimeEnd_winchDriver" class="form-control validate is-valid" 
                      style="width:calc(40% - 2.5rem);display:inline-block" required
                      [(ngModel)]='timeend_winchDriver' name="timeEnd_winchDriver" #TimeEnd_winchDriver='ngModel' [class.error]="TimeEnd_winchDriver.errors && TimeEnd_winchDriver.invalid && TimeEnd_winchDriver.touched">
@@ -783,10 +764,9 @@
                        <textarea id="form75" [(ngModel)]='desc_winchDriver' name="description_winchDriver" class="form-control" rows="3" required></textarea>
                        <label for="form75">Write Description Of Your WinchDriver</label>
             </div>
-              <div class="md-form text-center">
-                <h4 class="m-0 p-0" style="letter-spacing: 15px;">Working Days</h4>
-                
-              </div>
+            <div class="md-form text-center">
+              <h5 class="m-0 p-0 form-label">Working Days <i class="fas fa-grip-lines-vertical"></i></h5>
+            </div>
                 <div class="row">
                     <div class="col-6">
                         <div class="custom-control custom-checkbox mr-sm-2 mt-1">
@@ -832,7 +812,7 @@
            </div>
            <!--Footer-->
            <div class="modal-footer justify-content-center">
-             <button type="submit" form="form_winchDriver"  [disabled]='winchDriver_validation.form.invalid'  class="btn btn-warning">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+             <button type="submit" form="form_winchDriver"  [disabled]='winchDriver_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
            </div>
          
          </div>

@@ -49,6 +49,7 @@ export class HeaderComponent implements OnInit  {
   constructor(public router:Router,private jq:JqueryCallingService,public Authentication:AuthenticationService,
     private Profile:ProfileService) {
     this.checkAuth();
+    
   }
 
   checkAuth(){
@@ -58,11 +59,14 @@ export class HeaderComponent implements OnInit  {
       var authUser = JSON.parse(getUser);
       if(authUser != null){
         this.userName = authUser.name;
+        this.userData = authUser;
+        this.uploadProfileInformation();
       }
       else if(CredentialService.userName != null){
         this.userName = CredentialService.userName
       }
     });
+    
   }
 
   ngOnInit() {
@@ -70,12 +74,14 @@ export class HeaderComponent implements OnInit  {
 
     //profile
     this.jq.essentialCoding();
-    this.userData = this.Authentication.checkAuth();
+    //this.userData = this.Authentication.checkAuth();
+    //console.log("---*-*-*-*-*-*-*-*-*")
+    //console.log(this.userData)
     if(this.userData == null){
       this.router.navigate(['/home']);
     }
     
-    this.uploadProfileInformation();
+    
   }
 
   jqueryCalling(){
@@ -195,13 +201,20 @@ export class HeaderComponent implements OnInit  {
     if(this.userData){
       this.Profile.showProfile(this.userData.token)
     .then(data =>{
+      console.log(data)
       if(data.id){ 
         this.ProfileData = data;
-        console.log(this.ProfileData);
+      //  console.log(this.ProfileData);
       }
+      if(!data.id){
+        console.log('testttttt')
+        this.ProfileData = null;
+      }
+     
     })
     .catch(err =>{
-      console.log(err);
+      //console.log("no profile data")
+    //  console.log(err);
     });
     }
     }
@@ -217,7 +230,8 @@ export class HeaderComponent implements OnInit  {
           //this.router.navigateByUrl('/profile', {skipLocationChange: true}).then(()=>
           //this.router.navigate(["profile"])); 
           //location.href = location.protocol + '//' + location.host + location.pathname + "/?alert=" + this.allAlerts;    
-          this.uploadProfileInformation();
+        //  this.uploadProfileInformation();
+          window.location.reload();
         })
         .catch(err =>{
           this.allAlerts = [];
@@ -303,7 +317,7 @@ export class HeaderComponent implements OnInit  {
           this.showMsg(this.allAlerts);
            
         }
-        this.router.navigate(['/profile']);
+        //this.router.navigate(['/profile']);
         //location.href = location.protocol + '//' + location.host + location.pathname + "/?alert=" + this.allAlerts;
         this.uploadProfileInformation();
       })

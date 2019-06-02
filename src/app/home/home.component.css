@@ -742,16 +742,9 @@ section.statistics .info-counter-text {
 /* END statistics */
 
 .review-section {
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
   background-color: #e6e6e6;
-  padding-top: 150px !important;
-  /*background-repeat: no-repeat;*/
-  /*-webkit-background-size: cover;*/
-  /*-moz-background-size: cover;*/
-  /*-o-background-size: cover;*/
-  /*-ms-background-size: cover;*/
-  /*background-size: cover;*/
-  /*background-image: url(../../assets/images/amanda-sandlin-10508-unsplash.jpg);*/
+  padding-top: 100px !important;
   overflow: hidden;
 }
 .review {

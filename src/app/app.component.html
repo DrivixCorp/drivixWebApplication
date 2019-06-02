@@ -51,7 +51,7 @@
                 <div *ngFor="let mss of arrMessageOfChatBot">
                             <!--start chat bot-->
                           
-                            <div *ngIf="mss.token != userData.token">
+                            <div *ngIf="mss.token != 'userToken'">
                               <div class="row">
                                 <div class="col-12 text-left">
                                     <span class="user-chat">
@@ -86,7 +86,7 @@
                             </div>
                             <!--end chatbot-->
                             <!--start chat of me-->
-                            <div *ngIf="mss.token == userData.token">
+                            <div *ngIf="mss.token == 'userToken'">
                                 <div class="row">
                                   <div class="col-12 text-right">
                                       <span class="user-chat user-sender" *ngIf="userData">

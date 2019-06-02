@@ -1,24 +1,14 @@
 
 <section class="profile-page" sty>
-    
-
-                      
-
     <div class="main main-raised">
-
       <!-- Button trigger modal -->
               <!-- Button trigger modal -->
               <div class="btttt" style="margin-left:10px;margin-top:20px;">
                   <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#profileData1" *ngIf="!ProfileData">
                       Complete Your Information
                   </button>
-
-                  
-    
-                 
               </div>
-              
-
+            
       <div class="profile-content" style="padding-top:20px;padding-bottom: 20px;">
         <div class="container">
           <div class="row">
@@ -126,13 +116,13 @@
     </div>
 
     <!-- Modal nmm 1 of adding new profile-->
-    <div class="modal fade" id="profileData1" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+    <div class="modal fade app-modal" id="profileData1" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <div class="row">
                 <div class="col-12">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add New Profile</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Profile</h5>
                     
                 </div>
 
@@ -178,7 +168,6 @@
                 </div>
                 <hr>
 
-               
                 <div class="form-group">
                       <label for="">Job</label>
                       <input type="text" name='job' class="form-control" id="" aria-describedby="" placeholder="Enter Your Job"
@@ -211,14 +200,13 @@
       <!--end modal 1-->
 
       <!-- Modal nmm 2 of upating profile-->
-    <div *ngIf="testObject()" class="modal fade" id="profileData2" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+    <div *ngIf="testObject()" class="modal fade app-modal" id="profileData2" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <div class="row">
                 <div class="col-12">
                     <h5 class="modal-title" id="exampleModalLongTitle_2">Update Profile</h5>
-                    
                 </div>
 
                 <div class="col-12" >
@@ -296,7 +284,7 @@
        <!--end modal 2-->
 
         <!-- Modal nmm 3 of Deleting profile-->
-    <div *ngIf="testObject()" class="modal fade" id="profileData3" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+    <div *ngIf="testObject()" class="modal fade app-modal" id="profileData3" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -336,7 +324,7 @@
      <!--end modal 3-->
 
        <!-- Modal nmm 4 of Adding Or Update Or Deleteing in=mage-->
-    <div *ngIf="testObject()" class="modal fade" id="imageProfile" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
+    <div *ngIf="testObject()" class="modal fade app-modal" id="imageProfile" tabindex="-1" role="dialog" aria-labelledby="profileData" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">

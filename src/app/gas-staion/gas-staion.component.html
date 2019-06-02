@@ -95,16 +95,16 @@
       </div>
     </div>
   <!-- Modal -->
-  <div class="modal fade" id="gasStation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="DataInModal">
+  <div class="modal fade app-modal" id="gasStation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" *ngIf="DataInModal">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title" id="exampleModalLongTitle">
             <div class="row">
               <div class="col-3">
-                  <img width="65px" height="40px" src="https://maps.gstatic.com/mapfiles/place_api/icons/gas_station-71.png" alt="**">
+                <i class="fas fa-gas-pump"></i>
               </div>
-              <div class="col-9">
+              <div class="col-9" style="font-size: 22px">
                   {{DataInModal.name}}
               </div>
             </div>
@@ -118,7 +118,7 @@
           <div class="row">
               <div class="col-12" *ngIf="existReview">
                   <div class="rate">
-                      <span class="heading">Your Rate</span>
+                      <span class="modal-label">Your Rate</span>
                       <input type="radio" id="star5" name="rate" value="5" />
                       <label [ngStyle]="{'color':Review >= '5' ? '#ffc700' : '#ccc' }"  for="star5" title="text" (click)="makeGasStationReview(DataInModal.id,5)">5 stars</label>
                       <input type="radio" id="star4" name="rate" value="4" />
@@ -133,7 +133,7 @@
               </div>
               <div class="col-12" *ngIf="!existReview">
                   <div class="rate">
-                      <span class="heading">Your Rate</span>
+                      <span class="modal-label">Your Rate</span>
                       <input type="radio" id="star5" name="rate" value="5" />
                       <label for="star5" title="text" (click)="makeGasStationReview(DataInModal.id,5)">5 stars</label>
                       <input type="radio" id="star4" name="rate" value="4" />
@@ -146,73 +146,74 @@
                       <label for="star1" title="text" (click)="makeGasStationReview(DataInModal.id,1)">1 star</label>
                     </div>
               </div>
+              <hr>
             <div class="col-12">
               <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                      gas
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.gas">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.gas">Not Available</span>
+                      Gas
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.gas">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.gas">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Oil Change
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.oil_change">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.oil_change">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.oil_change">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.oil_change">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Petrol 80
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.petrol_80">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.petrol_80">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.petrol_80">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.petrol_80">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Petrol 92
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.petrol_92">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.petrol_92">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.petrol_92">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.petrol_92">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Petrol 95
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.petrol_95">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.petrol_95">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.petrol_95">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.petrol_95">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Sollar
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.sollar">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.sollar">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.sollar">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.sollar">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Tier repare
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.tier_repare">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.tier_repare">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.tier_repare">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.tier_repare">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                     Align Wheel
-                    <span class="badge badge-primary badge-pill" *ngIf="DataInModal.align_wheel">Available</span>
-                    <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.align_wheel">Not Available</span>
+                    <span class="badge badge-open badge-pill" *ngIf="DataInModal.align_wheel">Available</span>
+                    <span class="badge badge-close badge-pill" *ngIf="!DataInModal.align_wheel">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Blowing Air
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.blowing_air">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.blowing_air">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.blowing_air">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.blowing_air">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Blowing Nitro
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.blowing_nitro">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.blowing_nitro">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.blowing_nitro">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.blowing_nitro">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Car Washing
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.car_washing">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.car_washing">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.car_washing">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.car_washing">Not Available</span>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center">
                       Fix Suspens
-                      <span class="badge badge-primary badge-pill" *ngIf="DataInModal.fix_suspension">Available</span>
-                      <span class="badge badge-danger badge-pill" *ngIf="!DataInModal.fix_suspension">Not Available</span>
+                      <span class="badge badge-open badge-pill" *ngIf="DataInModal.fix_suspension">Available</span>
+                      <span class="badge badge-close badge-pill" *ngIf="!DataInModal.fix_suspension">Not Available</span>
                   </li>
                 </ul>
             </div>
             <div class="col-12">
                 <div class="rate">
-                    <span class="heading">Public Rating</span>
+                    <span class="modal-label">Public Rating</span>
                     <input type="radio" id="star5" name="rate" value="5" />
                     <label  for="star5" title="text" (click)="makeGasStationReview(DataInModal.id,5)">5 stars</label>
                     <input type="radio" id="star4" name="rate" value="4" />
@@ -228,7 +229,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn cancel-btn" data-dismiss="modal">Close</button>
          <!-- <button type="button" class="btn btn-primary">Save changes</button>-->
         </div>
       </div>
@@ -238,7 +239,7 @@
 
   <!-- start maps Modal -->
 <section class="sectionOfMaps">
-  <div *ngIf="lat" class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div *ngIf="lat" class="modal fade app-modal" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
   

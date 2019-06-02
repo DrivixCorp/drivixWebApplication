@@ -13,12 +13,18 @@ export class AuthenticationService {
 
   checkAuth() {
     if(!CredentialService.isAuth){
+      console.log("111111111111111");
       return null;
+      
     }
     else{
+      console.log("22222222222");
       var authUser = localStorage.getItem('authUser');
       if(authUser != null){
-        return JSON.parse(authUser);
+        console.log(authUser)
+        console.log("33333333333");
+        this.userData = JSON.parse(authUser);
+        return this.userData;
       }
         return this.userData;
       }

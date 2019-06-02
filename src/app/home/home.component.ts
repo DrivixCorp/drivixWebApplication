@@ -1,7 +1,9 @@
+import { AuthenticationService } from './../Services/authentication.service';
 import { JqueryCallingService } from './../Services/jquery-calling.service';
 import { CredentialService } from './../Services/credential.service';
 import { Component, OnInit } from '@angular/core';
 import { google } from '@agm/core/services/google-maps-types';
+import { user } from 'src/OOP/classes/user';
 
 declare var $:any;
 @Component({
@@ -17,13 +19,14 @@ export class HomeComponent implements OnInit {
 
   static isAuth:boolean=false;
   static userName:string;
-
-  constructor(private jq:JqueryCallingService) {
+  userData:user;
+  constructor(private jq:JqueryCallingService,public Authentication:AuthenticationService) {
    
   }
 
   ngOnInit() {
     this.jq.essentialCoding();
+    this.userData = this.Authentication.checkAuth();
   }
 
 

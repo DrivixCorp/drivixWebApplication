@@ -51,34 +51,36 @@ export class AppComponent {
  //      this.subscription = source.subscribe(val => this.reviceMessage());
 
 
+           if(this.userData){
             const things = db.collection('messages/').valueChanges().forEach(element => {
-             var arr:any = element;
-             var arr2:any = [];
-             var arr3:any = [];
-             var max = 0;
-             var max2 =0;
-              for (let index = 0; index < arr.length; index++) {
-                if(arr[index].token != this.userData.token){
-                  if(arr[index].time > max){
-                    max = arr[index].time;
-                    arr2 = arr[index];
-                  }
-                }
-                if(arr[index].token == this.userData.token){
-                  if(arr[index].time > max2){
-                    max2 = arr[index].time;
-                    arr3 = arr[index];
-                  }
-                }
-              }
-              if(max > max2){
-                this.arrMessage2.push(arr2);
-                this.All_arrMessage.push(arr2);
-                console.log(this.All_arrMessage)
-              }
-              
-              
-            });
+              var arr:any = element;
+              var arr2:any = [];
+              var arr3:any = [];
+              var max = 0;
+              var max2 =0;
+               for (let index = 0; index < arr.length; index++) {
+                 if(arr[index].token != this.userData.token){
+                   if(arr[index].time > max){
+                     max = arr[index].time;
+                     arr2 = arr[index];
+                   }
+                 }
+                 if(arr[index].token == this.userData.token){
+                   if(arr[index].time > max2){
+                     max2 = arr[index].time;
+                     arr3 = arr[index];
+                   }
+                 }
+               }
+               if(max > max2){
+                 this.arrMessage2.push(arr2);
+                 this.All_arrMessage.push(arr2);
+                 console.log(this.All_arrMessage)
+               }
+               
+               
+             });
+           }
   }
 
   ngOnInit() {
@@ -167,7 +169,7 @@ export class AppComponent {
 
     let testObject:any = {};
     testObject.message2  = this.message2;
-    testObject.token = this.userData.token;
+    testObject.token = "userToken";
     this.arrMessageOfChatBot.push(testObject);
     $('#sendMss2').hide();
       await $.ajax({
@@ -178,7 +180,6 @@ export class AppComponent {
       
       data:{
         'sentence': this.message2 ,
-        'token'   : this.userData.token
       },
       
       success: async function(data:any){

@@ -44,8 +44,8 @@ export class ProfileService {
   
 
   showProfile(token:any) : Promise<any>{
-    console.log(token);
-    var loginAPI = this.host + 'profile/'+token;
+   // console.log(token);
+    var loginAPI = this.host + 'profile/'+ token;
     return new Promise<any>((resolve, reject) => {
       this.http.post<any>(loginAPI, JSON.stringify({})
       )
