@@ -21,8 +21,8 @@ export class ManageServiceComponent implements OnInit {
   winchCompanyExist:boolean =false;
 
   /*Data Of WinchDriver*/
-  
-  
+
+
   FullName_winchDriver:any;
   timestart_winchDriver:any;
   timeend_winchDriver:any;
@@ -86,7 +86,7 @@ export class ManageServiceComponent implements OnInit {
   URL_spareparts:any="";
   sparePartsType_spareparts:any;
 
-  /* err msg */ 
+  /* err msg */
   allAlerts:string[]=[];
   alertErr:string[]=[];
     alertSuc:string[]=[];
@@ -94,7 +94,7 @@ export class ManageServiceComponent implements OnInit {
   UrlAlert:string;
   userData:user;
   errorCode:number;
-  
+
   DataOfAll:any;
   DataOfAll_0_winchDriver:any = [];
   DataOfAll_1_winchCompany:any =[];
@@ -105,7 +105,7 @@ export class ManageServiceComponent implements OnInit {
     private jq:JqueryCallingService,public Authentication:AuthenticationService) { }
 
   ngOnInit() {
-    
+
     //console.log(this.router.url);
     this.jq.essentialCoding();
     this.userData = this.Authentication.checkAuth();
@@ -113,14 +113,17 @@ export class ManageServiceComponent implements OnInit {
       this.router.navigate(['/home']);
     }
     this.loadMultiple();
-    
+
   }
   loadMultiple(){
+    this.DataOfAll_0_winchDriver = [];
     this.DataOfAll_2_workShop = [];
+    this.DataOfAll_1_winchCompany = [];
+    this.DataOfAll_3_spareParts = [];
     // Material Select Initialization
     this.manageRoleService.viewProviderRole(this.userData.token)
     .then(data =>{
-      
+
       //console.log(data);
       this.DataOfAll= data;
      // console.log(this.DataOfAll);
@@ -142,8 +145,8 @@ export class ManageServiceComponent implements OnInit {
           this.sparepartExist =true;
         }
       }
-      console.log("-*-*-*-*-*-*-*-*-*-*-*");
-      console.log(this.DataOfAll_1_winchCompany);
+     // console.log("-*-*-*-*-*-*-*-*-*-*-*");
+     // console.log(this.DataOfAll_1_winchCompany);
     })
     .catch(err =>{
       console.log(err);
@@ -155,7 +158,7 @@ export class ManageServiceComponent implements OnInit {
     .catch(err =>{
      console.log(err);
     });
-    
+
 
 
     this.manageRoleService.viewWorkShopTypes(this.userData.token)
@@ -174,7 +177,7 @@ export class ManageServiceComponent implements OnInit {
     this.alertErr.push(Messsage[index]);
     }
     this.navigateToTop();
-    
+
 }
 showsucess(Messsage:any){
   this.alertErr = [];
@@ -183,7 +186,7 @@ showsucess(Messsage:any){
  this.alertSuc.push(Messsage[index]);
  }
  this.navigateToTop();
- 
+
 }
 
   navigateToTop(){
@@ -193,7 +196,7 @@ showsucess(Messsage:any){
     }, 1000);
 
     $('.formError').show('fast').delay(6000).hide('slow');
-    
+
   }
   pushTypeOfWorkShop(item:any){
     this.workshopType_workshop.push(item);
@@ -218,7 +221,7 @@ showsucess(Messsage:any){
 
   saveOrUpdateWinchDriver(type:any,roleID:any){
     this.workingDays_winchDriver="";
-    
+
     if(this.Saturday_winchDriver) this.workingDays_winchDriver= this.workingDays_winchDriver  + "saturday,";
     if(this.Sunday_winchDriver) this.workingDays_winchDriver= this.workingDays_winchDriver    + "sunday,";
     if(this.Monday_winchDriver) this.workingDays_winchDriver= this.workingDays_winchDriver    + "monday,";
@@ -227,7 +230,7 @@ showsucess(Messsage:any){
     if(this.Thursday_winchDriver) this.workingDays_winchDriver= this.workingDays_winchDriver  + "thursday,";
     if(this.Friday_winchDriver) this.workingDays_winchDriver= this.workingDays_winchDriver    + "friday,";
     if(this.workingDays_winchDriver) this.workingDays_winchDriver = this.workingDays_winchDriver.slice(0,-1);
-    
+
     this.manageRoleService.AddWinchDriver(this.userData.token,type,this.workingDays_winchDriver,this.FullName_winchDriver,
       this.desc_winchDriver,this.timeend_winchDriver,this.timestart_winchDriver,roleID,this.Price_winchDriver,"")
       .then(success =>{
@@ -281,15 +284,15 @@ showsucess(Messsage:any){
             this.allAlerts.push(err.error.price_per_km[index]);
           }
         }
-        
+
         this.showMsgError(this.allAlerts);
       });
-    
+
   }
 
   saveOrUpdateWinchCompany(type:any,roleID:any){
     this.workingDays_winchCompany="";
-    
+
     if(this.Saturday_winchCompany) this.workingDays_winchCompany= this.workingDays_winchCompany  + "saturday,";
     if(this.Sunday_winchCompany) this.workingDays_winchCompany= this.workingDays_winchCompany    + "sunday,";
     if(this.Monday_winchCompany) this.workingDays_winchCompany= this.workingDays_winchCompany    + "monday,";
@@ -316,7 +319,7 @@ showsucess(Messsage:any){
             this.allAlerts.push(err.error.description[index]);
           }
         }
-        
+
         if(err.error.name){
           for (let index = 0; index < (err.error.name).length; index++) {
             this.allAlerts.push(err.error.name[index]);
@@ -349,20 +352,20 @@ showsucess(Messsage:any){
         }
         this.showMsgError(this.allAlerts);
       });
-    
+
   }
 
   saveOrUpdateWorkshop(type:any,roleID:any){
         var i = 0;
     var Types_workShop:any = [];
     $(".workshoptypes:checked").each(function() {
-      
+
       Types_workShop.push($(this).val());
       i++;
     });
     console.log(Types_workShop);
     alert("wait")
-    
+
     this.workingDays_workshop="";
 
     if(this.Saturday_workshop) this.workingDays_workshop= this.workingDays_workshop  + "saturday,";
@@ -394,7 +397,7 @@ showsucess(Messsage:any){
             this.allAlerts.push(err.error.description[index]);
           }
         }
-        
+
         if(err.error.name){
           for (let index = 0; index < (err.error.name).length; index++) {
             this.allAlerts.push(err.error.name[index]);
@@ -425,7 +428,7 @@ showsucess(Messsage:any){
             this.allAlerts.push(err.error.URL[index]);
           }
         }
-        
+
         if(err.error.workshoptype){
           for (let index = 0; index < (err.error.workshoptype).length; index++) {
             this.allAlerts.push(err.error.workshoptype[index]);
@@ -433,11 +436,11 @@ showsucess(Messsage:any){
         }
         this.showMsgError(this.allAlerts);
       });
-    
+
   }
 
   saveOrUpdateSpareParts(type:any,roleID:any){
-    this.workingDays_spareparts="";    
+    this.workingDays_spareparts="";
     if(this.Saturday_spareparts) this.workingDays_spareparts= this.workingDays_spareparts  + "saturday,";
     if(this.Sunday_spareparts) this.workingDays_spareparts= this.workingDays_spareparts   + "sunday,";
     if(this.Monday_spareparts) this.workingDays_spareparts= this.workingDays_spareparts    + "monday,";
@@ -464,7 +467,7 @@ showsucess(Messsage:any){
             this.allAlerts.push(err.error.description[index]);
           }
         }
-        
+
         if(err.error.name){
           for (let index = 0; index < (err.error.name).length; index++) {
             this.allAlerts.push(err.error.name[index]);
@@ -500,10 +503,10 @@ showsucess(Messsage:any){
             this.allAlerts.push(err.error.spareshoptype[index]);
           }
         }
-        
-        
+
+
         this.showMsgError(this.allAlerts);
       });
-    
+
   }
 }

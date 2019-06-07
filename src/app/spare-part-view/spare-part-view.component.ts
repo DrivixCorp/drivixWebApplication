@@ -24,7 +24,7 @@ export class SparePartViewComponent implements OnInit {
   editOfferData:any;
 
   formPhone:string;
-  /* err msg */ 
+  /* err msg */
   allAlerts:string[]=[];
   alertErr:string[]=[];
     alertSuc:string[]=[];
@@ -79,7 +79,7 @@ errComment:any ="";
    private geoCoder:any;
    colorLike:any;
    @ViewChild('search')
-   editLocation:any;
+   editLocation:any = null;
    public searchElementRef: ElementRef;
    // end location
    constructor(private router:Router,private manageRoleService:ManageRolesService,
@@ -96,14 +96,14 @@ errComment:any ="";
    }
 
    this.route.params.subscribe( params =>
-        this.roleID = params['id'] 
+        this.roleID = params['id']
    )
    this.route.params.subscribe( params =>
-       this.type = params['type'] 
+       this.type = params['type']
    )
-  
-   
-   
+
+
+
    this.loadMultiple();
 }
  goToProduct() {
@@ -111,7 +111,7 @@ errComment:any ="";
       queryParams: {
           "Data": this.AllData.carservice.sparesshop.id,
           "Data2": this.AllData.id
-          
+
       }
   };
   this.router.navigate(["product"], navigationExtras);
@@ -143,7 +143,7 @@ loadMultiple(){
         this.AllComments.push(s[0][i]);
       }
     }
-      
+
    //  console.log(this.AllComments[0].commentlikes.length)
   // this.AllComments[0].commentlikes[0].userToken ="asas";
      for (let i = 0; i < this.AllComments.length; i++) {
@@ -180,8 +180,8 @@ loadMultiple(){
      }
      console.log("--------")
     console.log(this.AllComments);
-    this.AllComments[0].userToken ="sasa";
-    
+   // this.AllComments[0].userToken ="sasa";
+
 
    })
    .catch(e =>{
@@ -189,14 +189,14 @@ loadMultiple(){
    });
    //end comments
 
-      this.splitted_workingDay = this.AllData.workingdays.split(","); 
+      this.splitted_workingDay = this.AllData.workingdays.split(",");
       this.arr_WorkingDay[0] = this.splitted_workingDay.includes('friday');
       this.arr_WorkingDay[1] = this.splitted_workingDay.includes('saturday');
       this.arr_WorkingDay[2] = this.splitted_workingDay.includes('sunday');
       this.arr_WorkingDay[3] = this.splitted_workingDay.includes('monday');
       this.arr_WorkingDay[4] = this.splitted_workingDay.includes('tuesday');
       this.arr_WorkingDay[5] = this.splitted_workingDay.includes('wensday');
-      this.arr_WorkingDay[6] = this.splitted_workingDay.includes('thursday');  
+      this.arr_WorkingDay[6] = this.splitted_workingDay.includes('thursday');
       $(document).ready(function() {
    $('.slider_one_big_picture').EasySlides({
        'autoplay': true,
@@ -224,21 +224,21 @@ loadMultiple(){
        'show': 15
    })
 });
-     
+
   })
   .catch(err =>{
       console.log(err);
   });
 
-   // statt location
-   this.mapsAPILoader.load().then(() => {
+  // statt location
+  this.mapsAPILoader.load().then(() => {
     this.setCurrentLocation();
     this.geoCoder = new google.maps.Geocoder;
 
     let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
       types: ["address"]
     });
-   
+
     autocomplete.addListener("place_changed", () => {
       this.ngZone.run(() => {
         //get the place result
@@ -258,6 +258,7 @@ loadMultiple(){
     });
   });
   //end location
+
 }
 
 // Get Current Location Coordinates
@@ -308,13 +309,13 @@ testObject(){
 testObject2(){
   if(this.productImage) return true;
   else return false;
- 
+
 }
 preview(files :any) {
   this.saveImage = [];
   this.imgURL = [];
   this.message= null;
-  
+
   if (files.length === 0)
     return;
 
@@ -326,25 +327,25 @@ preview(files :any) {
     return;
   }
   }
-  
+
 
   var reader:any = [];
   this.imagePath = files;
   for (let i = 0; i < files.length; i++) {
      reader[i] = new FileReader();
-    reader[i].readAsDataURL(files[i]);        
-  } 
+    reader[i].readAsDataURL(files[i]);
+  }
  // console.log(reader);
   for (let i = 0; i < reader.length; i++) {
-    reader[i].onload = (_event:any) => { 
-      this.imgURL[i] = reader[i].result; 
+    reader[i].onload = (_event:any) => {
+      this.imgURL[i] = reader[i].result;
       var str = this.imgURL[i];
       str = str.substring(str.indexOf(",") + 1);
       this.saveImage.push(str);
     }
   }
   console.log("-----");
-  this.editOfferData.img = this.imgURL[0];
+  //this.editOfferData.img = this.imgURL[0];
   console.log();
 }
 
@@ -383,7 +384,7 @@ preview(files :any) {
       this.alertErr.push(Messsage[index]);
       }
       this.navigateToTop();
-      
+
   }
   showsucess(Messsage:any){
     this.alertErr = [];
@@ -392,7 +393,7 @@ preview(files :any) {
    this.alertSuc.push(Messsage[index]);
    }
    this.navigateToTop();
-   
+
 }
 
    navigateToTop(){
@@ -402,7 +403,7 @@ preview(files :any) {
        }, 1000);
 
        $('.formError').show('fast').delay(6000).hide('slow');
-       
+
    }
    passData(dataPhone:any){
        this.phoneData = dataPhone;
@@ -474,7 +475,7 @@ preview(files :any) {
    }
 
    saveOrUpdateSpareParts(type:any,roleID:any){
-    this.workingDays_spareparts="";    
+    this.workingDays_spareparts="";
     if(this.arr_WorkingDay[1]) this.workingDays_spareparts= this.workingDays_spareparts  + "saturday,";
     if(this.arr_WorkingDay[2]) this.workingDays_spareparts= this.workingDays_spareparts    + "sunday,";
     if(this.arr_WorkingDay[3]) this.workingDays_spareparts= this.workingDays_spareparts    + "monday,";
@@ -501,7 +502,7 @@ preview(files :any) {
             this.allAlerts.push(err.error.description[index]);
           }
         }
-        
+
         if(err.error.name){
           for (let index = 0; index < (err.error.name).length; index++) {
             this.allAlerts.push(err.error.name[index]);
@@ -537,13 +538,13 @@ preview(files :any) {
             this.allAlerts.push(err.error.spareshoptype[index]);
           }
         }
-        
-        
+
+
         this.showMsgError(this.allAlerts);
       });
-    
+
   }
- 
+
 
       addComment(comment:any,red_id:any){
 
@@ -598,8 +599,8 @@ preview(files :any) {
                    console.log("--------")
                   console.log(this.AllComments);
                   this.AllComments[0].userToken ="sasa";
-                 
-       
+
+
                 })
                 .catch(e =>{
                    console.log(e);
@@ -666,8 +667,8 @@ preview(files :any) {
                   console.log("--------")
                  console.log(this.AllComments);
                  this.AllComments[0].userToken ="sasa";
-                 
-       
+
+
                 })
                 .catch(e =>{
                    console.log(e);
@@ -732,8 +733,8 @@ preview(files :any) {
                    console.log("--------")
                   console.log(this.AllComments);
                   this.AllComments[0].userToken ="sasa";
-                 
-       
+
+
                 })
                 .catch(e =>{
                    console.log(e);
@@ -794,8 +795,8 @@ preview(files :any) {
                   console.log("--------")
                  console.log(this.AllComments);
                  this.AllComments[0].userToken ="sasa";
-                 
-       
+
+
                 })
                 .catch(e =>{
                    console.log(e);
@@ -856,8 +857,8 @@ preview(files :any) {
                   console.log("--------")
                  console.log(this.AllComments);
                  this.AllComments[0].userToken ="sasa";
-                 
-       
+
+
                 })
                 .catch(e =>{
                    console.log(e);
@@ -867,7 +868,7 @@ preview(files :any) {
          console.log(err)
          });
        }
-       
+
        editInput(ID:any){
         for (let i = 0; i < this.editCommets.length; i++) {
           if(ID != this.editCommets[i].id){
@@ -890,7 +891,7 @@ preview(files :any) {
      }
 
      changeImage(data:any){
-      
+
      }
 
      passDataLocation(data:any){
@@ -927,7 +928,7 @@ preview(files :any) {
         console.log(err);
       });
     }
-    
+
     deleteLocatio(id:any){
       this.manageRoleService.deleteLocatio(this.userData.token,id,this.editLocation.id)
       .then(sucess =>{

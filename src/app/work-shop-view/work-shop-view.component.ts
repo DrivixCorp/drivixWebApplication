@@ -16,22 +16,22 @@ declare var $:any;
 })
 export class WorkShopViewComponent implements OnInit {
     formPhone:string;
-    /* err msg */ 
+    /* err msg */
     allAlerts:string[]=[];
     alertErr:string[]=[];
     alertSuc:string[]=[];
-  
+
     UrlAlert:string;
     userData:user;
     errorCode:number;
     types_workShop:any;
-  
-  
+
+
     splitted_workingDay:any;
     arr_WorkingDay:any = [];
 
-    
-    
+
+
     roleID:any;
     type:any;
     AllData:any;
@@ -69,7 +69,7 @@ export class WorkShopViewComponent implements OnInit {
          private route:ActivatedRoute, private mapsAPILoader: MapsAPILoader,
          private ngZone: NgZone
          ) { }
-  
+
    ngOnInit() {
      console.log(this.router.url);
      this.jq.essentialCoding();
@@ -77,14 +77,14 @@ export class WorkShopViewComponent implements OnInit {
      if(this.userData == null){
        this.router.navigate(['/home']);
      }
-  
+
      this.route.params.subscribe( params =>
-          this.roleID = params['id'] 
+          this.roleID = params['id']
      )
      this.route.params.subscribe( params =>
-         this.type = params['type'] 
+         this.type = params['type']
      )
-    
+
    this.loadMultiple();
   }
   goToOffer(){
@@ -115,7 +115,7 @@ export class WorkShopViewComponent implements OnInit {
              this.AllComments.push(s[0][i]);
            }
          }
-           
+
         //  console.log(this.AllComments[0].commentlikes.length)
      //   this.AllComments[0].commentlikes[0].userToken ="asas";
           for (let i = 0; i < this.AllComments.length; i++) {
@@ -155,18 +155,18 @@ export class WorkShopViewComponent implements OnInit {
            console.log(e);
         });
        // this.AllData.workshopType = "";
-        this.splitted_workingDay = this.AllData.workingdays.split(","); 
+        this.splitted_workingDay = this.AllData.workingdays.split(",");
         this.arr_WorkingDay[0] = this.splitted_workingDay.includes('friday');
         this.arr_WorkingDay[1] = this.splitted_workingDay.includes('saturday');
         this.arr_WorkingDay[2] = this.splitted_workingDay.includes('sunday');
         this.arr_WorkingDay[3] = this.splitted_workingDay.includes('monday');
         this.arr_WorkingDay[4] = this.splitted_workingDay.includes('tuesday');
         this.arr_WorkingDay[5] = this.splitted_workingDay.includes('wensday');
-        this.arr_WorkingDay[6] = this.splitted_workingDay.includes('thursday');  
+        this.arr_WorkingDay[6] = this.splitted_workingDay.includes('thursday');
 
-        
-        
-   
+
+
+
         console.log(this.AllData);
         $(document).ready(function() {
      $('.slider_one_big_picture').EasySlides({
@@ -208,16 +208,16 @@ export class WorkShopViewComponent implements OnInit {
    .catch(err =>{
      console.log(err);
    });
-    
+
     // statt location
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
- 
+
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
         types: ["address"]
       });
-     
+
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -228,7 +228,7 @@ export class WorkShopViewComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
- 
+
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
@@ -237,7 +237,7 @@ export class WorkShopViewComponent implements OnInit {
       });
     });
     //end location
-    
+
   }
 // Get Current Location Coordinates
 private setCurrentLocation() {
@@ -286,7 +286,7 @@ getAddress(latitude, longitude) {
          this.alertErr.push(Messsage[index]);
          }
          this.navigateToTop();
-         
+
      }
      showsucess(Messsage:any){
       this.alertErr = [];
@@ -295,22 +295,22 @@ getAddress(latitude, longitude) {
       this.alertSuc.push(Messsage[index]);
       }
       this.navigateToTop();
-      
+
   }
-  
+
      navigateToTop(){
          var toScroll = $('.modal').offset().top;
          $('html, body').animate({
          scrollTop: toScroll
          }, 1000);
-  
+
          $('.formError').show('fast').delay(6000).hide('slow');
-         
+
      }
      passData(dataPhone:any){
          this.phoneData = dataPhone;
      }
-  
+
      addPhone(){
          this.manageRoleService.addNewPhone(this.userData.token,this.roleID,this.formPhone,"")
          .then(success =>{
@@ -383,12 +383,13 @@ getAddress(latitude, longitude) {
 
     preview(files :any) {
       this.imgURL = [];
+      this.saveImage = [];
       console.log(files)
       this.message= null;
-      
+
       if (files.length === 0)
         return;
-   
+
       var mimeType :any = [] ;
       for (let i = 0; i < files.length; i++) {
        mimeType [i] = files[i].type;
@@ -397,18 +398,18 @@ getAddress(latitude, longitude) {
         return;
       }
       }
-      
-   
+
+
       var reader:any = [];
       this.imagePath = files;
       for (let i = 0; i < files.length; i++) {
          reader[i] = new FileReader();
-        reader[i].readAsDataURL(files[i]);        
-      } 
+        reader[i].readAsDataURL(files[i]);
+      }
      // console.log(reader);
       for (let i = 0; i < reader.length; i++) {
-        reader[i].onload = (_event:any) => { 
-          this.imgURL[i] = reader[i].result; 
+        reader[i].onload = (_event:any) => {
+          this.imgURL[i] = reader[i].result;
           var str = this.imgURL[i];
           str = str.substring(str.indexOf(",") + 1);
           this.saveImage.push(str);
@@ -446,21 +447,22 @@ getAddress(latitude, longitude) {
         }
 
 saveOrUpdateWorkshop(type:any,roleID:any){
-    console.log(this.arr_WorkingDay);
+    console.log(this.AllData.carservice.URL);
+   // this.AllData.carservice.URL
 
-    
+
     var i = 0;
     var Types_workShop:any = [];
     $(".workshoptypes:checked").each(function() {
-      
+
       Types_workShop.push($(this).val());
       i++;
     });
     console.log(Types_workShop);
    // var Types_workShop:any = ["1","2"];
 
-   
-    
+
+
     this.workingDays_workshop="";
 
     if(this.arr_WorkingDay[1]) this.workingDays_workshop= this.workingDays_workshop  + "saturday,";
@@ -492,7 +494,7 @@ saveOrUpdateWorkshop(type:any,roleID:any){
             this.allAlerts.push(err.error.description[index]);
           }
         }
-        
+
         if(err.error.name){
           for (let index = 0; index < (err.error.name).length; index++) {
             this.allAlerts.push(err.error.name[index]);
@@ -523,7 +525,7 @@ saveOrUpdateWorkshop(type:any,roleID:any){
             this.allAlerts.push(err.error.URL[index]);
           }
         }
-        
+
         if(err.error.workshoptype){
           for (let index = 0; index < (err.error.workshoptype).length; index++) {
             this.allAlerts.push(err.error.workshoptype[index]);
@@ -531,7 +533,7 @@ saveOrUpdateWorkshop(type:any,roleID:any){
         }
         this.showMsgError(this.allAlerts);
       });
- 
+
 }
 passDataLocation(data:any){
   this.editLocation = data;
@@ -583,7 +585,7 @@ deleteLocatio(id:any){
     console.log(err);
   });
 }
-  
+
 addComment(comment:any,red_id:any){
 
  if(comment.lenght != 0){
@@ -637,7 +639,7 @@ addComment(comment:any,red_id:any){
             console.log("--------")
            console.log(this.AllComments);
            this.AllComments[0].userToken ="sasa";
-          
+
 
          })
          .catch(e =>{
@@ -705,7 +707,7 @@ editComment(comment:any,id:any){
            console.log("--------")
           console.log(this.AllComments);
           this.AllComments[0].userToken ="sasa";
-          
+
 
          })
          .catch(e =>{
@@ -771,7 +773,7 @@ deleteComment(id:any){
             console.log("--------")
            console.log(this.AllComments);
            this.AllComments[0].userToken ="sasa";
-          
+
 
          })
          .catch(e =>{
@@ -833,7 +835,7 @@ estimateComment(estimate:any,id:any){
            console.log("--------")
           console.log(this.AllComments);
           this.AllComments[0].userToken ="sasa";
-          
+
 
          })
          .catch(e =>{
@@ -895,7 +897,7 @@ deleteestimateComment(id:any){
            console.log("--------")
           console.log(this.AllComments);
           this.AllComments[0].userToken ="sasa";
-          
+
 
          })
          .catch(e =>{

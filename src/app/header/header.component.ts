@@ -26,22 +26,22 @@ export class HeaderComponent implements OnInit  {
    formDate:Date;
    formJob:string;
    formType:string;
- 
+
    /* images variable*/
    imagePath:any;
    imgURL: any;
    message: string;
    saveImage:any;
- 
+
    ProfileData:any = null;
    test:string;
- 
+
    profileObject:ProfileInterface;
-   
-   /* err msg */ 
+
+   /* err msg */
    allAlerts:string[]=[];
    alert:string[]=[];
- 
+
    UrlAlert:string;
    userData:user;
    errorCode:number;
@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit  {
   constructor(public router:Router,private jq:JqueryCallingService,public Authentication:AuthenticationService,
     private Profile:ProfileService) {
     this.checkAuth();
-    
+
   }
 
   checkAuth(){
@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit  {
         this.userName = CredentialService.userName
       }
     });
-    
+
   }
 
   ngOnInit() {
@@ -80,8 +80,9 @@ export class HeaderComponent implements OnInit  {
     if(this.userData == null){
       this.router.navigate(['/home']);
     }
-    
-    
+    console.log("fffffff")
+    console.log(this.userData)
+
   }
 
   jqueryCalling(){
@@ -112,7 +113,7 @@ export class HeaderComponent implements OnInit  {
       });
 
       // class container on the toolbar
-      
+
       if($(window).outerWidth() < 992){
         $('section.toolbar > div, .header > div').removeClass('container-fluid').addClass('container');
       }
@@ -128,7 +129,7 @@ export class HeaderComponent implements OnInit  {
         }
       });
 
-    }); 
+    });
   }
 
   logout(){
@@ -142,21 +143,21 @@ export class HeaderComponent implements OnInit  {
 
   preview(files :any) {
     this.message= null;
-    
+
     if (files.length === 0)
       return;
- 
+
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
       this.message = "Only images are supported.";
       return;
     }
- 
+
     var reader = new FileReader();
     this.imagePath = files;
-    reader.readAsDataURL(files[0]); 
-    reader.onload = (_event) => { 
-      this.imgURL = reader.result; 
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
       var str = this.imgURL;
       str = str.substring(str.indexOf(",") + 1);
       this.saveImage = str;
@@ -201,16 +202,16 @@ export class HeaderComponent implements OnInit  {
     if(this.userData){
       this.Profile.showProfile(this.userData.token)
     .then(data =>{
-      console.log(data)
-      if(data.id){ 
+     // console.log(data)
+      if(data.id){
         this.ProfileData = data;
       //  console.log(this.ProfileData);
       }
       if(!data.id){
-        console.log('testttttt')
+       // console.log('testttttt')
         this.ProfileData = null;
       }
-     
+
     })
     .catch(err =>{
       //console.log("no profile data")
@@ -225,11 +226,11 @@ export class HeaderComponent implements OnInit  {
           this.allAlerts = [];
           this.allAlerts.push(data.msg);
           this.showMsg(this.allAlerts);
-          
+
           //this.router.navigate(['/profile']);
           //this.router.navigateByUrl('/profile', {skipLocationChange: true}).then(()=>
-          //this.router.navigate(["profile"])); 
-          //location.href = location.protocol + '//' + location.host + location.pathname + "/?alert=" + this.allAlerts;    
+          //this.router.navigate(["profile"]));
+          //location.href = location.protocol + '//' + location.host + location.pathname + "/?alert=" + this.allAlerts;
         //  this.uploadProfileInformation();
           window.location.reload();
         })
@@ -240,7 +241,7 @@ export class HeaderComponent implements OnInit  {
           console.log(err);
         });
       }
-      
+
     }
   checkPhone(phone:any){
     if(phone){
@@ -284,11 +285,11 @@ export class HeaderComponent implements OnInit  {
     }, 1000);
 
     $('.formError').show('fast').delay(6000).hide('slow');
-    
+
   }
 
   saveOrUpdateProfileData(S_or_U:number){
-    
+
     if(S_or_U==1){
       var check_phone = this.checkPhone(this.formPhone);
       var check_date = this.checkDate(this.formDate);
@@ -308,14 +309,14 @@ export class HeaderComponent implements OnInit  {
        this.formType = this.ProfileData.gender;
     }
     if(check_phone === true && check_date === true &&  check_job === true && check_type === true){
-      
+
       this.Profile.saveOrUpdateProfileData(this.formPhone,this.formDate,this.formJob,this.formType,this.userData.token,S_or_U)
       .then(success => {
         if(success.msg){
           this.allAlerts = [];
           this.allAlerts.push(success.msg);
           this.showMsg(this.allAlerts);
-           
+
         }
         //this.router.navigate(['/profile']);
         //location.href = location.protocol + '//' + location.host + location.pathname + "/?alert=" + this.allAlerts;
@@ -353,7 +354,7 @@ export class HeaderComponent implements OnInit  {
               this.allAlerts.push(err.error.job[index]);
             }
           }
-        
+
         this.showMsg(this.allAlerts);
       });
     }
@@ -374,7 +375,7 @@ export class HeaderComponent implements OnInit  {
       if(this.allAlerts){
         this.showMsg(this.allAlerts);
       }
-      
+
     }
   }
 

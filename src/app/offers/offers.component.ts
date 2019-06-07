@@ -19,7 +19,7 @@ export class OffersComponent implements OnInit {
  editOfferData:any;
 
  formPhone:string;
- /* err msg */ 
+ /* err msg */
  allAlerts:string[]=[];
  alertErr:string[]=[];
    alertSuc:string[]=[];
@@ -55,16 +55,16 @@ export class OffersComponent implements OnInit {
       this.type = params["Data3"];
   });
  }
- 
+
  ngOnInit() {
- 
+
   this.jq.essentialCoding();
  this.userData = this.Authentication.checkAuth();
  if(this.userData == null){
    this.router.navigate(['/home']);
  }
   this.loadMultiple();
-  
+
  }
  loadMultiple(){
   this.manageRoleService.viewProviderRoleWithDetailes(this.userData.token,this.role_id,this.type)
@@ -84,7 +84,7 @@ preview(files :any) {
   this.saveImage = [];
   this.imgURL = [];
   this.message= null;
-  
+
   if (files.length === 0)
     return;
 
@@ -96,25 +96,25 @@ preview(files :any) {
     return;
   }
   }
-  
+
 
   var reader:any = [];
   this.imagePath = files;
   for (let i = 0; i < files.length; i++) {
      reader[i] = new FileReader();
-    reader[i].readAsDataURL(files[i]);        
-  } 
+    reader[i].readAsDataURL(files[i]);
+  }
  // console.log(reader);
   for (let i = 0; i < reader.length; i++) {
-    reader[i].onload = (_event:any) => { 
-      this.imgURL[i] = reader[i].result; 
+    reader[i].onload = (_event:any) => {
+      this.imgURL[i] = reader[i].result;
       var str = this.imgURL[i];
       str = str.substring(str.indexOf(",") + 1);
       this.saveImage.push(str);
     }
   }
   console.log("-----");
-  this.editOfferData.img = this.imgURL[0];
+  //this.editOfferData.img = this.imgURL[0];
   console.log();
 }
   addOffer(){
@@ -169,7 +169,7 @@ preview(files :any) {
   }
   passDataOffer(data:any){
    this.editOfferData = data;
- 
+
   }
   editOffer(id:any){
  //   if(this.saveImage[0]) this.editOfferData.img = this.saveImage[0];
@@ -235,7 +235,7 @@ preview(files :any) {
      this.allAlerts = [];
         if(err.error.msg) this.allAlerts.push(err.error.msg);
         if(err.msg) this.allAlerts.push(err.msg);
-      
+
           this.showMsgError(this.allAlerts);
     });
   }
@@ -247,7 +247,7 @@ preview(files :any) {
   this.alertErr.push(Messsage[index]);
   }
   this.navigateToTop();
-  
+
 }
 showsucess(Messsage:any){
 this.alertErr = [];
@@ -266,7 +266,7 @@ navigateToTop(){
    }, 1000);
 
    $('.formError').show('fast').delay(6000).hide('slow');
-   
+
 }
 
 }

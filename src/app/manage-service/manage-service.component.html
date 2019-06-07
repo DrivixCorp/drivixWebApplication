@@ -1,8 +1,8 @@
 <section class="mainSection">
-    
-    <div *ngIf="!workshopExist && !winchExist && !sparepartExist && !winchDriverExist" class="container noServiceClass">
+
+    <div *ngIf="!workshopExist && !winchDriverExist && !sparepartExist && !winchCompanyExist" class="container noServiceClass">
         <div class="alert alert-warning" role="alert">
-            <strong style="font-size: 35px;">You Don`t have Any Service</strong> 
+            <strong style="font-size: 35px;">You Don`t have Any Service</strong>
             <button type="button" class="close">
               <span aria-hidden="true" style="line-height: 2;">
                 <!-- Example single danger button -->
@@ -21,7 +21,7 @@
             </button>
           </div>
     </div>
-    <div *ngIf="workshopExist || winchExist || sparepartExist" >
+    <div *ngIf="workshopExist || winchCompanyExist || sparepartExist || winchDriverExist" >
         <ul class="nav nav-pills mb-3  navMe row" id="pills-tab" role="tablist">
                 <li class="nav-item col-6 btnTest mb-2"  *ngIf="workshopExist">
                     <a class="nav-link active linkMe" id="pills-w-tab" data-toggle="pill" href="#pills-w" role="tab" aria-controls="pills-home" aria-selected="true">WorkShop</a>
@@ -29,11 +29,11 @@
                   <li class="nav-item col-6 btnTest mb-2" *ngIf="sparepartExist">
                     <a class="nav-link linkMe" id="pills-s-tab" data-toggle="pill" href="#pills-s" role="tab" aria-controls="pills-profile" aria-selected="false">SpareParts</a>
                   </li>
-                  <li class="nav-item col-6 btnTest mb-2"  *ngIf="winchDriverExist">
+                  <li class="nav-item col-6 btnTest mb-2"  *ngIf="winchCompanyExist">
                     <a class="nav-link linkMe" id="pills-c-tab" data-toggle="pill" href="#pills-c" role="tab" aria-controls="pills-contact" aria-selected="false">Winch Company</a>
                   </li>
-                  <li class="nav-item col-6 btnTest mb-2"  *ngIf="winchCompanyExist">
-                      <a class="nav-link linkMe" id="pills-d-tab" data-toggle="pill" href="#pills-d" role="tab" aria-controls="pills-contact" aria-selected="false">Winch Driver</a>
+                  <li class="nav-item col-6 btnTest mb-2"  *ngIf="winchDriverExist">
+                      <a class="nav-link linkMe" id="pills-d-tab" data-toggle="pill" href="#pills-d" role="tab" aria-controls="pills-contact2" aria-selected="false">Winch Driver</a>
                   </li>
                 <li class="nav-item col-12 mt-3 text-center">
                     <div class="btn-group text-center" style="display:block;">
@@ -171,11 +171,11 @@
             </div>
           </div>
     </div>
-    
-    
-    
+
+
+
       <!--------------------------------Modal 1 of adding workshop--------------------------->
-      
+
       <div class="modal fade app-modal" id="workshopModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
@@ -188,8 +188,8 @@
               <span aria-hidden="true" class="white-text">&times;</span>
             </button>
           </div>
-          
-    
+
+
           <!--Body-->
           <div class="modal-body">
             <div class="row">
@@ -212,13 +212,13 @@
             </div>
             <form #workshop_validation="ngForm" (ngSubmit)='saveOrUpdateWorkshop(2,"")' id="form_workshop" novalidate>
             <div class="md-form mb-5" style="margin-bottom:0em !important">
-              
+
               <input type="text" id="formName_workshop" class="form-control validate is-valid" placeholder="Work Shop Name" required
               [(ngModel)]='FullName_workshop'name="FullName_workshop" #fullName_workshop='ngModel' [class.error]="fullName_workshop.errors && fullName_workshop.invalid && fullName_workshop.touched">
-    
+
               <div class="form-input-error" *ngIf="fullName_workshop.errors && fullName_workshop.invalid && fullName_workshop.touched">
                   <small *ngIf="fullName_workshop.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Work Shop is required 
+                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Work Shop is required
                     <br></small>
                   <small *ngIf="fullName_workshop.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                     <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Work Shop is invalid
@@ -228,20 +228,20 @@
 
               <div class="md-form mb-5">
                   <i class="far fa-clock prefix grey-text"></i>
-                  
-                  <input type="time" value="13:00" step="900"   id="formTimeStart_workshop" class="form-control validate is-valid" 
+
+                  <input type="time" value="13:00" step="900"   id="formTimeStart_workshop" class="form-control validate is-valid"
                    style="width:calc(40% - 2.5rem);display:inline-block" required
                   [(ngModel)]='timestart_workshop' name="timeStart_workshop" #TimeStart_workshop='ngModel' [class.error]="TimeStart_workshop.errors && TimeStart_workshop.invalid && TimeStart_workshop.touched">
-        
+
                   <i class="fas fa-chevron-right"></i>
 
-                    <input type="time" value="13:00" step="900" id="formTimeEnd_workshop" class="form-control validate is-valid" 
+                    <input type="time" value="13:00" step="900" id="formTimeEnd_workshop" class="form-control validate is-valid"
                     style="width:calc(40% - 2.5rem);display:inline-block" required
                     [(ngModel)]='timeend_workshop' name="timeEnd_workshop" #TimeEnd_workshop='ngModel' [class.error]="TimeEnd_workshop.errors && TimeEnd_workshop.invalid && TimeEnd_workshop.touched">
-  
+
                     <div class="form-input-error" *ngIf="TimeStart_workshop.errors && TimeStart_workshop.invalid && TimeStart_workshop.touched" style="display:inline-block;">
                         <small *ngIf="TimeStart_workshop.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                           <br></small>
                         <small *ngIf="TimeStart_workshop.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -249,7 +249,7 @@
                     </div>
                     <div class="form-input-error" *ngIf="TimeEnd_workshop.errors && TimeEnd_workshop.invalid && TimeEnd_workshop.touched" style="display:inline-block;">
                         <small *ngIf="TimeEnd_workshop.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                           <br></small>
                         <small *ngIf="TimeEnd_workshop.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -328,17 +328,17 @@
           <div class="modal-footer justify-content-center">
             <button type="submit" form="form_workshop"  [disabled]='workshop_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
           </div>
-        
+
         </div>
         <!--/.Content-->
-        
+
       </div>
     </div>
-    
+
       <!-- end Modal 1 of adding workshop -->
 
      <!--------------------------------Modal 2 of adding spareparts--------------------------->
-      
+
      <div class="modal fade app-modal" id="sparpartsModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
      <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
@@ -351,7 +351,7 @@
              <span aria-hidden="true" class="white-text">&times;</span>
            </button>
          </div>
-   
+
          <!--Body-->
          <div class="modal-body">
            <div class="row">
@@ -376,10 +376,10 @@
            <div class="md-form mb-5" style="margin-bottom:0em !important">
              <input type="text" id="formName_spareparts" class="form-control validate is-valid" placeholder="Spare Parts Name" required
              [(ngModel)]='FullName_spareparts'name="FullName_spareparts" #fullName_spareparts='ngModel' [class.error]="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
-   
+
              <div class="form-input-error" *ngIf="fullName_spareparts.errors && fullName_spareparts.invalid && fullName_spareparts.touched">
                  <small *ngIf="fullName_spareparts.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                     <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is required 
+                     <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is required
                    <br></small>
                  <small *ngIf="fullName_spareparts.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                    <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> SpareParts is invalid
@@ -389,20 +389,20 @@
 
              <div class="md-form mb-5">
                  <i class="far fa-clock prefix grey-text"></i>
-                 
-                 <input type="time" value="13:00" step="900"   id="formTimeStart_spareparts" class="form-control validate is-valid" 
+
+                 <input type="time" value="13:00" step="900"   id="formTimeStart_spareparts" class="form-control validate is-valid"
                   style="width:calc(40% - 2.5rem);display:inline-block" required
                  [(ngModel)]='timestart_spareparts' name="timeStart_spareparts" #TimeStart_spareparts='ngModel' [class.error]="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched">
-       
+
                  <i class="fas fa-chevron-right"></i>
 
-                   <input type="time" value="13:00" step="900" id="formTimeEnd_spareparts" class="form-control validate is-valid" 
+                   <input type="time" value="13:00" step="900" id="formTimeEnd_spareparts" class="form-control validate is-valid"
                    style="width:calc(40% - 2.5rem);display:inline-block" required
                    [(ngModel)]='timeend_spareparts' name="timeEnd_spareparts" #TimeEnd_spareparts='ngModel' [class.error]="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched">
- 
+
                    <div class="form-input-error" *ngIf="TimeStart_spareparts.errors && TimeStart_spareparts.invalid && TimeStart_spareparts.touched" style="display:inline-block;">
                        <small *ngIf="TimeStart_spareparts.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                          <br></small>
                        <small *ngIf="TimeStart_spareparts.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                          <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -410,7 +410,7 @@
                    </div>
                    <div class="form-input-error" *ngIf="TimeEnd_spareparts.errors && TimeEnd_spareparts.invalid && TimeEnd_spareparts.touched" style="display:inline-block;">
                        <small *ngIf="TimeEnd_spareparts.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                          <br></small>
                        <small *ngIf="TimeEnd_spareparts.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                          <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -440,7 +440,7 @@
                     </div>
                   </div>
 
-                 
+
 
            <div class="md-form md-outline">
                      <textarea id="form75" [(ngModel)]='desc_spareparts' name="description_spareparts" class="form-control" rows="3" required></textarea>
@@ -496,19 +496,19 @@
          <div class="modal-footer justify-content-center">
            <button type="submit" form="form_spareparts"  [disabled]='spareparts_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
          </div>
-       
+
        </div>
        <!--/.Content-->
-       
+
      </div>
    </div>
-   
+
      <!-- end Modal 2 of adding spareParts -->
 
 
 
       <!--------------------------------Modal 3 of adding winchCompany--------------------------->
-      
+
       <div class="modal fade app-modal" id="winchCompanyModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
@@ -521,7 +521,7 @@
               <span aria-hidden="true" class="white-text">&times;</span>
             </button>
           </div>
-    
+
           <!--Body-->
           <div class="modal-body">
             <div class="row">
@@ -546,10 +546,10 @@
             <div class="md-form mb-5" style="margin-bottom:0em !important">
               <input type="text" id="formName_winchCompany" class="form-control validate is-valid" placeholder="Winch Company Name" required
               [(ngModel)]='FullName_winchCompany'name="FullName_winchCompany" #fullName_winchCompany='ngModel' [class.error]="fullName_winchCompany.errors && fullName_winchCompany.invalid && fullName_winchCompany.touched">
-    
+
               <div class="form-input-error" *ngIf="fullName_winchCompany.errors && fullName_winchCompany.invalid && fullName_winchCompany.touched">
                   <small *ngIf="fullName_winchCompany.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Companty is required 
+                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Companty is required
                     <br></small>
                   <small *ngIf="fullName_winchCompany.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                     <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span>Winch Company is invalid
@@ -559,18 +559,18 @@
 
               <div class="md-form mb-5">
                   <i class="far fa-clock prefix grey-text"></i>
-                  
-                  <input type="time" value="13:00" step="900"   id="formTimeStart_winchCompany" class="form-control validate is-valid" 
+
+                  <input type="time" value="13:00" step="900"   id="formTimeStart_winchCompany" class="form-control validate is-valid"
                    style="width:calc(40% - 2.5rem);display:inline-block" required
                   [(ngModel)]='timestart_winchCompany' name="timeStart_winchCompany" #TimeStart_winchCompany='ngModel' [class.error]="TimeStart_winchCompany.errors && TimeStart_winchCompany.invalid && TimeStart_winchCompany.touched">
                   <i class="fas fa-chevron-right"></i>
-                    <input type="time" value="13:00" step="900" id="formTimeEnd_winchCompany" class="form-control validate is-valid" 
+                    <input type="time" value="13:00" step="900" id="formTimeEnd_winchCompany" class="form-control validate is-valid"
                     style="width:calc(40% - 2.5rem);display:inline-block" required
                     [(ngModel)]='timeend_winchCompany' name="timeEnd_winchCompany" #TimeEnd_winchCompany='ngModel' [class.error]="TimeEnd_winchCompany.errors && TimeEnd_winchCompany.invalid && TimeEnd_winchCompany.touched">
-  
+
                     <div class="form-input-error" *ngIf="TimeStart_winchCompany.errors && TimeStart_winchCompany.invalid && TimeStart_winchCompany.touched" style="display:inline-block;">
                         <small *ngIf="TimeStart_winchCompany.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                           <br></small>
                         <small *ngIf="TimeStart_winchCompany.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -578,7 +578,7 @@
                     </div>
                     <div class="form-input-error" *ngIf="TimeEnd_winchCompany.errors && TimeEnd_winchCompany.invalid && TimeEnd_winchCompany.touched" style="display:inline-block;">
                         <small *ngIf="TimeEnd_winchCompany.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                           <br></small>
                         <small *ngIf="TimeEnd_winchCompany.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                           <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -654,18 +654,18 @@
           <div class="modal-footer justify-content-center">
             <button type="submit" form="form_winchCompany"  [disabled]='winchCompany_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
           </div>
-        
+
         </div>
         <!--/.Content-->
-        
+
       </div>
     </div>
-    
+
       <!-- end Modal 3 of adding winchCompany -->
 
 
        <!--------------------------------Modal 4 of adding winchDriver--------------------------->
-      
+
        <div class="modal fade app-modal" id="winchDriverModal" tabindex="-1"  role="dialog" aria-labelledby="myModalLabel"
        aria-hidden="true">
        <div class="modal-dialog modal-notify modal-warning app-modal" role="document">
@@ -678,7 +678,7 @@
                <span aria-hidden="true" class="white-text">&times;</span>
              </button>
            </div>
-     
+
            <!--Body-->
            <div class="modal-body">
              <div class="row" style="text-align: left;">
@@ -703,10 +703,10 @@
              <div class="md-form mb-5" style="margin-bottom:0em !important">
                <input type="text" id="formName_winchDriver" class="form-control validate is-valid" placeholder="Winch Driver Name" required
                [(ngModel)]='FullName_winchDriver'name="FullName_winchDriver" #fullName_winchDriver='ngModel' [class.error]="fullName_winchDriver.errors && fullName_winchDriver.invalid && fullName_winchDriver.touched">
-     
+
                <div class="form-input-error" *ngIf="fullName_winchDriver.errors && fullName_winchDriver.invalid && fullName_winchDriver.touched">
                    <small *ngIf="fullName_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                       <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Driver is required 
+                       <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Driver is required
                      <br></small>
                    <small *ngIf="fullName_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                      <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Winch Driver is invalid
@@ -717,32 +717,32 @@
              <div class="md-form mb-5" style="margin-bottom:0em !important">
                 <input type="number" id="price_winchDriver" class="form-control validate is-valid" placeholder="Price Per Km" required
                 [(ngModel)]='Price_winchDriver'name="Price_winchDriver" #price_winchDriver='ngModel' [class.error]="price_winchDriver.errors && price_winchDriver.invalid && price_winchDriver.touched">
-      
+
                 <div class="form-input-error" *ngIf="price_winchDriver.errors && price_winchDriver.invalid && price_winchDriver.touched">
                     <small *ngIf="price_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                        <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is required 
+                        <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is required
                       <br></small>
                     <small *ngIf="price_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                       <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Price is invalid
                     </small>
                 </div>
               </div>
-     
-             
+
+
                <div class="md-form mb-5">
                    <i class="far fa-clock prefix grey-text"></i>
-                   
-                   <input type="time" value="13:00" step="900"   id="formTimeStart_winchDriver" class="form-control validate is-valid" 
+
+                   <input type="time" value="13:00" step="900"   id="formTimeStart_winchDriver" class="form-control validate is-valid"
                     style="width:calc(40% - 2.5rem);display:inline-block" required
                    [(ngModel)]='timestart_winchDriver' name="timeStart_winchDriver" #TimeStart_winchDriver='ngModel' [class.error]="TimeStart_winchDriver.errors && TimeStart_winchDriver.invalid && TimeStart_winchDriver.touched">
                    <i class="fas fa-chevron-right"></i>
-                     <input type="time" value="13:00" step="900" id="formTimeEnd_winchDriver" class="form-control validate is-valid" 
+                     <input type="time" value="13:00" step="900" id="formTimeEnd_winchDriver" class="form-control validate is-valid"
                      style="width:calc(40% - 2.5rem);display:inline-block" required
                      [(ngModel)]='timeend_winchDriver' name="timeEnd_winchDriver" #TimeEnd_winchDriver='ngModel' [class.error]="TimeEnd_winchDriver.errors && TimeEnd_winchDriver.invalid && TimeEnd_winchDriver.touched">
-   
+
                      <div class="form-input-error" *ngIf="TimeStart_winchDriver.errors && TimeStart_winchDriver.invalid && TimeStart_winchDriver.touched" style="display:inline-block;">
                          <small *ngIf="TimeStart_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                             <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                             <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                            <br></small>
                          <small *ngIf="TimeStart_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -750,7 +750,7 @@
                      </div>
                      <div class="form-input-error" *ngIf="TimeEnd_winchDriver.errors && TimeEnd_winchDriver.invalid && TimeEnd_winchDriver.touched" style="display:inline-block;">
                          <small *ngIf="TimeEnd_winchDriver.errors.required" class='text-danger ml-2' style="margin-left:3em !important">
-                             <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required 
+                             <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is required
                            <br></small>
                          <small *ngIf="TimeEnd_winchDriver.errors.pattern" class='text-danger ml-2' style="margin-left:3em !important">
                            <span style="color:red;margin-right:5px;"><i class="fas fa-times red-text"></i></span> Time is invalid
@@ -758,7 +758,7 @@
                      </div>
                    </div>
 
-                   
+
 
              <div class="md-form md-outline">
                        <textarea id="form75" [(ngModel)]='desc_winchDriver' name="description_winchDriver" class="form-control" rows="3" required></textarea>
@@ -814,13 +814,13 @@
            <div class="modal-footer justify-content-center">
              <button type="submit" form="form_winchDriver"  [disabled]='winchDriver_validation.form.invalid'  class="btn submit-btn">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
            </div>
-         
+
          </div>
          <!--/.Content-->
-         
+
        </div>
      </div>
-     
+
        <!-- end Modal 4 of adding winchDriver -->
     </section>
-    
+

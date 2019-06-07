@@ -18,11 +18,11 @@ export class MycarsComponent implements OnInit {
   Year_car:any;
   Color_car:any;
 
-   /* err msg */ 
+   /* err msg */
    allAlerts:string[]=[];
    alertErr:string[]=[];
     alertSuc:string[]=[];
- 
+
    UrlAlert:string;
    userData:user;
    errorCode:number;
@@ -58,7 +58,7 @@ export class MycarsComponent implements OnInit {
     this.alertErr.push(Messsage[index]);
     }
     this.navigateToTop();
-    
+
 }
 showsucess(Messsage:any){
   this.alertErr = [];
@@ -67,7 +67,7 @@ showsucess(Messsage:any){
  this.alertSuc.push(Messsage[index]);
  }
  this.navigateToTop();
- 
+
 }
 
   navigateToTop(){
@@ -76,8 +76,8 @@ showsucess(Messsage:any){
       scrollTop: toScroll
     }, 1000);
 
-    $('.formError').show('fast').delay(6000).hide('slow');
-    
+    $('.formError').show('fast').delay(3000).hide('slow');
+
   }
   pushCarData(CarData){
     this.PushedData = CarData;

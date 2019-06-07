@@ -438,7 +438,7 @@
 
           </div>
           <div *ngIf="productImage.productimg.length">
-            <h3 *ngIf="AllData.roleimgs.length" class="text-muted modal-label"><i class="fas fa-th-large"></i> all
+            <h3 *ngIf="AllData && AllData.roleimgs && AllData.roleimgs.length > 0" class="text-muted modal-label"><i class="fas fa-th-large"></i> all
               images</h3>
             <div *ngFor="let img of productImage.productimg;let i=index" class="row mb-3">
               <div class="col">

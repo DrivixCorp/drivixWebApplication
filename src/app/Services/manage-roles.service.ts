@@ -143,7 +143,7 @@ export class ManageRolesService {
       });
   }
   addNewPhone(token:any,roleID:any,phone:any,phoneID:any){
-   
+
     var loginAPI = this.host + 'userManageRolePhone';
       return new Promise<any>((resolve, reject) => {
         this.http.post<any>(loginAPI, JSON.stringify({}), {
@@ -157,7 +157,7 @@ export class ManageRolesService {
       });
   }
   editPhone(token:any,roleID:any,phone:any,phoneID:any){
-   
+
     var loginAPI = this.host + 'userManageRolePhone';
       return new Promise<any>((resolve, reject) => {
         this.http.post<any>(loginAPI, JSON.stringify({}), {
@@ -171,7 +171,7 @@ export class ManageRolesService {
       });
   }
   deletePhone(token:any,roleID:any,phoneID:any){
-   
+
     var loginAPI = this.host + 'deleteRolePhone';
       return new Promise<any>((resolve, reject) => {
         this.http.post<any>(loginAPI, JSON.stringify({}), {
@@ -185,7 +185,7 @@ export class ManageRolesService {
       });
   }
   changeLock(token:any,roleID:any){
-   
+
     var loginAPI = this.host + 'changeLock';
       return new Promise<any>((resolve, reject) => {
         this.http.post<any>(loginAPI, JSON.stringify({}), {
